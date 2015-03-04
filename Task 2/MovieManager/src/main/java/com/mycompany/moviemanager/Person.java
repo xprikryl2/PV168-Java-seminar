@@ -1,0 +1,116 @@
+/*
+ * Class representing person in the database (cast, directors, writers,...).
+ */
+package com.mycompany.moviemanager;
+
+import java.util.Date;
+import java.util.List;
+
+/**
+ *
+ * @author Lukáš Šrom
+ * @author Jakub Mlčák
+ * @date 2015 4 3
+ */
+public class Person {
+    private int idPerson = 0;
+    private String firstName = null;
+    private String lastName = null;
+    private Date birth;
+    private List<Movie> affiliatedWithMovies;
+
+    /**
+     * Constructor of class Person.
+     * @param firstName String with first name of the person.
+     * @param lastName String with the last name of the person.
+     * @param birth Date object with date of birth of he person
+     * @param affiliatedWithMovies List<Movie> with all the movies related to this person.
+     */
+    public Person(String firstName, String lastName, Date birth, List<Movie> affiliatedWithMovies) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birth = birth;
+        this.affiliatedWithMovies = affiliatedWithMovies;
+    }
+
+    /**
+     * Method to get movies related to person.
+     * @return List<Movie> containing movies affiliated to the person.
+     */
+    public List<Movie> getAffiliatedWithMovies() {
+        return affiliatedWithMovies;
+    }
+
+    /**
+     * Method to get birth of person.
+     * @return Date of birth of given person.
+     */
+    public Date getBirth() {
+        return birth;
+    }
+
+    /**
+     * Method to get first name of the person.
+     * @return String containing first name of the person.
+     */
+    public String getFirstName() {
+        return firstName;
+    }
+
+    /**
+     * Method to get ID of the person.
+     * @return Integer unique number representing the person.
+     */
+    public int getIdPerson() {
+        return idPerson;
+    }
+
+    /**
+     * Method to get last name of the person.
+     * @return String containing last name of the person.
+     */
+    public String getLastName() {
+        return lastName;
+    }
+
+    /**
+     * Method to set movies affiliated with the person.
+     * @param affiliatedWithMovies List<Movie> containing movies affiliated with person.
+     */
+    public void setAffiliatedWithMovies(List<Movie> affiliatedWithMovies) {
+        this.affiliatedWithMovies = affiliatedWithMovies;
+    }
+
+    /**
+     * Method to set birth of person.
+     * Limit number of possible calls of this method? Or cancel it completely?
+     * @param birth Date of birth of person.
+     */
+    public void setBirth(Date birth) {
+        this.birth = birth;
+    }
+
+    /**
+     * Method to set first name of the person.
+     * @param firstName String containing first name of the person.
+     */
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    /**
+     * Method to automatically set ID of person.
+     * @param idPerson Unique integer number representing person.
+     */
+    public void setIdPerson(int idPerson) {
+        this.idPerson = idPerson;
+    }
+
+    /**
+     * Method to set last name of person.
+     * @param lastName String containing last name of person.
+     */
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+}
