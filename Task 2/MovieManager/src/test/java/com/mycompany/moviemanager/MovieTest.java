@@ -5,6 +5,8 @@
  */
 package com.mycompany.moviemanager;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -38,9 +40,8 @@ public class MovieTest {
     }
 
     @Test
-    public void testSomeMethod() {
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testMovie() {
+        //Movie mov = new Movie("Predator", 1992, new List<String>, List );
     }
     
 }

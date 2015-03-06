@@ -15,17 +15,23 @@ public class DtbManager {
      * Searches database for object given as parameter.
      * @param obj is object for which is database searched.
      */
-    public void searchDtb (Object obj){}
+    public void searchDtb (Object obj) throws ServiceFailureException {
+        throw new UnsupportedOperationException ("Not supported yet.");
+    }
     
     /**
      * Modifies object in database.
      * @param obj is data of object to be modified.
      */
-    public void modifyDtb (Object obj){}
+    public void modifyDtb (Object obj) throws ServiceFailureException{
+        throw new UnsupportedOperationException ("Not supported yet.");
+    }
     
     /**
      * Adds object to database.
      * @param obj is object to be added to database.
      */
-    public void addToDtb (Object obj){}
+    public void addToDtb (Object obj) throws ServiceFailureException{
+        throw new UnsupportedOperationException ("Not supported yet.");
+    }
 }

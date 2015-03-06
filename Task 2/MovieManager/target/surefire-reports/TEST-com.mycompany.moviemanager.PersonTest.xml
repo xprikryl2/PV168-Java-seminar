@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="1" name="com.mycompany.moviemanager.PersonTest" time="0.008" errors="0" skipped="0">
+<testsuite tests="1" failures="1" name="com.mycompany.moviemanager.PersonTest" time="0.017" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="D:\Programming\libs\Java\DevelopmentKit_8\jre\bin"/>
@@ -63,10 +63,13 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.mycompany.moviemanager.PersonTest" name="testSomeMethod" time="0.001">
-    <failure message="The test case is a prototype." type="java.lang.AssertionError">java.lang.AssertionError: The test case is a prototype.
+  <testcase classname="com.mycompany.moviemanager.PersonTest" name="testPerson" time="0.016">
+    <failure message="expected not same" type="java.lang.AssertionError">java.lang.AssertionError: expected not same
 	at org.junit.Assert.fail(Assert.java:93)
-	at com.mycompany.moviemanager.PersonTest.testSomeMethod(PersonTest.java:43)
+	at org.junit.Assert.failSame(Assert.java:633)
+	at org.junit.Assert.assertNotSame(Assert.java:612)
+	at org.junit.Assert.assertNotSame(Assert.java:626)
+	at com.mycompany.moviemanager.PersonTest.testPerson(PersonTest.java:63)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -101,5 +104,11 @@
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
 </failure>
+    <system-out>Person
+PersonOne name is: John
+PersonOne last name is: Smith
+PersonOne date of birth is: java.util.GregorianCalendar[time=?,areFieldsSet=false,areAllFieldsSet=true,lenient=true,zone=sun.util.calendar.ZoneInfo[id=&quot;Europe/Belgrade&quot;,offset=3600000,dstSavings=3600000,useDaylight=true,transitions=119,lastRule=java.util.SimpleTimeZone[id=Europe/Belgrade,offset=3600000,dstSavings=3600000,useDaylight=true,startYear=0,startMode=2,startMonth=2,startDay=-1,startDayOfWeek=1,startTime=3600000,startTimeMode=2,endMode=2,endMonth=9,endDay=-1,endDayOfWeek=1,endTime=3600000,endTimeMode=2]],firstDayOfWeek=2,minimalDaysInFirstWeek=4,ERA=1,YEAR=1987,MONTH=2,WEEK_OF_YEAR=10,WEEK_OF_MONTH=1,DAY_OF_MONTH=17,DAY_OF_YEAR=65,DAY_OF_WEEK=6,DAY_OF_WEEK_IN_MONTH=1,AM_PM=0,HOUR=11,HOUR_OF_DAY=11,MINUTE=44,SECOND=48,MILLISECOND=543,ZONE_OFFSET=3600000,DST_OFFSET=0]
+Date of birth of personOne matches inpput parameter.
+</system-out>
   </testcase>
 </testsuite>

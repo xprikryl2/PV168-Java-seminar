@@ -3,7 +3,9 @@
  */
 package com.mycompany.moviemanager;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 /**
@@ -16,7 +18,7 @@ public class Person {
     private int idPerson = 0;
     private String firstName = null;
     private String lastName = null;
-    private Date birth;
+    private Calendar birth;
     private List<Movie> affiliatedWithMovies;
 
     /**
@@ -26,11 +28,16 @@ public class Person {
      * @param birth Date object with date of birth of he person
      * @param affiliatedWithMovies List<Movie> with all the movies related to this person.
      */
-    public Person(String firstName, String lastName, Date birth, List<Movie> affiliatedWithMovies) {
+    public Person(String firstName, String lastName, Calendar birth, List<Movie> affiliatedWithMovies) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birth = birth;
         this.affiliatedWithMovies = affiliatedWithMovies;
+        this.idPerson = createID();
+    }
+    
+    private int createID (){
+        return -1;
     }
 
     /**
@@ -45,7 +52,7 @@ public class Person {
      * Method to get birth of person.
      * @return Date of birth of given person.
      */
-    public Date getBirth() {
+    public Calendar getBirth() {
         return birth;
     }
 
@@ -86,7 +93,7 @@ public class Person {
      * Limit number of possible calls of this method? Or cancel it completely?
      * @param birth Date of birth of person.
      */
-    public void setBirth(Date birth) {
+    public void setBirth(Calendar birth) {
         this.birth = birth;
     }
 
