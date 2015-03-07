@@ -48,9 +48,25 @@ public class PersonTest {
         //Calendar.Builder birth = new GregorianCalendar.Builder().setDate(1987, 1, 21);
         Calendar birth = Calendar.getInstance();
         birth.set(1987, 2, 17);
-        Person personOne = new Person("John", "Smith", birth, movie);
-        Person personTwo = new Person("John", "Smith", birth, movie);
-        Person personThree = new Person ("Jane", "Smith", birth, movie);
+        Person personOne = new Person();
+        Person personTwo = new Person();
+        Person personThree = new Person ();
+        
+        personOne.setFirstName("John");
+        personOne.setLastName("Smith");
+        personOne.setBirth(birth);
+        personOne.setAffiliatedWithMovies(movie);
+        
+        personTwo.setFirstName("John");
+        personTwo.setLastName("Smith");
+        personTwo.setBirth(birth);
+        personTwo.setAffiliatedWithMovies(movie);
+        
+        personThree.setFirstName("Jane");
+        personThree.setLastName("Smith");
+        personThree.setBirth(birth);
+        personThree.setAffiliatedWithMovies(movie);
+        
         
         assertEquals(personOne.getFirstName(), personTwo.getFirstName());
             System.out.println ("PersonOne name is: " + personOne.getFirstName());

@@ -42,6 +42,28 @@ public class Movie {
     }
 
     /**
+     * Movie class constructor.
+     */
+    public Movie() {
+        this.idMovie = createId();
+        this.movieTitle = null;
+        this.year = 0;
+        this.genre = null;
+        this.director = null;
+        this.writer = null;
+        this.cast = null;
+        this.length = 0;
+    }
+    
+    /**
+     * Method to automatically set ID of person.
+     * @return newId
+     */
+    private int createId (){
+        return -1;
+    }
+    
+    /**
      * Get method to return List of actors.
      * @return List<Person> containing actors in the movie.
      */
@@ -127,15 +149,6 @@ public class Movie {
      */
     public void setGenre(List<String> genre) {
         this.genre = genre;
-    }
-
-    /**
-     * Method to automatically set ID of the movie. 
-     */
-    private void setIdMovie() {
-        //TODO: add generation of unique ID
-        // simply counting movies or somethimg more cool (like hash of movie title?
-        this.idMovie = idMovie;
     }
 
     /**

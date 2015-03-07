@@ -33,10 +33,25 @@ public class Person {
         this.lastName = lastName;
         this.birth = birth;
         this.affiliatedWithMovies = affiliatedWithMovies;
-        this.idPerson = createID();
+        this.idPerson = createId();
     }
     
-    private int createID (){
+    /**
+     * Constructor of class Person.
+     */
+    public Person() {
+        this.idPerson = createId();
+        this.firstName = null;
+        this.lastName = null;
+        this.birth = null;
+        this.affiliatedWithMovies = null;
+    }
+    
+    /**
+     * Method to automatically set ID of person.
+     * @return newId
+     */
+    private int createId (){
         return -1;
     }
 
@@ -103,14 +118,6 @@ public class Person {
      */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
-    }
-
-    /**
-     * Method to automatically set ID of person.
-     * @param idPerson Unique integer number representing person.
-     */
-    public void setIdPerson(int idPerson) {
-        this.idPerson = idPerson;
     }
 
     /**
