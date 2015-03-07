@@ -3,6 +3,8 @@
  */
 package com.mycompany.moviemanager;
 
+import java.util.List;
+
 /**
  *
  * @author Lukáš Šrom
@@ -29,9 +31,10 @@ public class PersonManager {
     
     /**
      * Method to find person in the database.
-     * @param person Data by which to find person in the database.
+     * @param personID ID of person (integer number > 0).
+     * @return Person given by it's ID.
      */
-    public void findPerson (Person person) throws ServiceFailureException{
+    public Person findPerson (int personID) throws ServiceFailureException{
         throw new UnsupportedOperationException ("Not supported yet.");
     }
     
@@ -41,5 +44,13 @@ public class PersonManager {
      */
     public void updatePerson (Person person) throws ServiceFailureException{
         throw new UnsupportedOperationException ("Not supported yet.");
+    }
+    
+    /**
+     * Method to list all person in the database.
+     * @return List<Person> containing all persons in the database.
+     */
+    public List<Person> listAll(){
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

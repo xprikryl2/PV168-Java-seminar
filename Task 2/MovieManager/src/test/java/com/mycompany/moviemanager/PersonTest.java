@@ -18,7 +18,8 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Lukáš
+ * @author Lukáš Šrom
+ * @date 2015 3 7
  */
 public class PersonTest {
     
@@ -41,54 +42,40 @@ public class PersonTest {
     public void tearDown() {
     }
 
+    /**
+     * Unit test for non-parametric constructor of class Person.
+     */
     @Test
     public void testPerson() {
-        System.out.println("Person");
+        System.out.println("Testing class Person");
         List<Movie> movie = null;
-        //Calendar.Builder birth = new GregorianCalendar.Builder().setDate(1987, 1, 21);
+        movie.add(new Movie());
         Calendar birth = Calendar.getInstance();
         birth.set(1987, 2, 17);
         Person personOne = new Person();
         Person personTwo = new Person();
-        Person personThree = new Person ();
         
         personOne.setFirstName("John");
         personOne.setLastName("Smith");
         personOne.setBirth(birth);
-        personOne.setAffiliatedWithMovies(movie);
+        
+        assertEquals("Person's first name doesn't match.", personOne.getFirstName(), "John");
+        assertEquals("Person's last name doesn't match.", personOne.getLastName(), "Smith");
+        assertEquals("Person's date of birth doesn't match.", personOne.getBirth(), birth);
+        assertNotNull("Person's ID is null.", personOne.getIdPerson());
+        assertTrue("Person's ID is lower then 0.", personOne.getIdPerson() > 0);
+        
         
         personTwo.setFirstName("John");
         personTwo.setLastName("Smith");
         personTwo.setBirth(birth);
-        personTwo.setAffiliatedWithMovies(movie);
         
-        personThree.setFirstName("Jane");
-        personThree.setLastName("Smith");
-        personThree.setBirth(birth);
-        personThree.setAffiliatedWithMovies(movie);
+        assertEquals("Person's first name doesn't match.", personTwo.getFirstName(), "John");
+        assertEquals("Person's last name doesn't match.", personTwo.getLastName(), "Smith");
+        assertEquals("Person's date of birth doesn't match.", personTwo.getBirth(), birth);
+        assertNotNull("Person's ID is null.", personTwo.getIdPerson());
+        assertTrue("Person's ID is lower then 0.", personTwo.getIdPerson() > 0);
         
-        
-        assertEquals(personOne.getFirstName(), personTwo.getFirstName());
-            System.out.println ("PersonOne name is: " + personOne.getFirstName());
-        assertEquals(personOne.getLastName(), personTwo.getLastName());
-            System.out.println ("PersonOne last name is: " + personOne.getLastName());
-        assertEquals(personOne.getBirth(), personTwo.getBirth());
-            System.out.println ("PersonOne date of birth is: " + personOne.getBirth());
-        assertEquals(personOne.getBirth(), birth);
-            System.out.println ("Date of birth of personOne matches inpput parameter.");
-        assertNotSame(personOne.getIdPerson(), personTwo.getIdPerson());
-            System.out.println ("ID of personOne is: " + personOne.getIdPerson() + " and ID of personTwo is: " + personTwo.getIdPerson());
-        
-        assertEquals(personThree.getFirstName(), "Jane");
-        assertEquals(personThree.getLastName(), "Smith");
-        assertEquals(personThree.getBirth(), birth);
-        assertTrue(personThree.getIdPerson() > 0);
-        assertNotSame(personThree, personTwo);
-        
-        assertNotNull(personOne.getIdPerson());
-        assertNotNull(personTwo.getIdPerson());
-        assertNotNull(personThree.getIdPerson());
-        
-    
+        assertNotSame("Person One and Person Two are the same.", personOne, personTwo);    
     }
 }
