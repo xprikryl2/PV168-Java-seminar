@@ -40,8 +40,9 @@ public class MovieTest {
     }
 
     @Test
-    public void testMovie() {
-        //Movie mov = new Movie("Predator", 1992, new List<String>, List );
+    public void testSomeMethod() {
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
     
 }

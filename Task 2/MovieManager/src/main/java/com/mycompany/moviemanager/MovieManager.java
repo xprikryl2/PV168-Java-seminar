@@ -1,7 +1,9 @@
 /*
- * Class to manage movies in the database.
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
  */
 package com.mycompany.moviemanager;
+import java.util.List;
 
 /**
  *
@@ -9,37 +11,53 @@ package com.mycompany.moviemanager;
  * @author Jakub Mlčák
  * @date 2015 4 3
  */
-public class MovieManager {
+public interface MovieManager {
     
     /**
-     * Adds movie to a database.
-     * @param movie Instance of class Movie.
+     * Stores new movie into database. Id for the new movie is automatically
+     * generated and stored into id attribute.
+     * 
+     * @param movie movie to be created.
+     * @throws IllegalArgumentException when movie is null, or movie has already 
+     * assigned id.
+     * @throws  ServiceFailureException when db operation fails.
      */
-    public void addMovie (Movie movie) throws ServiceFailureException{
-        throw new UnsupportedOperationException ("Not supported yet.");
-    }
+    void createMovie(Movie movie) throws ServiceFailureException;
     
     /**
-     * Remove movie given by ... title/ID/combination of those elements?
-     * @param movie Instance of class Movie.
+     * Returns movie with given id.
+     * 
+     * @param id primary key of requested movie.
+     * @return movie with given id or null if such movie does not exist.
+     * @throws IllegalArgumentException when given id is null.
+     * @throws  ServiceFailureException when db operation fails.
      */
-    public void removeMovie (Movie movie) throws ServiceFailureException{
-        throw new UnsupportedOperationException ("Not supported yet.");
-    }
+    Movie getMovie(Long id) throws ServiceFailureException;
     
     /**
-     * Find movie by ... title/ID/combination of those elements?
-     * @param movieTitle String with movie title.
+     * Updates movie in database.
+     * 
+     * @param movie updated movie to be stored into database.
+     * @throws IllegalArgumentException when movie is null, or movie has null id.
+     * @throws  ServiceFailureException when db operation fails.
      */
-    public void findMovie (String movieTitle) throws ServiceFailureException{
-        throw new UnsupportedOperationException ("Not supported yet.");
-    }
+    void updateMovie(Movie movie) throws ServiceFailureException;
     
     /**
-     * Update movie given by ... with ...?
-     * @param movie Instance of class Movie.
+     * Deletes movie from database. 
+     * 
+     * @param movie movie to be deleted from db.
+     * @throws IllegalArgumentException when movie is null, or movie has null id.
+     * @throws  ServiceFailureException when db operation fails.
      */
-    public void updateMovie (Movie movie) throws ServiceFailureException{
-        throw new UnsupportedOperationException ("Not supported yet.");
-    }
+    void deleteMovie(Movie movie) throws ServiceFailureException;
+    
+    /**
+     * Returns list of all movies in the database.
+     * 
+     * @return list of all movies in database.
+     * @throws  ServiceFailureException when db operation fails.
+     */
+    List<Movie> findAllMovies() throws ServiceFailureException;
+    
 }
