@@ -6,9 +6,7 @@
 package com.mycompany.moviemanager;
 
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.List;
-import java.util.Locale;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -62,8 +60,8 @@ public class PersonTest {
         assertEquals("Person's first name doesn't match.", personOne.getFirstName(), "John");
         assertEquals("Person's last name doesn't match.", personOne.getLastName(), "Smith");
         assertEquals("Person's date of birth doesn't match.", personOne.getBirth(), birth);
-        assertNotNull("Person's ID is null.", personOne.getIdPerson());
-        assertTrue("Person's ID is lower then 0.", personOne.getIdPerson() > 0);
+        assertNotNull("Person's ID is null.", personOne.getId());
+        assertTrue("Person's ID is lower then 0.", personOne.getId() > 0);
         
         
         personTwo.setFirstName("John");
@@ -73,8 +71,8 @@ public class PersonTest {
         assertEquals("Person's first name doesn't match.", personTwo.getFirstName(), "John");
         assertEquals("Person's last name doesn't match.", personTwo.getLastName(), "Smith");
         assertEquals("Person's date of birth doesn't match.", personTwo.getBirth(), birth);
-        assertNotNull("Person's ID is null.", personTwo.getIdPerson());
-        assertTrue("Person's ID is lower then 0.", personTwo.getIdPerson() > 0);
+        assertNotNull("Person's ID is null.", personTwo.getId());
+        assertTrue("Person's ID is lower then 0.", personTwo.getId() > 0);
         
         assertNotSame("Person One and Person Two are the same.", personOne, personTwo);    
     }

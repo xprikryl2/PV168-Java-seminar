@@ -5,13 +5,11 @@
  */
 package com.mycompany.moviemanager;
 
+import java.util.Comparator;
 import java.util.List;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Test;
 
 /**
  *
@@ -20,24 +18,10 @@ import static org.junit.Assert.*;
  */
 public class PersonManagerTest {
     PersonManager personManager;
-    
-    public PersonManagerTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
+
     @Before
     public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
+        personManager = new PersonManager();
     }
 
     /**
@@ -47,7 +31,7 @@ public class PersonManagerTest {
     @Test
     public void testAddPerson() {
         System.out.println ("Testing adding person...");
-        Person person = new Person();
+        Person person = newPerson("Jane", "Doe", 18);
         personManager.addPerson(person);
         List<Person> listOfPersons = personManager.listAll();
         assertTrue("List of all persons doesn't contain added person.", listOfPersons.contains(person));
@@ -61,7 +45,7 @@ public class PersonManagerTest {
     @Test
     public void testRemovePerson (){
         System.out.println ("Testing removing person...");
-        Person person = new Person();
+        Person person = newPerson("John", "Doe", 15);
         personManager.addPerson(person);
         //check if person was added
         List<Person> listOfPersons = personManager.listAll();
@@ -80,13 +64,29 @@ public class PersonManagerTest {
         System.out.println ("Testing searching for person by ID...");
         try{
             Person person = new Person();
-            assertNotNull("Id of person was null.", person.getIdPerson());
-        Person addedPerson = personManager.findPerson(person.getIdPerson());
-        assertNotSame("Created person is not the same as found person.", person, addedPerson);
-        personManager.removePerson(person);
-        assertNull("Person found after removing it.", personManager.findPerson(person.getIdPerson()));
-        }catch(NullPointerException ex){System.out.println("Attempt to create new person esulted in" + ex);}
+            assertNotNull("Id of person was null.", person.getId());
+            Person addedPerson = personManager.findPerson(person.getId());
+            assertNotSame("Created person is not the same as found person.", person, addedPerson);
+            personManager.removePerson(person);
+            assertNull("Person found after removing it.", personManager.findPerson(person.getId()));
+        }catch(NullPointerException ex){System.out.println("Attempt to create new person resulted in " + ex);}
         
     }
+    
+    private Person newPerson (String firstName, String lastName, long id){
+        Person person = new Person();
+        person.setFirstName(firstName);
+        person.setLastName(lastName);
+        person.setId(id);
+        
+        return person;
+    }
+    
+    private static Comparator<Person> idComparator = new Comparator<Person>() {
+        @Override
+        public int compare(Person p1, Person p2) {
+            return Long.valueOf(p1.getId()).compareTo(Long.valueOf(p2.getId()));
+        }
+    };
     
 }

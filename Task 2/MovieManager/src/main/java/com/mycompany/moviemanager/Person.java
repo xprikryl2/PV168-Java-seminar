@@ -15,7 +15,7 @@ import java.util.List;
  * @date 2015 4 3
  */
 public class Person {
-    private int idPerson = 0;
+    private long id = 0;
     private String firstName = null;
     private String lastName = null;
     private Calendar birth;
@@ -33,26 +33,18 @@ public class Person {
         this.lastName = lastName;
         this.birth = birth;
         this.affiliatedWithMovies = affiliatedWithMovies;
-        this.idPerson = createId();
+        this.id = getId();
     }
     
     /**
      * Constructor of class Person.
      */
     public Person() {
-        this.idPerson = createId();
+        this.id = getId();
         this.firstName = null;
         this.lastName = null;
         this.birth = null;
         this.affiliatedWithMovies = null;
-    }
-    
-    /**
-     * Method to automatically set ID of person.
-     * @return newId
-     */
-    private int createId (){
-        return -1;
     }
 
     /**
@@ -83,8 +75,8 @@ public class Person {
      * Method to get ID of the person.
      * @return Integer unique number representing the person.
      */
-    public int getIdPerson() {
-        return idPerson;
+    public long getId() {
+        return id;
     }
 
     /**
@@ -126,5 +118,9 @@ public class Person {
      */
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+    
+    public void setId (long id){
+        this.id = id;
     }
 }

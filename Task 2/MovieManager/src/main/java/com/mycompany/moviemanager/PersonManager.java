@@ -34,7 +34,7 @@ public class PersonManager {
      * @param personID ID of person (integer number > 0).
      * @return Person given by it's ID.
      */
-    public Person findPerson (int personID) throws ServiceFailureException{
+    public Person findPerson (long personID) throws ServiceFailureException{
         throw new UnsupportedOperationException ("Not supported yet.");
     }
     
