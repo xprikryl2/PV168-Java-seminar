@@ -1,0 +1,190 @@
+/*
+ * Class to manage persons in the database.
+ */
+package com.mycompany.moviemanager;
+
+import java.sql.Array;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+/**
+ *
+ * @author Lukáš Šrom
+ * @author Jakub Mlčák
+ * @date 2015 4 3
+ */
+public class PersonManagerImpl {
+    final static Logger log = LoggerFactory.getLogger(PersonManagerImpl.class);
+    
+    private static final String LOGIN = "administrator";
+    private static final String PASSWORD = "admin";
+    private static final String URL = "jdbc:derby://localhost:1527/MovieManagerDtb;";
+    private static final String DRIVER = "org.apache.derby.jdbc.ClientDriver";
+    
+    /**
+     * Method to add person to the database.
+     * @param person Instance of class Person to be added to database.
+     */
+    public void addPerson (Person person) throws ServiceFailureException, ClassNotFoundException{
+        // to connect to dtb
+        Class.forName(DRIVER);
+        
+        // checkvalidity of incoming data
+        if (person == null){throw new IllegalArgumentException ("Person is set to null!");}
+        else if (person.getName() == null || person.getName() == ""){throw new IllegalArgumentException ("Name of the person is not set.");}
+        
+        // try to connect to dtb, if not possible or when it's done, session will be automatically terminated
+        try(Connection conn = DriverManager.getConnection(URL, LOGIN, PASSWORD);){
+            // try to store data in dtb, if error occures, dtb will come back to it's original state
+            try(PreparedStatement st = conn.prepareStatement("INSERT INTO PERSONS (id, name, birthday, movies) VALUES (?,?,?,?)", Statement.RETURN_GENERATED_KEYS)){
+                st.setInt(1, getId());
+                st.setString(2, person.getName());
+                st.setString(3, person.getBirth().toString());  //TODO: how to store calendar type in dtb?
+                st.setArray(4, (Array) person.getAffiliatedWithMovies());   // TODO: check if this works and it's viable
+                // checks if only one row was updated (meaning only one entry to table as made)
+                if(st.executeUpdate() != 1){
+                    log.error("More rows inserted when trying to insert new person!");
+                    throw new ServiceFailureException ("More rows inserted when trying to insert new person: " + person);
+                }
+                ResultSet keys = st.getGeneratedKeys();
+            }catch (SQLException ex){   // in case error occures when trying to store data
+                log.error("Cannot store data to dtb!", ex);
+                conn.rollback();        // atomically fail and restore all changes made in this session
+            }
+        }catch (SQLException ex){
+            log.error("Database connection problems!", ex);
+            throw new ServiceFailureException("Error when adding person!", ex);
+        };
+    }
+    
+    /**
+     * Method to remove Person from database.
+     * @param Person Instance of class Person to be removed from database.
+     */
+    public void removePerson (long personID) throws ServiceFailureException, ClassNotFoundException{
+        // to connect to dtb
+        Class.forName(DRIVER);
+        
+        if (personID < 0){throw new IllegalArgumentException("Person ID lower then 0!");}
+        
+        // try to connect to dtb, if not possible or when it's done, session will be automatically terminated
+        try(Connection conn = DriverManager.getConnection(URL, LOGIN, PASSWORD);){
+            try(PreparedStatement st = conn.prepareStatement("DELETE FROM PERSONS WHERE id=?")){
+                st.setLong(1, personID);
+                if(st.executeUpdate()!=1) {
+                    log.error("Removing person with id " + personID + " failed!");
+                    throw new ServiceFailureException("Person with id " + personID + " was not deleted!");
+                }
+            }catch(SQLException ex){    // in case error occures when trying to remove data
+                log.error("Cannot remove data from dtb!", ex);
+                conn.rollback();        // atomically fail and restore all changes made in this session
+            }        
+        }catch (SQLException ex){
+            log.error("Database connection problems!", ex);
+            throw new ServiceFailureException("Error when removing person!", ex);
+        }; 
+    }
+    
+    /**
+     * Method to find person in the database.
+     * @param personID ID of person (integer number > 0).
+     * @return Person given by it's ID.
+     */
+    public Person findPerson (long personID) throws ServiceFailureException, ClassNotFoundException{
+        // to connect to dtb
+        Class.forName(DRIVER);
+        
+        if (personID < 0){throw new IllegalArgumentException("Person ID lower then 0!");}
+            
+        // try to connect to dtb, if not possible or when it's done, session will be automatically terminated
+        try(Connection conn = DriverManager.getConnection(URL, LOGIN, PASSWORD);){
+            try(PreparedStatement st = conn.prepareStatement("SELECT id, name, birthday FROM PERSONS WHERE id=?")){
+                st.setLong(1, personID);
+                ResultSet rs = st.executeQuery();
+                
+                if (rs.next()){
+                    Person person = resultSetToPerson(rs);
+                    if (rs.next()){
+                        log.error("Found multiple entities with the same ID " + personID + " in the dtb!");
+                        throw new ServiceFailureException ("More entities with the same ID " + personID + " found!");
+                    }
+                    return person;
+                }
+                else{
+                    return null;
+                }
+            }catch(SQLException ex){
+                log.error("Cannot find data in dtb!", ex);
+                conn.rollback();
+            }
+        }catch (SQLException ex){
+            log.error("Database connection problems!", ex);
+            throw new ServiceFailureException("Error when searching for person!", ex);
+        };
+        return null;
+    }
+    
+    private Person resultSetToPerson (ResultSet rs) throws SQLException{
+        Person person = new Person();
+        
+        person.setId(rs.getLong("id"));
+        person.setName(rs.getString("name"));
+        //person.setBirth(rs.getString("birthday"));
+        person.setAffiliatedWithMovies((List<Movie>) rs.getArray("movies"));
+        
+        return person;
+    }
+    
+    /**
+     * Method to update person profile in the database.
+     * @param person Data and person to be updated.
+     */
+    public void updatePerson (Person person) throws ServiceFailureException, ClassNotFoundException{
+        Class.forName(DRIVER);
+        if (person == null){throw new IllegalArgumentException ("Person pointer is null!");}
+        else if (person.getName() == null || person.getName() == ""){throw new IllegalArgumentException ("Person name is empty!");}
+        
+        // try to connect to dtb, if not possible or when it's done, session will be automatically terminated
+        try(Connection conn = DriverManager.getConnection(URL, LOGIN, PASSWORD);){
+            try(PreparedStatement st = conn.prepareStatement("UPDATE persons SET name=?, birthday=?, movies=? WHERE id=?")){
+                st.setString(1, person.getName());
+                st.setString(2, person.getBirth().toString());  // TODO
+                st.setArray(3, (Array)person.getAffiliatedWithMovies());    // TODO
+                
+                if (st.executeUpdate() != 1){
+                    log.error("Updating more entities then supposed to!");
+                    throw new ServiceFailureException("Updating entities failed!");
+                }
+            }catch(SQLException ex){
+                log.error("Cannot update data in the dtb!");
+                throw new ServiceFailureException ("Error when trying to update entity in the dtb.", ex);
+            }            
+        }catch (SQLException ex){
+            log.error("Database connection problems!", ex);
+            throw new ServiceFailureException("Error when updating person!", ex);
+        };
+    }
+    
+    /**
+     * Method to list all person in the database.
+     * @return List<Person> containing all persons in the database.
+     */
+    public List<Person> listAll(){
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
+    /**
+     * Method to create ID for person. Looks to dtb for highest id and returns found value plus 1.
+     * @return ID for the person to be inserted to dtb.
+     */
+    private int getId(){
+        return 6;
+    }
+}
