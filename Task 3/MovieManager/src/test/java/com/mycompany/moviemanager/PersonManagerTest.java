@@ -5,8 +5,14 @@
  */
 package com.mycompany.moviemanager;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Comparator;
+import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.Before;
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -17,11 +23,12 @@ import org.junit.Test;
  * @date 2015 3 7
  */
 public class PersonManagerTest {
-    PersonManager personManager;
+    PersonManagerImpl personManager;
 
     @Before
     public void setUp() {
-        personManager = new PersonManager();
+        personManager = new PersonManagerImpl();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy MMM dd");
     }
 
     /**
@@ -30,13 +37,20 @@ public class PersonManagerTest {
      */
     @Test
     public void testAddPerson() {
-        System.out.println ("Testing adding person...");
-        Person person = newPerson("Jane", "Doe", 18);
-        personManager.addPerson(person);
-        List<Person> listOfPersons = personManager.listAll();
-        assertTrue("List of all persons doesn't contain added person.", listOfPersons.contains(person));
-        // to clean up afterwards
-        personManager.removePerson(person);
+        Calendar calendar = new GregorianCalendar(1990,0,31);
+        List<Movie> mov = new ArrayList<>();
+        mov.add(new Movie());
+        try {
+            System.out.println ("Testing adding person...");
+            Person person = new Person("Jane Doe", calendar, null);
+            personManager.addPerson(person);
+            List<Person> listOfPersons = personManager.listAll();
+            assertTrue("List of all persons doesn't contain added person.", listOfPersons.contains(person));
+            // to clean up afterwards
+            personManager.removePerson(person.getId());
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(PersonManagerTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     /**
@@ -44,16 +58,22 @@ public class PersonManagerTest {
      */
     @Test
     public void testRemovePerson (){
-        System.out.println ("Testing removing person...");
-        Person person = newPerson("John", "Doe", 15);
-        personManager.addPerson(person);
-        //check if person was added
-        List<Person> listOfPersons = personManager.listAll();
-        assertTrue("Person was not added to database.", listOfPersons.contains(person));
-        // if person was added remove it
-        personManager.removePerson(person);
-        listOfPersons = personManager.listAll();
-        assertTrue("Database contains person after removing it.", !listOfPersons.contains(person));
+        try {
+            System.out.println ("Testing removing person...");
+            Person person = newPerson("John", "Doe", 15);
+            personManager.addPerson(person);
+            //check if person was added
+            List<Person> listOfPersons = personManager.listAll();
+            assertTrue("Person was not added to database.", listOfPersons.contains(person));
+            // if person was added remove it
+            personManager.removePerson(person.getId());
+            listOfPersons = personManager.listAll();
+            assertTrue("Database contains person after removing it.", !listOfPersons.contains(person));
+        } catch (ServiceFailureException ex) {
+            Logger.getLogger(PersonManagerTest.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(PersonManagerTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     /**
@@ -67,16 +87,19 @@ public class PersonManagerTest {
             assertNotNull("Id of person was null.", person.getId());
             Person addedPerson = personManager.findPerson(person.getId());
             assertNotSame("Created person is not the same as found person.", person, addedPerson);
-            personManager.removePerson(person);
+            personManager.removePerson(person.getId());
             assertNull("Person found after removing it.", personManager.findPerson(person.getId()));
-        }catch(NullPointerException ex){System.out.println("Attempt to create new person resulted in " + ex);}
+        }catch(NullPointerException ex){System.out.println("Attempt to create new person resulted in " + ex);} catch (ServiceFailureException ex) {
+            Logger.getLogger(PersonManagerTest.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(PersonManagerTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
     
-    private Person newPerson (String firstName, String lastName, long id){
+    private Person newPerson (String name, String lastName, long id){
         Person person = new Person();
-        person.setFirstName(firstName);
-        person.setLastName(lastName);
+        person.setName(name);
         person.setId(id);
         
         return person;

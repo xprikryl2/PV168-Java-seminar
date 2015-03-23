@@ -10,6 +10,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,6 +37,7 @@ public class PersonManagerImpl {
     public void addPerson (Person person) throws ServiceFailureException, ClassNotFoundException{
         // to connect to dtb
         Class.forName(DRIVER);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy MMM dd");
         
         // checkvalidity of incoming data
         if (person == null){throw new IllegalArgumentException ("Person is set to null!");}
@@ -43,11 +46,11 @@ public class PersonManagerImpl {
         // try to connect to dtb, if not possible or when it's done, session will be automatically terminated
         try(Connection conn = DriverManager.getConnection(URL, LOGIN, PASSWORD);){
             // try to store data in dtb, if error occures, dtb will come back to it's original state
-            try(PreparedStatement st = conn.prepareStatement("INSERT INTO PERSONS (id, name, birthday, movies) VALUES (?,?,?,?)", Statement.RETURN_GENERATED_KEYS)){
-                st.setInt(1, getId());
-                st.setString(2, person.getName());
-                st.setString(3, person.getBirth().toString());  //TODO: how to store calendar type in dtb?
-                st.setArray(4, (Array) person.getAffiliatedWithMovies());   // TODO: check if this works and it's viable
+            try(PreparedStatement st = conn.prepareStatement("INSERT INTO PERSONS (name, birthday) VALUES (?,?)", Statement.RETURN_GENERATED_KEYS)){
+                //st.setInt(1, getId());                
+                st.setString(1, person.getName());
+                st.setString(2, sdf.format(person.getBirth().getTime()));  //TODO: how to store calendar type in dtb?
+                //st.setArray(3, (Array) person.getAffiliatedWithMovies());   // TODO: check if this works and it's viable
                 // checks if only one row was updated (meaning only one entry to table as made)
                 if(st.executeUpdate() != 1){
                     log.error("More rows inserted when trying to insert new person!");
@@ -176,8 +179,25 @@ public class PersonManagerImpl {
      * Method to list all person in the database.
      * @return List<Person> containing all persons in the database.
      */
-    public List<Person> listAll(){
-        throw new UnsupportedOperationException("Not supported yet.");
+    public List<Person> listAll() throws ClassNotFoundException{
+        Class.forName(DRIVER);
+        
+        try(Connection conn = DriverManager.getConnection(URL, LOGIN, PASSWORD);){
+            try (PreparedStatement st = conn.prepareStatement("SELECT id,name,birthday FROM persons")) {
+                ResultSet rs = st.executeQuery();
+                List<Person> result = new ArrayList<>();
+                while (rs.next()) {
+                    result.add(resultSetToPerson(rs));
+                }
+                return result;
+            }catch(SQLException ex){
+                log.error("Cannot lookup data in the dtb!");
+                throw new ServiceFailureException ("Error when trying to lookup all entities in the dtb.", ex);
+            }
+        }catch (SQLException ex){
+            log.error("Database connection problems!", ex);
+            throw new ServiceFailureException("Error when listing persons!", ex);
+        }        
     }
     
     /**

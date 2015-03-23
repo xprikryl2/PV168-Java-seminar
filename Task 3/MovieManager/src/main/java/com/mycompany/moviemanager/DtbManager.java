@@ -7,6 +7,9 @@ import static com.mycompany.moviemanager.PersonManagerImpl.log;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 /**
  *
@@ -20,15 +23,18 @@ public class DtbManager {
     private static final String URL = "jdbc:derby://localhost:1527/MovieManagerDtb;";
     private static final String DRIVER = "org.apache.derby.jdbc.ClientDriver";
     
-    public static void main(String[] args){
+    public static void main(String[] args) throws ServiceFailureException, ClassNotFoundException{
         System.out.println("this is main");
-        
+
+        /*
         try{
             createTablePersons();
         }catch(ClassNotFoundException ex){}
-        try{
+        */
+        /*try{
             createTableMovies();
         }catch(ClassNotFoundException ex){}
+                */
     }
     
     public static void createTablePersons() throws ClassNotFoundException{
