@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="com.mycompany.moviemanager.PersonManagerTest" time="0.004" errors="3" skipped="0">
+<testsuite tests="3" failures="0" name="com.mycompany.moviemanager.PersonManagerTest" time="0" errors="3" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="D:\Programming\libs\Java\DevelopmentKit_8\jre\bin"/>
@@ -63,7 +63,7 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.mycompany.moviemanager.PersonManagerTest" name="testAddPerson" time="0.001">
+  <testcase classname="com.mycompany.moviemanager.PersonManagerTest" name="testAddPerson" time="0">
     <error message="Not supported yet." type="java.lang.UnsupportedOperationException">java.lang.UnsupportedOperationException: Not supported yet.
 	at com.mycompany.moviemanager.PersonManager.addPerson(PersonManager.java:21)
 	at com.mycompany.moviemanager.PersonManagerTest.testAddPerson(PersonManagerTest.java:35)
@@ -101,7 +101,7 @@
     <system-out>Testing adding person...
 </system-out>
   </testcase>
-  <testcase classname="com.mycompany.moviemanager.PersonManagerTest" name="testRemovePerson" time="0.001">
+  <testcase classname="com.mycompany.moviemanager.PersonManagerTest" name="testRemovePerson" time="0">
     <error message="Not supported yet." type="java.lang.UnsupportedOperationException">java.lang.UnsupportedOperationException: Not supported yet.
 	at com.mycompany.moviemanager.PersonManager.addPerson(PersonManager.java:21)
 	at com.mycompany.moviemanager.PersonManagerTest.testRemovePerson(PersonManagerTest.java:49)

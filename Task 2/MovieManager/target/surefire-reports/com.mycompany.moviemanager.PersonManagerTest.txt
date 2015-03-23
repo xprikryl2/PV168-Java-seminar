@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.mycompany.moviemanager.PersonManagerTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.005 sec <<< FAILURE!
-testAddPerson(com.mycompany.moviemanager.PersonManagerTest)  Time elapsed: 0.001 sec  <<< ERROR!
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0 sec <<< FAILURE!
+testAddPerson(com.mycompany.moviemanager.PersonManagerTest)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.UnsupportedOperationException: Not supported yet.
 	at com.mycompany.moviemanager.PersonManager.addPerson(PersonManager.java:21)
 	at com.mycompany.moviemanager.PersonManagerTest.testAddPerson(PersonManagerTest.java:35)
@@ -36,7 +36,7 @@ java.lang.UnsupportedOperationException: Not supported yet.
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-testRemovePerson(com.mycompany.moviemanager.PersonManagerTest)  Time elapsed: 0.001 sec  <<< ERROR!
+testRemovePerson(com.mycompany.moviemanager.PersonManagerTest)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.UnsupportedOperationException: Not supported yet.
 	at com.mycompany.moviemanager.PersonManager.addPerson(PersonManager.java:21)
 	at com.mycompany.moviemanager.PersonManagerTest.testRemovePerson(PersonManagerTest.java:49)
