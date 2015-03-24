@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: com.mycompany.moviemanager.PersonTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.015 sec <<< FAILURE!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 sec <<< FAILURE!
 testPerson(com.mycompany.moviemanager.PersonTest)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.NullPointerException
 	at com.mycompany.moviemanager.PersonTest.testPerson(PersonTest.java:50)

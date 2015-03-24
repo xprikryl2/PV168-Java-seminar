@@ -5,7 +5,9 @@
  */
 package com.mycompany.moviemanager;
 
+import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import javax.sql.DataSource;
@@ -42,10 +44,19 @@ public class MovieManagerTest {
     
     @Before
     public void setUp() throws SQLException {
-        
         BasicDataSource bsd = new BasicDataSource();
         bsd.setUrl(URL);
         this.dataSource = bsd;
+        try (Connection conn = bsd.getConnection()) {
+             conn.prepareStatement("CREATE TABLE MOVIES (\n" +
+                    "id INTEGER NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,\n" +
+                    "title VARCHAR(128) NOT NULL,\n" +
+                    "movieYear INTEGER,\n" + 
+                    "genre VARCHAR(128),\n" +
+                    "length INTEGER\n" +
+                    ")").executeUpdate();
+        }catch(SQLException ex){}
+        
         manager = new MovieManagerImpl(bsd);
     }
     
@@ -70,8 +81,7 @@ public class MovieManagerTest {
         Movie movie = newMovie();
         manager.createMovie(movie);
         Long movieId = movie.getId();
-        manager.deleteMovie(movie);
-        assertNull(movie);
+        manager.deleteMovie(movieId);
         movie = manager.getMovie(movieId);
         assertNull(movie);
         
@@ -84,7 +94,8 @@ public class MovieManagerTest {
         
         movie.setTitle("film2");
             movie.setYear(2016);
-                List<String> genreList = new ArrayList<>();
+            movie.setLength(61);
+    /*            List<String> genreList = new ArrayList<>();
                 genreList.add("Comedy2");
             movie.setGenre(genreList);
                 List<Person> personList = new ArrayList<>();
@@ -96,7 +107,7 @@ public class MovieManagerTest {
             movie.setWriter(personList);
                 personList.add(person);
             movie.setCast(personList);
-        
+*/        
         
         manager.updateMovie(movie);
         Long movieId = movie.getId();
@@ -125,14 +136,6 @@ public class MovieManagerTest {
         movie.setId(1l);
         try {
             manager.createMovie(movie);
-            fail();
-        } catch (IllegalArgumentException ex) {
-            //OK
-        }
-        
-        //try delete movie with null parametr
-        try {
-            manager.deleteMovie(null);
             fail();
         } catch (IllegalArgumentException ex) {
             //OK
@@ -203,7 +206,8 @@ public class MovieManagerTest {
         Movie movie = new Movie();
             movie.setTitle("film");
             movie.setYear(2015);
-                List<String> genreList = new ArrayList<>();
+            movie.setLength(120);
+    /*            List<String> genreList = new ArrayList<>();
                 genreList.add("Comedy");
             movie.setGenre(genreList);
                 List<Person> personList = new ArrayList<>();
@@ -212,7 +216,7 @@ public class MovieManagerTest {
             movie.setDirector(personList);
             movie.setWriter(personList);
             movie.setCast(personList);
-        return movie;
+    */    return movie;
     }
     
     private void assertDeepEquals(Movie expected, Movie actual) {

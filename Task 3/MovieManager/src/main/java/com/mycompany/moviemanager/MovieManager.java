@@ -46,11 +46,11 @@ public interface MovieManager {
     /**
      * Deletes movie from database. 
      * 
-     * @param movie movie to be deleted from db.
+     * @param id primary key of movie to be deleted from db.
      * @throws IllegalArgumentException when movie is null, or movie has null id.
      * @throws  ServiceFailureException when db operation fails.
      */
-    void deleteMovie(Movie movie) throws ServiceFailureException;
+    void deleteMovie(Long id) throws ServiceFailureException;
     
     /**
      * Returns list of all movies in the database.

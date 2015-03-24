@@ -52,7 +52,7 @@ public class DtbManager {
         }catch (SQLException ex){
             log.error("Error when creating table PERSONS!", ex);
             throw new ServiceFailureException("Error when creating table PERSONS!", ex);
-        };
+        }
     }
     
     public static void dropTablePersons() throws ClassNotFoundException{
@@ -65,7 +65,7 @@ public class DtbManager {
         }catch (SQLException ex){
             log.error("Error when dropping table PERSONS!", ex);
             throw new ServiceFailureException("Error when dropping table PERSONS!", ex);
-        };
+        }
     }
     
     public static void createTableMovies() throws ClassNotFoundException{
@@ -84,7 +84,7 @@ public class DtbManager {
         }catch (SQLException ex){
             log.error("Error when creating table MOVIES!", ex);
             throw new ServiceFailureException("Error when creating table MOVIES!", ex);
-        };
+        }
     }
     
         public static void dropTableMovies() throws ClassNotFoundException{
@@ -97,7 +97,7 @@ public class DtbManager {
         }catch (SQLException ex){
             log.error("Error when dropping table MOVIES!", ex);
             throw new ServiceFailureException("Error when dropping table MOVIES!", ex);
-        };
+        }
     }
     
     public static void createTableRelationships() throws ClassNotFoundException{
@@ -117,7 +117,7 @@ public class DtbManager {
         }catch (SQLException ex){
             log.error("Error when creating table RELATIONSHIPS!", ex);
             throw new ServiceFailureException("Error when creating table RELATIONSHIPS!", ex);
-        };
+        }
     }
     
     public static void dropTableRelationships() throws ClassNotFoundException{
@@ -130,6 +130,6 @@ public class DtbManager {
         }catch (SQLException ex){
             log.error("Error when dropping table RELATIONSHIPS!", ex);
             throw new ServiceFailureException("Error when dropping table RELATIONSHIPS!", ex);
-        };
+        }
     }
 }
