@@ -5,6 +5,8 @@
  */
 package com.mycompany.moviemanager;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -13,6 +15,8 @@ import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.sql.DataSource;
+import org.apache.commons.dbcp2.BasicDataSource;
 import org.junit.Before;
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -24,10 +28,25 @@ import org.junit.Test;
  */
 public class PersonManagerTest {
     PersonManagerImpl personManager;
+    private DataSource dataSource;
 
+    private static final String URL = "jdbc:derby:memory:MovieManagerDtb;create=true";
+    
     @Before
     public void setUp() {
-        personManager = new PersonManagerImpl();
+        BasicDataSource bsd = new BasicDataSource();
+        bsd.setUrl(URL);
+        this.dataSource = bsd;
+        try (Connection conn = bsd.getConnection()) {
+            conn.prepareStatement("CREATE TABLE PERSONS (\n" +
+                    "id INTEGER NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,\n" +
+                    "name VARCHAR(128) NOT NULL,\n" +
+                    "birthday VARCHAR(128),\n" + 
+                    "movies VARCHAR(128)\n" +
+                    ")").executeUpdate();
+        }catch(SQLException ex){}
+        
+        personManager = new PersonManagerImpl(bsd);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy MMM dd");
     }
 

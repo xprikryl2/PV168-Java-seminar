@@ -53,23 +53,19 @@ public class PersonTest {
         Person personOne = new Person();
         Person personTwo = new Person();
         
-        personOne.setFirstName("John");
-        personOne.setLastName("Smith");
+        personOne.setName("John");
         personOne.setBirth(birth);
         
-        assertEquals("Person's first name doesn't match.", personOne.getFirstName(), "John");
-        assertEquals("Person's last name doesn't match.", personOne.getLastName(), "Smith");
+        assertEquals("Person's first name doesn't match.", personOne.getName(), "John");
         assertEquals("Person's date of birth doesn't match.", personOne.getBirth(), birth);
         assertNotNull("Person's ID is null.", personOne.getId());
         assertTrue("Person's ID is lower then 0.", personOne.getId() > 0);
         
         
-        personTwo.setFirstName("John");
-        personTwo.setLastName("Smith");
+        personTwo.setName("John");
         personTwo.setBirth(birth);
         
-        assertEquals("Person's first name doesn't match.", personTwo.getFirstName(), "John");
-        assertEquals("Person's last name doesn't match.", personTwo.getLastName(), "Smith");
+        assertEquals("Person's first name doesn't match.", personTwo.getName(), "John");
         assertEquals("Person's date of birth doesn't match.", personTwo.getBirth(), birth);
         assertNotNull("Person's ID is null.", personTwo.getId());
         assertTrue("Person's ID is lower then 0.", personTwo.getId() > 0);

@@ -13,6 +13,8 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import javax.sql.DataSource;
+import org.apache.commons.dbcp2.BasicDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,6 +25,7 @@ import org.slf4j.LoggerFactory;
  * @date 2015 4 3
  */
 public class PersonManagerImpl {
+    private final DataSource dataSource;
     final static Logger log = LoggerFactory.getLogger(PersonManagerImpl.class);
     
     private static final String LOGIN = "administrator";
@@ -30,21 +33,30 @@ public class PersonManagerImpl {
     private static final String URL = "jdbc:derby://localhost:1527/MovieManagerDtb;";
     private static final String DRIVER = "org.apache.derby.jdbc.ClientDriver";
     
+    public PersonManagerImpl (DataSource dataSource){
+        if (dataSource == null){
+            log.info("No DataSource received in constructor. Using default values.");
+            BasicDataSource bsd = new BasicDataSource();
+            bsd.setUrl(URL);
+        }
+        this.dataSource = dataSource;
+    }
+    
     /**
      * Method to add person to the database.
      * @param person Instance of class Person to be added to database.
      */
     public void addPerson (Person person) throws ServiceFailureException, ClassNotFoundException{
         // to connect to dtb
-        Class.forName(DRIVER);
+        //Class.forName(DRIVER);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy MMM dd");
         
         // checkvalidity of incoming data
         if (person == null){throw new IllegalArgumentException ("Person is set to null!");}
-        else if (person.getName() == null || person.getName() == ""){throw new IllegalArgumentException ("Name of the person is not set.");}
+        else if (person.getName().equals(null) || person.getName() == ""){throw new IllegalArgumentException ("Name of the person is not set.");}
         
         // try to connect to dtb, if not possible or when it's done, session will be automatically terminated
-        try(Connection conn = DriverManager.getConnection(URL, LOGIN, PASSWORD);){
+        try(Connection conn = dataSource.getConnection()){
             // try to store data in dtb, if error occures, dtb will come back to it's original state
             try(PreparedStatement st = conn.prepareStatement("INSERT INTO PERSONS (name, birthday) VALUES (?,?)", Statement.RETURN_GENERATED_KEYS)){
                 //st.setInt(1, getId());                
@@ -78,7 +90,7 @@ public class PersonManagerImpl {
         if (personID < 0){throw new IllegalArgumentException("Person ID lower then 0!");}
         
         // try to connect to dtb, if not possible or when it's done, session will be automatically terminated
-        try(Connection conn = DriverManager.getConnection(URL, LOGIN, PASSWORD);){
+        try(Connection conn = dataSource.getConnection()){
             try(PreparedStatement st = conn.prepareStatement("DELETE FROM PERSONS WHERE id=?")){
                 st.setLong(1, personID);
                 if(st.executeUpdate()!=1) {
@@ -107,7 +119,7 @@ public class PersonManagerImpl {
         if (personID < 0){throw new IllegalArgumentException("Person ID lower then 0!");}
             
         // try to connect to dtb, if not possible or when it's done, session will be automatically terminated
-        try(Connection conn = DriverManager.getConnection(URL, LOGIN, PASSWORD);){
+        try(Connection conn = dataSource.getConnection()){
             try(PreparedStatement st = conn.prepareStatement("SELECT id, name, birthday FROM PERSONS WHERE id=?")){
                 st.setLong(1, personID);
                 ResultSet rs = st.executeQuery();
@@ -152,10 +164,10 @@ public class PersonManagerImpl {
     public void updatePerson (Person person) throws ServiceFailureException, ClassNotFoundException{
         Class.forName(DRIVER);
         if (person == null){throw new IllegalArgumentException ("Person pointer is null!");}
-        else if (person.getName() == null || person.getName() == ""){throw new IllegalArgumentException ("Person name is empty!");}
+        else if (person.getName().equals(null) || person.getName() == ""){throw new IllegalArgumentException ("Person name is empty!");}
         
         // try to connect to dtb, if not possible or when it's done, session will be automatically terminated
-        try(Connection conn = DriverManager.getConnection(URL, LOGIN, PASSWORD);){
+        try(Connection conn = dataSource.getConnection()){
             try(PreparedStatement st = conn.prepareStatement("UPDATE persons SET name=?, birthday=?, movies=? WHERE id=?")){
                 st.setString(1, person.getName());
                 st.setString(2, person.getBirth().toString());  // TODO
@@ -182,7 +194,7 @@ public class PersonManagerImpl {
     public List<Person> listAll() throws ClassNotFoundException{
         Class.forName(DRIVER);
         
-        try(Connection conn = DriverManager.getConnection(URL, LOGIN, PASSWORD);){
+        try(Connection conn = dataSource.getConnection()){
             try (PreparedStatement st = conn.prepareStatement("SELECT id,name,birthday FROM persons")) {
                 ResultSet rs = st.executeQuery();
                 List<Person> result = new ArrayList<>();
