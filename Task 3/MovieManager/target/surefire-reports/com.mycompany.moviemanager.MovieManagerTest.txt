@@ -1,15 +1,18 @@
 -------------------------------------------------------------------------------
 Test set: com.mycompany.moviemanager.MovieManagerTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.007 sec <<< FAILURE!
-testDeleteMovie(com.mycompany.moviemanager.MovieManagerTest)  Time elapsed: 0.001 sec  <<< ERROR!
-java.lang.UnsupportedOperationException: Not supported yet.
-	at com.mycompany.moviemanager.MovieManagerImpl.createMovie(MovieManagerImpl.java:17)
-	at com.mycompany.moviemanager.MovieManagerTest.testDeleteMovie(MovieManagerTest.java:65)
+Tests run: 4, Failures: 1, Errors: 3, Skipped: 0, Time elapsed: 4.073 sec <<< FAILURE!
+testCreateMovie(com.mycompany.moviemanager.MovieManagerTest)  Time elapsed: 3.941 sec  <<< FAILURE!
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:92)
+	at org.junit.Assert.assertTrue(Assert.java:43)
+	at org.junit.Assert.assertNotNull(Assert.java:526)
+	at org.junit.Assert.assertNotNull(Assert.java:537)
+	at com.mycompany.moviemanager.MovieManagerTest.testCreateMovie(MovieManagerTest.java:72)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:483)
+	at java.lang.reflect.Method.invoke(Method.java:497)
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)
 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)
@@ -33,20 +36,20 @@ java.lang.UnsupportedOperationException: Not supported yet.
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:483)
+	at java.lang.reflect.Method.invoke(Method.java:497)
 	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
 	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-testUpdateMovie(com.mycompany.moviemanager.MovieManagerTest)  Time elapsed: 0.001 sec  <<< ERROR!
+testUpdateMovie(com.mycompany.moviemanager.MovieManagerTest)  Time elapsed: 0.031 sec  <<< ERROR!
 java.lang.UnsupportedOperationException: Not supported yet.
-	at com.mycompany.moviemanager.MovieManagerImpl.createMovie(MovieManagerImpl.java:17)
-	at com.mycompany.moviemanager.MovieManagerTest.testUpdateMovie(MovieManagerTest.java:77)
+	at com.mycompany.moviemanager.MovieManagerImpl.updateMovie(MovieManagerImpl.java:120)
+	at com.mycompany.moviemanager.MovieManagerTest.testUpdateMovie(MovieManagerTest.java:112)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:483)
+	at java.lang.reflect.Method.invoke(Method.java:497)
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)
 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)
@@ -70,20 +73,20 @@ java.lang.UnsupportedOperationException: Not supported yet.
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:483)
+	at java.lang.reflect.Method.invoke(Method.java:497)
 	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
 	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-testCreateMovie(com.mycompany.moviemanager.MovieManagerTest)  Time elapsed: 0 sec  <<< ERROR!
+testDeleteMovie(com.mycompany.moviemanager.MovieManagerTest)  Time elapsed: 0.047 sec  <<< ERROR!
 java.lang.UnsupportedOperationException: Not supported yet.
-	at com.mycompany.moviemanager.MovieManagerImpl.createMovie(MovieManagerImpl.java:17)
-	at com.mycompany.moviemanager.MovieManagerTest.testCreateMovie(MovieManagerTest.java:53)
+	at com.mycompany.moviemanager.MovieManagerImpl.deleteMovie(MovieManagerImpl.java:125)
+	at com.mycompany.moviemanager.MovieManagerTest.testDeleteMovie(MovieManagerTest.java:84)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:483)
+	at java.lang.reflect.Method.invoke(Method.java:497)
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)
 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)
@@ -107,7 +110,7 @@ java.lang.UnsupportedOperationException: Not supported yet.
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:483)
+	at java.lang.reflect.Method.invoke(Method.java:497)
 	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
 	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
@@ -115,12 +118,12 @@ java.lang.UnsupportedOperationException: Not supported yet.
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
 testMovieWithWrongAttributes(com.mycompany.moviemanager.MovieManagerTest)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.UnsupportedOperationException: Not supported yet.
-	at com.mycompany.moviemanager.MovieManagerImpl.createMovie(MovieManagerImpl.java:17)
-	at com.mycompany.moviemanager.MovieManagerTest.testMovieWithWrongAttributes(MovieManagerTest.java:111)
+	at com.mycompany.moviemanager.MovieManagerImpl.deleteMovie(MovieManagerImpl.java:125)
+	at com.mycompany.moviemanager.MovieManagerTest.testMovieWithWrongAttributes(MovieManagerTest.java:146)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:483)
+	at java.lang.reflect.Method.invoke(Method.java:497)
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)
 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)
@@ -144,7 +147,7 @@ java.lang.UnsupportedOperationException: Not supported yet.
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:483)
+	at java.lang.reflect.Method.invoke(Method.java:497)
 	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
 	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)

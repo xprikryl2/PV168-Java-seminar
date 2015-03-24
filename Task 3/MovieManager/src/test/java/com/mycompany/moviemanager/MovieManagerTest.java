@@ -7,9 +7,9 @@ package com.mycompany.moviemanager;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
+import javax.sql.DataSource;
+import org.apache.commons.dbcp2.BasicDataSource;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -26,6 +26,8 @@ import static org.junit.Assert.*;
 public class MovieManagerTest {
     
     private MovieManagerImpl manager;
+    private DataSource dataSource;
+    private static final String URL = "jdbc:derby:memory:MovieManagerDtb;create=true";
     
     public MovieManagerTest() {
     }
@@ -40,7 +42,11 @@ public class MovieManagerTest {
     
     @Before
     public void setUp() throws SQLException {
-        manager = new MovieManagerImpl();
+        
+        BasicDataSource bsd = new BasicDataSource();
+        bsd.setUrl(URL);
+        this.dataSource = bsd;
+        manager = new MovieManagerImpl(bsd);
     }
     
     @After
@@ -158,10 +164,10 @@ public class MovieManagerTest {
             //OK
         }
 
-        //try movie with year less then zero
+        //try movie with null title
         movie = newMovie();
         try {
-            movie.setTitle("");
+            movie.setTitle(null);
             manager.createMovie(movie);
             manager.updateMovie(movie);
             fail();

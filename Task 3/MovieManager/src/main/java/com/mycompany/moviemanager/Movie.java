@@ -50,10 +50,10 @@ public class Movie {
         this.title = null;
         this.year = 0;
         this.genre = null;
+        this.length = 0;
         this.director = null;
         this.writer = null;
         this.cast = null;
-        this.length = 0;
     }
     
     /**

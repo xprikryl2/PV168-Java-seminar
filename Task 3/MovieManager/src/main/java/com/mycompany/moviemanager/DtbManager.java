@@ -77,7 +77,7 @@ public class DtbManager {
             conn.prepareStatement("CREATE TABLE MOVIES (\n" +
                     "id INTEGER NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,\n" +
                     "title VARCHAR(128) NOT NULL,\n" +
-                    "movieYear VARCHAR(128),\n" + 
+                    "movieYear INTEGER,\n" + 
                     "genre VARCHAR(128),\n" +
                     "length INTEGER\n" +
                     ")").executeUpdate();
