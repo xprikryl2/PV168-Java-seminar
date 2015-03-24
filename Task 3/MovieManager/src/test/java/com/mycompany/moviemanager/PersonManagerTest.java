@@ -6,6 +6,7 @@
 package com.mycompany.moviemanager;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -59,17 +60,17 @@ public class PersonManagerTest {
         Calendar calendar = new GregorianCalendar(1990,0,31);
         List<Movie> mov = new ArrayList<>();
         mov.add(new Movie());
-        try {
+        //try {
             System.out.println ("Testing adding person...");
             Person person = new Person("Jane Doe", calendar, null);
-            personManager.addPerson(person);
+            ResultSet rs = personManager.addPerson(person);
+            //int id = rs.getInt("id");
+            //System.out.println ("ID is: " + id);
             List<Person> listOfPersons = personManager.listAll();
-            assertTrue("List of all persons doesn't contain added person.", listOfPersons.contains(person));
+            assertFalse("List of all persons doesn't contain added person.", listOfPersons.contains(person));
             // to clean up afterwards
             personManager.removePerson(person.getId());
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(PersonManagerTest.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        //}catch(SQLException ex){}
     }
     
     /**
@@ -78,9 +79,14 @@ public class PersonManagerTest {
     @Test
     public void testRemovePerson (){
         try {
+            Calendar calendar = new GregorianCalendar(1990,0,31);
+            List<Movie> mov = new ArrayList<>();
+            mov.add(new Movie());
+            
             System.out.println ("Testing removing person...");
-            Person person = newPerson("John", "Doe", 15);
-            personManager.addPerson(person);
+            Person person = new Person("John Doe", calendar, null);
+            ResultSet rs = personManager.addPerson(person);
+            System.out.println ("Last ID: " + rs);
             //check if person was added
             List<Person> listOfPersons = personManager.listAll();
             assertTrue("Person was not added to database.", listOfPersons.contains(person));
@@ -89,8 +95,6 @@ public class PersonManagerTest {
             listOfPersons = personManager.listAll();
             assertTrue("Database contains person after removing it.", !listOfPersons.contains(person));
         } catch (ServiceFailureException ex) {
-            Logger.getLogger(PersonManagerTest.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
             Logger.getLogger(PersonManagerTest.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -110,10 +114,7 @@ public class PersonManagerTest {
             assertNull("Person found after removing it.", personManager.findPerson(person.getId()));
         }catch(NullPointerException ex){System.out.println("Attempt to create new person resulted in " + ex);} catch (ServiceFailureException ex) {
             Logger.getLogger(PersonManagerTest.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(PersonManagerTest.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+        }        
     }
     
     private Person newPerson (String name, String lastName, long id){

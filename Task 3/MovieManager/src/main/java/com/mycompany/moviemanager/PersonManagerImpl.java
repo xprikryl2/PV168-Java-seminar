@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.util.List;
 import javax.sql.DataSource;
 import org.apache.commons.dbcp2.BasicDataSource;
@@ -46,9 +47,7 @@ public class PersonManagerImpl {
      * Method to add person to the database.
      * @param person Instance of class Person to be added to database.
      */
-    public void addPerson (Person person) throws ServiceFailureException, ClassNotFoundException{
-        // to connect to dtb
-        //Class.forName(DRIVER);
+    public ResultSet addPerson (Person person) throws ServiceFailureException{
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy MMM dd");
         
         // checkvalidity of incoming data
@@ -69,6 +68,7 @@ public class PersonManagerImpl {
                     throw new ServiceFailureException ("More rows inserted when trying to insert new person: " + person);
                 }
                 ResultSet keys = st.getGeneratedKeys();
+                return keys;
             }catch (SQLException ex){   // in case error occures when trying to store data
                 log.error("Cannot store data to dtb!", ex);
                 conn.rollback();        // atomically fail and restore all changes made in this session
@@ -77,17 +77,15 @@ public class PersonManagerImpl {
             log.error("Database connection problems!", ex);
             throw new ServiceFailureException("Error when adding person!", ex);
         };
+        return null;
     }
     
     /**
      * Method to remove Person from database.
      * @param Person Instance of class Person to be removed from database.
      */
-    public void removePerson (long personID) throws ServiceFailureException, ClassNotFoundException{
-        // to connect to dtb
-        Class.forName(DRIVER);
-        
-        if (personID < 0){throw new IllegalArgumentException("Person ID lower then 0!");}
+    public void removePerson (long personID) throws ServiceFailureException{        
+        if (personID < 1){throw new IllegalArgumentException("Person ID lower then 0!");}
         
         // try to connect to dtb, if not possible or when it's done, session will be automatically terminated
         try(Connection conn = dataSource.getConnection()){
@@ -112,11 +110,8 @@ public class PersonManagerImpl {
      * @param personID ID of person (integer number > 0).
      * @return Person given by it's ID.
      */
-    public Person findPerson (long personID) throws ServiceFailureException, ClassNotFoundException{
-        // to connect to dtb
-        Class.forName(DRIVER);
-        
-        if (personID < 0){throw new IllegalArgumentException("Person ID lower then 0!");}
+    public Person findPerson (long personID) throws ServiceFailureException{        
+        if (personID < 1){throw new IllegalArgumentException("Person ID lower then 0!");}
             
         // try to connect to dtb, if not possible or when it's done, session will be automatically terminated
         try(Connection conn = dataSource.getConnection()){
@@ -151,7 +146,7 @@ public class PersonManagerImpl {
         
         person.setId(rs.getLong("id"));
         person.setName(rs.getString("name"));
-        //person.setBirth(rs.getString("birthday"));
+        person.setBirth(rs.getObject("birthday", GregorianCalendar.class));
         person.setAffiliatedWithMovies((List<Movie>) rs.getArray("movies"));
         
         return person;
@@ -161,8 +156,7 @@ public class PersonManagerImpl {
      * Method to update person profile in the database.
      * @param person Data and person to be updated.
      */
-    public void updatePerson (Person person) throws ServiceFailureException, ClassNotFoundException{
-        Class.forName(DRIVER);
+    public void updatePerson (Person person) throws ServiceFailureException{
         if (person == null){throw new IllegalArgumentException ("Person pointer is null!");}
         else if (person.getName().equals(null) || person.getName() == ""){throw new IllegalArgumentException ("Person name is empty!");}
         
@@ -191,11 +185,9 @@ public class PersonManagerImpl {
      * Method to list all person in the database.
      * @return List<Person> containing all persons in the database.
      */
-    public List<Person> listAll() throws ClassNotFoundException{
-        Class.forName(DRIVER);
-        
+    public List<Person> listAll() throws ServiceFailureException{        
         try(Connection conn = dataSource.getConnection()){
-            try (PreparedStatement st = conn.prepareStatement("SELECT id,name,birthday FROM persons")) {
+            try (PreparedStatement st = conn.prepareStatement("SELECT id,name FROM PERSONS")) {
                 ResultSet rs = st.executeQuery();
                 List<Person> result = new ArrayList<>();
                 while (rs.next()) {
