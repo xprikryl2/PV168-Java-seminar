@@ -26,15 +26,16 @@ public class DtbManager {
     public static void main(String[] args) throws ServiceFailureException, ClassNotFoundException{
         System.out.println("this is main");
 
-        /*
-        try{
-            createTablePersons();
-        }catch(ClassNotFoundException ex){}
-        */
-        /*try{
-            createTableMovies();
-        }catch(ClassNotFoundException ex){}
-                */
+        //Create tables
+        //try{createTablePersons();       } catch(ClassNotFoundException ex){}
+        //try{createTableMovies();        } catch(ClassNotFoundException ex){}
+        //try{createTableRelationships(); } catch(ClassNotFoundException ex){}
+        
+        //Drop tables
+        //try{dropTablePersons();         } catch(ClassNotFoundException ex){}
+        //try{dropTableMovies();          } catch(ClassNotFoundException ex){}
+        //try{dropTableRelationships();   } catch(ClassNotFoundException ex){}
+                
     }
     
     public static void createTablePersons() throws ClassNotFoundException{
@@ -47,11 +48,24 @@ public class DtbManager {
                     "id INTEGER NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,\n" +
                     "name VARCHAR(128) NOT NULL,\n" +
                     "birthday VARCHAR(128),\n" + 
-                    "movies VARCHAR(128)\n" +
+                    //"movies VARCHAR(128)\n" +
                     ")").executeUpdate();
         }catch (SQLException ex){
-            log.error("Database connection problems!", ex);
+            log.error("Error when creating table PERSONS!", ex);
             throw new ServiceFailureException("Error when creating table PERSONS!", ex);
+        };
+    }
+    
+    public static void dropTablePersons() throws ClassNotFoundException{
+        // to connect to dtb
+        Class.forName(DRIVER);
+        
+        // try to connect to dtb, if not possible or when it's done, session will be automatically terminated
+        try(Connection conn = DriverManager.getConnection(URL, LOGIN, PASSWORD);){
+            conn.prepareStatement("DROP TABLE PERSONS").executeUpdate();
+        }catch (SQLException ex){
+            log.error("Error when dropping table PERSONS!", ex);
+            throw new ServiceFailureException("Error when dropping table PERSONS!", ex);
         };
     }
     
@@ -61,19 +75,65 @@ public class DtbManager {
         
         // try to connect to dtb, if not possible or when it's done, session will be automatically terminated
         try(Connection conn = DriverManager.getConnection(URL, LOGIN, PASSWORD);){
-            conn.prepareStatement("CREATE TABLE PERSONS (\n" +
+            conn.prepareStatement("CREATE TABLE MOVIES (\n" +
                     "id INTEGER NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,\n" +
                     "title VARCHAR(128) NOT NULL,\n" +
                     "movieYear VARCHAR(128),\n" + 
                     "genre VARCHAR(128),\n" +
                     "length INTEGER,\n" +
-                    "director VARCHAR(128),\n" +
-                    "writer VARCHAR(128),\n" +
-                    "movieCast VARCHAR(256)\n" +
+                    //"director VARCHAR(128),\n" +
+                    //"writer VARCHAR(128),\n" +
+                    //"movieCast VARCHAR(256)\n" +
                     ")").executeUpdate();
         }catch (SQLException ex){
-            log.error("Database connection problems!", ex);
-            throw new ServiceFailureException("Error when creating table PERSONS!", ex);
+            log.error("Error when creating table MOVIES!", ex);
+            throw new ServiceFailureException("Error when creating table MOVIES!", ex);
+        };
+    }
+    
+        public static void dropTableMovies() throws ClassNotFoundException{
+        // to connect to dtb
+        Class.forName(DRIVER);
+        
+        // try to connect to dtb, if not possible or when it's done, session will be automatically terminated
+        try(Connection conn = DriverManager.getConnection(URL, LOGIN, PASSWORD);){
+            conn.prepareStatement("DROP TABLE MOVIES").executeUpdate();
+        }catch (SQLException ex){
+            log.error("Error when dropping table MOVIES!", ex);
+            throw new ServiceFailureException("Error when dropping table MOVIES!", ex);
+        };
+    }
+    
+    public static void createTableRelationships() throws ClassNotFoundException{
+        // to connect to dtb
+        Class.forName(DRIVER);
+        
+        // try to connect to dtb, if not possible or when it's done, session will be automatically terminated
+        try(Connection conn = DriverManager.getConnection(URL, LOGIN, PASSWORD);){
+            conn.prepareStatement("CREATE TABLE RELATIONSHIPS (\n" +
+                    "id INTEGER NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,\n" +
+                    "movieId INTEGER NOT NULL,\n" +
+                    "personId INTEGER NOT NULL,\n" + 
+                    "director BOOLEAN NOT NULL\n" + 
+                    "writer BOOLEAN NOT NULL\n" + 
+                    "cast BOOLEAN NOT NULL\n" +
+                    ")").executeUpdate();
+        }catch (SQLException ex){
+            log.error("Error when creating table RELATIONSHIPS!", ex);
+            throw new ServiceFailureException("Error when creating table RELATIONSHIPS!", ex);
+        };
+    }
+    
+    public static void dropTableRelationships() throws ClassNotFoundException{
+        // to connect to dtb
+        Class.forName(DRIVER);
+        
+        // try to connect to dtb, if not possible or when it's done, session will be automatically terminated
+        try(Connection conn = DriverManager.getConnection(URL, LOGIN, PASSWORD);){
+            conn.prepareStatement("DROP TABLE RELATIONSHIPS").executeUpdate();
+        }catch (SQLException ex){
+            log.error("Error when dropping table RELATIONSHIPS!", ex);
+            throw new ServiceFailureException("Error when dropping table RELATIONSHIPS!", ex);
         };
     }
 }
