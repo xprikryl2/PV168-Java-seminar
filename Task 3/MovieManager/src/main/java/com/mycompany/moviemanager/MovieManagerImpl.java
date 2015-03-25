@@ -2,12 +2,12 @@
  * Class to manage movies in the database.
  */
 package com.mycompany.moviemanager;
-import static com.mycompany.moviemanager.PersonManagerImpl.log;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 import javax.sql.DataSource;
 import org.apache.commons.dbcp2.BasicDataSource;
@@ -75,7 +75,7 @@ public class MovieManagerImpl implements MovieManager {
         }catch (SQLException ex){
             log.error("Database connection problems!", ex);
             throw new ServiceFailureException("Error when adding movie!", ex);
-        };
+        }
     }
 
     @Override
@@ -102,7 +102,7 @@ public class MovieManagerImpl implements MovieManager {
         }catch (SQLException ex){
             log.error("Database connection problems!", ex);
             throw new ServiceFailureException("Error when getting movie!", ex);
-        };
+        }
         return movie;
     }
     
@@ -182,7 +182,23 @@ public class MovieManagerImpl implements MovieManager {
 
     @Override
     public List<Movie> findAllMovies() throws ServiceFailureException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
+        try(Connection conn = dataSource.getConnection()){
+            try(PreparedStatement st = conn.prepareStatement("SELECT id, title, movieYear, genre, length FROM MOVIES")){
+                ResultSet rs = st.executeQuery();
+                List<Movie> result = new ArrayList<>();
+                while (rs.next()) {
+                    result.add(resultSetToMovie(rs));
+                }
+                return result;
+            }catch(SQLException ex){
+                log.error("Cannot lookup data in the dtb!");
+                throw new ServiceFailureException ("Error when trying to lookup all entities in the dtb.", ex);
+            }
+        }catch (SQLException ex){
+            log.error("Database connection problems!", ex);
+            throw new ServiceFailureException("Error when listing movies!", ex);
+        }    
     }
 
 }

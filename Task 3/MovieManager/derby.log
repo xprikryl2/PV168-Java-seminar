@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Wed Mar 25 01:01:50 CET 2015:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-4e3c-328e-000004af1e18 
+Wed Mar 25 01:25:10 CET 2015:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-4e51-8e57-000004a9c670 
 on database directory memory:C:\Users\Mlcit\Documents\GitHubProjects\PV168-Java-seminar\Task 3\MovieManager\MovieManagerDtb with class loader sun.misc.Launcher$AppClassLoader@42a57993 
 Loaded from file:/C:/Users/Mlcit/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
 java.vendor=Oracle Corporation
