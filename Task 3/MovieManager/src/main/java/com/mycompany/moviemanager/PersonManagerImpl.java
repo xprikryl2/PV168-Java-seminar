@@ -39,8 +39,13 @@ public class PersonManagerImpl {
             log.info("No DataSource received in constructor. Using default values.");
             BasicDataSource bsd = new BasicDataSource();
             bsd.setUrl(URL);
+            bsd.setUsername("administrator");
+            bsd.setPassword("admin");
+            this.dataSource = bsd;
         }
-        this.dataSource = dataSource;
+        else{
+            this.dataSource = dataSource;
+        }        
     }
     
     /**
@@ -70,7 +75,6 @@ public class PersonManagerImpl {
                 ResultSet keys = st.getGeneratedKeys();
                 keys.next();
                 person.setId(keys.getLong(1));
-                //person.setId(getKey(keys, person));
             }catch (SQLException ex){   // in case error occures when trying to store data
                 log.error("Cannot store data to dtb!", ex);
                 conn.rollback();        // atomically fail and restore all changes made in this session
@@ -79,27 +83,6 @@ public class PersonManagerImpl {
             log.error("Database connection problems!", ex);
             throw new ServiceFailureException("Error when adding person!", ex);
         };
-    }
-    
-    private Long getKey(ResultSet keyRS, Person grave) throws ServiceFailureException, SQLException {
-        if (keyRS.next()) {
-            if (keyRS.getMetaData().getColumnCount() != 1) {
-                throw new ServiceFailureException("Internal Error: Generated key"
-                        + "retriving failed when trying to insert grave " + grave
-                        + " - wrong key fields count: " + keyRS.getMetaData().getColumnCount());
-            }
-            Long result = keyRS.getLong(1);
-            if (keyRS.next()) {
-                throw new ServiceFailureException("Internal Error: Generated key"
-                        + "retriving failed when trying to insert grave " + grave
-                        + " - more keys found");
-            }
-            return result;
-        } else {
-            throw new ServiceFailureException("Internal Error: Generated key"
-                    + "retriving failed when trying to insert grave " + grave
-                    + " - no key found");
-        }
     }
     
     /**
