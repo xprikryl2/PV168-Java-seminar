@@ -47,7 +47,7 @@ public class PersonManagerImpl {
      * Method to add person to the database.
      * @param person Instance of class Person to be added to database.
      */
-    public ResultSet addPerson (Person person) throws ServiceFailureException{
+    public void addPerson (Person person) throws ServiceFailureException{
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy MMM dd");
         
         // checkvalidity of incoming data
@@ -68,7 +68,9 @@ public class PersonManagerImpl {
                     throw new ServiceFailureException ("More rows inserted when trying to insert new person: " + person);
                 }
                 ResultSet keys = st.getGeneratedKeys();
-                return keys;
+                keys.next();
+                person.setId(keys.getLong(1));
+                //person.setId(getKey(keys, person));
             }catch (SQLException ex){   // in case error occures when trying to store data
                 log.error("Cannot store data to dtb!", ex);
                 conn.rollback();        // atomically fail and restore all changes made in this session
@@ -77,7 +79,27 @@ public class PersonManagerImpl {
             log.error("Database connection problems!", ex);
             throw new ServiceFailureException("Error when adding person!", ex);
         };
-        return null;
+    }
+    
+    private Long getKey(ResultSet keyRS, Person grave) throws ServiceFailureException, SQLException {
+        if (keyRS.next()) {
+            if (keyRS.getMetaData().getColumnCount() != 1) {
+                throw new ServiceFailureException("Internal Error: Generated key"
+                        + "retriving failed when trying to insert grave " + grave
+                        + " - wrong key fields count: " + keyRS.getMetaData().getColumnCount());
+            }
+            Long result = keyRS.getLong(1);
+            if (keyRS.next()) {
+                throw new ServiceFailureException("Internal Error: Generated key"
+                        + "retriving failed when trying to insert grave " + grave
+                        + " - more keys found");
+            }
+            return result;
+        } else {
+            throw new ServiceFailureException("Internal Error: Generated key"
+                    + "retriving failed when trying to insert grave " + grave
+                    + " - no key found");
+        }
     }
     
     /**
@@ -111,25 +133,27 @@ public class PersonManagerImpl {
      * @return Person given by it's ID.
      */
     public Person findPerson (long personID) throws ServiceFailureException{        
-        if (personID < 1){throw new IllegalArgumentException("Person ID lower then 0!");}
+        if (personID < 1){throw new IllegalArgumentException("Person ID lower then 1!");}
+        
+        Person person = null;
             
         // try to connect to dtb, if not possible or when it's done, session will be automatically terminated
         try(Connection conn = dataSource.getConnection()){
-            try(PreparedStatement st = conn.prepareStatement("SELECT id, name, birthday FROM PERSONS WHERE id=?")){
+            try(PreparedStatement st = conn.prepareStatement("SELECT id, name, movies FROM persons WHERE id=?")){
                 st.setLong(1, personID);
                 ResultSet rs = st.executeQuery();
                 
                 if (rs.next()){
-                    Person person = resultSetToPerson(rs);
-                    if (rs.next()){
+                    person = resultSetToPerson(rs);
+                    /*if (rs.next()){
                         log.error("Found multiple entities with the same ID " + personID + " in the dtb!");
                         throw new ServiceFailureException ("More entities with the same ID " + personID + " found!");
                     }
-                    return person;
+                    return person;*/
                 }
-                else{
+                /*else{
                     return null;
-                }
+                }*/
             }catch(SQLException ex){
                 log.error("Cannot find data in dtb!", ex);
                 conn.rollback();
@@ -138,7 +162,7 @@ public class PersonManagerImpl {
             log.error("Database connection problems!", ex);
             throw new ServiceFailureException("Error when searching for person!", ex);
         };
-        return null;
+        return person;
     }
     
     private Person resultSetToPerson (ResultSet rs) throws SQLException{
@@ -146,7 +170,7 @@ public class PersonManagerImpl {
         
         person.setId(rs.getLong("id"));
         person.setName(rs.getString("name"));
-        person.setBirth(rs.getObject("birthday", GregorianCalendar.class));
+        //person.setBirth(rs.getObject("birthday", GregorianCalendar.class));
         person.setAffiliatedWithMovies((List<Movie>) rs.getArray("movies"));
         
         return person;

@@ -15,7 +15,7 @@ import java.util.List;
  * @date 2015 4 3
  */
 public class Person {
-    private long id = 1;
+    private long id;
     private String name;
     private Calendar birth;
     private List<Movie> affiliatedWithMovies;
@@ -30,14 +30,14 @@ public class Person {
         this.name = name;
         this.birth = birth;
         this.affiliatedWithMovies = affiliatedWithMovies;
-        this.id = getId();
+        this.id = 1;
     }
     
     /**
      * Constructor of class Person.
      */
     public Person() {
-        this.id = getId();
+        this.id = 1;
         this.name = "";
         this.birth = null;
         this.affiliatedWithMovies = null;

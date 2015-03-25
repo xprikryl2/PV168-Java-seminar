@@ -31,13 +31,17 @@ public class PersonManagerTest {
     PersonManagerImpl personManager;
     private DataSource dataSource;
 
-    private static final String URL = "jdbc:derby:memory:MovieManagerDtb;create=true";
+    //private static final String URL = "jdbc:derby:memory:MovieManagerDtb;create=true";
+    private static final String URL = "jdbc:derby://localhost:1527/MovieManagerDtb;";
     
     @Before
     public void setUp() {
         BasicDataSource bsd = new BasicDataSource();
         bsd.setUrl(URL);
+        bsd.setUsername("administrator");
+        bsd.setPassword("admin");
         this.dataSource = bsd;
+        
         try (Connection conn = bsd.getConnection()) {
             conn.prepareStatement("CREATE TABLE PERSONS (\n" +
                     "id INTEGER NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,\n" +
@@ -57,19 +61,22 @@ public class PersonManagerTest {
      */
     @Test
     public void testAddPerson() {
-        Calendar calendar = new GregorianCalendar(1990,0,31);
+        Calendar calendar = new GregorianCalendar(1991,0,31);
         List<Movie> mov = new ArrayList<>();
         mov.add(new Movie());
+        
+        Person person = new Person("Jane Doe", calendar, mov);
         //try {
             System.out.println ("Testing adding person...");
-            Person person = new Person("Jane Doe", calendar, null);
-            ResultSet rs = personManager.addPerson(person);
-            //int id = rs.getInt("id");
-            //System.out.println ("ID is: " + id);
-            List<Person> listOfPersons = personManager.listAll();
-            assertFalse("List of all persons doesn't contain added person.", listOfPersons.contains(person));
-            // to clean up afterwards
-            personManager.removePerson(person.getId());
+            
+            personManager.addPerson(person);
+            System.out.println ("ID: " + person.getId());
+            assertNotNull(person.getId());
+            Person res = personManager.findPerson(person.getId());
+            if (res == null){System.out.println ("dasdasdas");}
+            assertNotNull(res);
+            assertNotNull(res.getId());
+            assertEquals(person, res);
         //}catch(SQLException ex){}
     }
     
@@ -79,14 +86,13 @@ public class PersonManagerTest {
     @Test
     public void testRemovePerson (){
         try {
-            Calendar calendar = new GregorianCalendar(1990,0,31);
+            Calendar calendar = new GregorianCalendar(1992,0,31);
             List<Movie> mov = new ArrayList<>();
             mov.add(new Movie());
             
             System.out.println ("Testing removing person...");
-            Person person = new Person("John Doe", calendar, null);
-            ResultSet rs = personManager.addPerson(person);
-            System.out.println ("Last ID: " + rs);
+            Person person = new Person("John Doe", calendar, mov);
+            personManager.addPerson(person);
             //check if person was added
             List<Person> listOfPersons = personManager.listAll();
             assertTrue("Person was not added to database.", listOfPersons.contains(person));
