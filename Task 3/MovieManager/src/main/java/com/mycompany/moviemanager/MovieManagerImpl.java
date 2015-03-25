@@ -81,6 +81,7 @@ public class MovieManagerImpl implements MovieManager {
     @Override
     public Movie getMovie(Long id) throws ServiceFailureException{
         
+        if (id == null){throw new IllegalArgumentException("Person ID is null!");}
         if (id < 1){throw new IllegalArgumentException("Movie id is lower then 1!");}
         
         Movie movie = null;
@@ -158,6 +159,7 @@ public class MovieManagerImpl implements MovieManager {
     @Override
     public void deleteMovie(Long id) throws ServiceFailureException {
         
+        if (id == null){throw new IllegalArgumentException("Person ID is null!");}
         if (id < 1){throw new IllegalArgumentException("Person ID lower then 1!");}
         
         // try to connect to dtb, if not possible or when it's done, session will be automatically terminated

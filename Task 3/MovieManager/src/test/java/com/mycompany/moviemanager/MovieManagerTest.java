@@ -133,7 +133,7 @@ public class MovieManagerTest {
         
         //try create movie with assigned id
         movie = newMovie();
-        movie.setId(1l);
+        movie.setId(new Long(1));
         try {
             manager.createMovie(movie);
             fail();
@@ -141,7 +141,7 @@ public class MovieManagerTest {
             //OK
         }
         
-        //try delete movie with null id
+        //try update movie with null id
         try {
             movie = newMovie();
             manager.updateMovie(movie);
@@ -152,16 +152,7 @@ public class MovieManagerTest {
         
         //try update movie with null parametr
         try {
-            manager.createMovie(null);
-            fail();
-        } catch (IllegalArgumentException ex) {
-            //OK
-        }
-        
-        //try update movie with null id
-        try {
-            movie = newMovie();
-            manager.updateMovie(movie);
+            manager.updateMovie(null);
             fail();
         } catch (IllegalArgumentException ex) {
             //OK
@@ -195,6 +186,15 @@ public class MovieManagerTest {
             movie.setLength(-1);
             manager.createMovie(movie);
             manager.updateMovie(movie);
+            fail();
+        } catch (IllegalArgumentException ex) {
+            //OK
+        }
+        
+        //try delete and get movie with null parametr
+        try {
+            manager.getMovie(null);
+            manager.deleteMovie(null);
             fail();
         } catch (IllegalArgumentException ex) {
             //OK
