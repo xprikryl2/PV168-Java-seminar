@@ -3,16 +3,13 @@
  */
 package com.mycompany.moviemanager;
 
-import java.sql.Array;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.GregorianCalendar;
 import java.util.List;
 import javax.sql.DataSource;
 import org.apache.commons.dbcp2.BasicDataSource;
@@ -33,6 +30,7 @@ public class PersonManagerImpl {
     private static final String PASSWORD = "admin";
     private static final String URL = "jdbc:derby://localhost:1527/MovieManagerDtb;";
     private static final String DRIVER = "org.apache.derby.jdbc.ClientDriver";
+    private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy MMM dd");
     
     public PersonManagerImpl (DataSource dataSource){
         if (dataSource == null){
@@ -52,10 +50,8 @@ public class PersonManagerImpl {
      * Method to add person to the database.
      * @param person Instance of class Person to be added to database.
      */
-    public void addPerson (Person person) throws ServiceFailureException{
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy MMM dd");
-        
-        // checkvalidity of incoming data
+    public void addPerson (Person person) throws ServiceFailureException{        
+        // check validity of incoming data
         if (person == null){throw new IllegalArgumentException ("Person is set to null!");}
         else if (person.getName().equals(null) || person.getName() == ""){throw new IllegalArgumentException ("Name of the person is not set.");}
         
@@ -66,7 +62,7 @@ public class PersonManagerImpl {
                 //st.setInt(1, getId());                
                 st.setString(1, person.getName());
                 st.setString(2, sdf.format(person.getBirth().getTime()));  //TODO: how to store calendar type in dtb?
-                //st.setArray(3, (Array) person.getAffiliatedWithMovies());   // TODO: check if this works and it's viable
+                //st.setString(3, person.getAffiliatedWithMovies().toString());   // TODO: check if this works and it's viable
                 // checks if only one row was updated (meaning only one entry to table as made)
                 if(st.executeUpdate() != 1){
                     log.error("More rows inserted when trying to insert new person!");
@@ -122,7 +118,7 @@ public class PersonManagerImpl {
             
         // try to connect to dtb, if not possible or when it's done, session will be automatically terminated
         try(Connection conn = dataSource.getConnection()){
-            try(PreparedStatement st = conn.prepareStatement("SELECT id, name, movies FROM persons WHERE id=?")){
+            try(PreparedStatement st = conn.prepareStatement("SELECT id, name FROM persons WHERE id=?")){
                 st.setLong(1, personID);
                 ResultSet rs = st.executeQuery();
                 
@@ -154,7 +150,7 @@ public class PersonManagerImpl {
         person.setId(rs.getLong("id"));
         person.setName(rs.getString("name"));
         //person.setBirth(rs.getObject("birthday", GregorianCalendar.class));
-        person.setAffiliatedWithMovies((List<Movie>) rs.getArray("movies"));
+        //person.setAffiliatedWithMovies((List<Movie>) rs.getArray("movies"));
         
         return person;
     }
@@ -169,10 +165,10 @@ public class PersonManagerImpl {
         
         // try to connect to dtb, if not possible or when it's done, session will be automatically terminated
         try(Connection conn = dataSource.getConnection()){
-            try(PreparedStatement st = conn.prepareStatement("UPDATE persons SET name=?, birthday=?, movies=? WHERE id=?")){
+            try(PreparedStatement st = conn.prepareStatement("UPDATE persons SET name=?, birthday=? WHERE id=?")){
                 st.setString(1, person.getName());
-                st.setString(2, person.getBirth().toString());  // TODO
-                st.setArray(3, (Array)person.getAffiliatedWithMovies());    // TODO
+                st.setString(2, sdf.format(person.getBirth().getTime()));  // TODO
+                //st.setArray(3, (Array)person.getAffiliatedWithMovies());    // TODO
                 
                 if (st.executeUpdate() != 1){
                     log.error("Updating more entities then supposed to!");

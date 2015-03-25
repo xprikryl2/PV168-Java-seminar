@@ -15,7 +15,7 @@ import java.util.List;
  * @date 2015 4 3
  */
 public class Person {
-    private long id;
+    private Long id;
     private String name;
     private Calendar birth;
     private List<Movie> affiliatedWithMovies;
@@ -26,18 +26,17 @@ public class Person {
      * @param birth Date object with date of birth of he person
      * @param affiliatedWithMovies List<Movie> with all the movies related to this person.
      */
-    public Person(String name, Calendar birth, List<Movie> affiliatedWithMovies) {
+    public Person(String name, Calendar birth) {
         this.name = name;
         this.birth = birth;
-        this.affiliatedWithMovies = affiliatedWithMovies;
-        this.id = 1;
+        this.id = null;
     }
     
     /**
      * Constructor of class Person.
      */
     public Person() {
-        this.id = 1;
+        this.id = null;
         this.name = "";
         this.birth = null;
         this.affiliatedWithMovies = null;
@@ -71,7 +70,7 @@ public class Person {
      * Method to get ID of the person.
      * @return Integer unique number representing the person.
      */
-    public long getId() {
+    public Long getId() {
         return this.id;
     }
 
@@ -102,5 +101,27 @@ public class Person {
     
     public void setId (long id){
         this.id = id;
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Person other = (Person) obj;
+        if (this.id != other.id && (this.id == null || !this.id.equals(other.id))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 97 * hash + (this.id != null ? this.id.hashCode() : 0);
+        return hash;
     }
 }

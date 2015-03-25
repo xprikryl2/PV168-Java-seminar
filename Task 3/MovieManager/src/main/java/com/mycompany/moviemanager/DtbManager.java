@@ -8,8 +8,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 /**
  *
@@ -25,6 +27,17 @@ public class DtbManager {
     
     public static void main(String[] args) throws ServiceFailureException, ClassNotFoundException{
         System.out.println("this is main");
+        PersonManagerImpl mngr = new PersonManagerImpl(null);
+        //Calendar calendar = new GregorianCalendar(1992,0,31);
+        //    List<Movie> mov = new ArrayList<>();
+         //   mov.add(new Movie());
+            
+           // Person person = new Person("Mlcit", calendar, mov);
+        
+        //mngr.addPerson(person);
+        //System.out.println("ID: " + person.getId());
+        //mngr.removePerson(103);
+        //System.out.println (p.getName());
 
         //Create tables
         //try{createTablePersons();       } catch(ClassNotFoundException ex){}
