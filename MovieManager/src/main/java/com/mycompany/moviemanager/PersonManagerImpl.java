@@ -4,7 +4,6 @@
 package com.mycompany.moviemanager;
 
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -17,6 +16,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -53,6 +53,7 @@ public class PersonManagerImpl implements PersonManager{
      * @param person Instance of class Person to be added to database.
      */
     @Override
+    @Transactional
     public void addPerson (Person person) throws ServiceFailureException{        
         // check validity of incoming data
         if (person == null){throw new IllegalArgumentException ("Person is set to null!");}
@@ -74,6 +75,7 @@ public class PersonManagerImpl implements PersonManager{
      * @param personID ID of Person to be removed from database.
      */
     @Override
+    @Transactional
     public void removePerson (long personID) throws ServiceFailureException{        
         if (personID < 1){throw new IllegalArgumentException("Person ID lower then 0!");}
         
@@ -101,6 +103,7 @@ public class PersonManagerImpl implements PersonManager{
      * @param person Data and person to be updated.
      */
     @Override
+    @Transactional
     public void updatePerson (Person person) throws ServiceFailureException{
         if (person == null){throw new IllegalArgumentException ("Person pointer is null!");}
         else if (person.getName().equals("")){throw new IllegalArgumentException ("Person name is empty!");}
