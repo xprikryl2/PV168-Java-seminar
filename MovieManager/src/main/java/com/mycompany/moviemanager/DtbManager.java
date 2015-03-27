@@ -12,6 +12,19 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+ 
+import javax.sql.DataSource;
+import java.io.IOException;
+import org.apache.commons.dbcp2.BasicDataSource;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy;
 
 /**
  *
@@ -28,26 +41,48 @@ public class DtbManager {
     public static void main(String[] args) throws ServiceFailureException, ClassNotFoundException{
         System.out.println("this is main");
         PersonManagerImpl mngr = new PersonManagerImpl(null);
-        //Calendar calendar = new GregorianCalendar(1992,0,31);
-        //    List<Movie> mov = new ArrayList<>();
-         //   mov.add(new Movie());
-            
-           // Person person = new Person("Mlcit", calendar, mov);
-        
-        //mngr.addPerson(person);
-        //System.out.println("ID: " + person.getId());
-        //mngr.removePerson(103);
-        //System.out.println (p.getName());
-
-        //Create tables
-        //try{createTablePersons();       } catch(ClassNotFoundException ex){}
-        //try{createTableMovies();        } catch(ClassNotFoundException ex){}
-        //try{createTableRelationships(); } catch(ClassNotFoundException ex){}
-        
-        //Drop tables
-        //try{dropTablePersons();         } catch(ClassNotFoundException ex){}
-        //try{dropTableMovies();          } catch(ClassNotFoundException ex){}
-        //try{dropTableRelationships();   } catch(ClassNotFoundException ex){}
                 
+    }
+    
+    @Configuration  //je to konfigurace pro Spring
+    @EnableTransactionManagement //bude řídit transakce u metod označených @Transactional
+    @PropertySource("classpath:myconf.properties") //načte konfiguraci z myconf.properties
+    public static class SpringConfig {
+ 
+        @Autowired
+        Environment env;
+ 
+        @Bean
+        public DataSource dataSource() {
+            BasicDataSource bds = new BasicDataSource(); //Apache DBCP connection pooling DataSource
+            bds.setDriverClassName(env.getProperty("jdbc.driver"));
+            bds.setUrl(env.getProperty("jdbc.url"));
+            bds.setUsername(env.getProperty("jdbc.user"));
+            bds.setPassword(env.getProperty("jdbc.password"));
+            return bds;
+        }
+ 
+        @Bean //potřeba pro @EnableTransactionManagement
+        public PlatformTransactionManager transactionManager() {
+            return new DataSourceTransactionManager(dataSource());
+        }
+ 
+        @Bean //náš manager, bude automaticky obalen řízením transakcí
+        public PersonManager personManager() {
+            return new PersonManagerImpl(dataSource());
+        }
+ 
+        @Bean
+        public MovieManager movieManager() {
+            // BookManagerImpl nepoužívá Spring JDBC, musíme mu vnutit spolupráci se Spring transakcemi
+            return new MovieManagerImpl(new TransactionAwareDataSourceProxy(dataSource()));
+        }
+ 
+        @Bean
+        public RelationshipManager leaseManager() {
+            RelationshipManagerImpl relationshipManager = new RelationshipManagerImpl(dataSource());
+            
+            return relationshipManager;
+        }
     }
 }

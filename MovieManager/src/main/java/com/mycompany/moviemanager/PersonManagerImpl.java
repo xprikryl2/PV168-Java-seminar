@@ -3,20 +3,14 @@
  */
 package com.mycompany.moviemanager;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
 import javax.sql.DataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,37 +22,21 @@ import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
  *
  * @author Lukáš Šrom
  * @author Jakub Mlčák
- * @date 2015 4 3
+ * @date 2015 3 27
  */
 public class PersonManagerImpl implements PersonManager{
-    //private final DataSource dataSource;
     final static Logger log = LoggerFactory.getLogger(PersonManagerImpl.class);
     private final JdbcTemplate jdbc;
-    
-    private static final String LOGIN = "administrator";
-    private static final String PASSWORD = "admin";
-    private static final String URL = "jdbc:derby://localhost:1527/MovieManagerDtb;";
-    private static final String DRIVER = "org.apache.derby.jdbc.ClientDriver";
     private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy MMM dd");
     
     public PersonManagerImpl (DataSource dataSource){
-            if (dataSource == null){            
-                try {
-                    dataSource.getConnection(LOGIN, PASSWORD);
-                } catch (SQLException ex) {
-                    java.util.logging.Logger.getLogger(PersonManagerImpl.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                this.jdbc = new JdbcTemplate(dataSource);
-            }
-            else{
-                this.jdbc = new JdbcTemplate(dataSource);
-            }      
+        this.jdbc = new JdbcTemplate(dataSource);
     }
     
     /**
      *
      */
-    public static final RowMapper<Person> personMapper = (rs, rowNum) -> {
+    public static final RowMapper<Person> personMapper = (ResultSet rs, int rowNum) -> {
         Long id = rs.getLong("id");
         String name = rs.getString("name");
         Calendar cal = Calendar.getInstance();
@@ -118,17 +96,6 @@ public class PersonManagerImpl implements PersonManager{
         return list.isEmpty() ? null : list.get(0);
     }
     
-    private Person resultSetToPerson (ResultSet rs) throws SQLException{
-        Person person = new Person();
-        
-        person.setId(rs.getLong("id"));
-        person.setName(rs.getString("name"));
-        //person.setBirth(rs.getObject("birthday", GregorianCalendar.class));
-        //person.setAffiliatedWithMovies((List<Movie>) rs.getArray("movies"));
-        
-        return person;
-    }
-    
     /**
      * Method to update person profile in the database.
      * @param person Data and person to be updated.
@@ -144,7 +111,7 @@ public class PersonManagerImpl implements PersonManager{
             System.out.println (sdf.format(person.getBirth().getTime()));
             Person p = findPerson(person.getId());
             System.out.println (p.getId());
-        jdbc.update("UPDATE persons SET name=?, birthday=? WHERE id=?", person.getName(), sdf.format(person.getBirth().getTime()).toString());
+        jdbc.update("UPDATE persons SET name=?, birthday=? WHERE id=?", person.getName(), sdf.format(person.getBirth().getTime()));
         //System.out.println ("N is: " + n);
         //if (n != 1) throw new ServiceFailureException("Person " + person + " not updated");
     }
@@ -153,6 +120,7 @@ public class PersonManagerImpl implements PersonManager{
      * Method to list all person in the database.
      * @return List<Person> containing all persons in the database.
      */
+    @Override
     public List<Person> listAll() throws ServiceFailureException{    
         log.debug("listAllPersons()");
         return jdbc.query("SELECT * FROM persons", personMapper);

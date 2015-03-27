@@ -31,8 +31,8 @@ public class PersonManagerTest {
     PersonManagerImpl personManager;
     private DataSource dataSource;
 
-    //private static final String URL = "jdbc:derby:memory:MovieManagerDtb;create=true";
-    private static final String URL = "jdbc:derby://localhost:1527/MovieManagerDtb;";
+    private static final String URL = "jdbc:derby:memory:MovieManagerDtb;create=true";
+    //private static final String URL = "jdbc:derby://localhost:1527/MovieManagerDtb;";
     
     @Before
     public void setUp() {
@@ -63,28 +63,15 @@ public class PersonManagerTest {
         System.out.println ("Testing adding person...");
         
         Calendar calendar = new GregorianCalendar(1995,11,1);        
-        //Person person = new Person("Jane Doe (Add)", calendar);
-            /*
-            personManager.addPerson(person);
-            System.out.println ("ID: " + person.getId());
-            assertNotNull(person.getId());
-            Person res = personManager.findPerson(person.getId());
-            assertNotNull(res);
-            assertNotNull(res.getId());
-            assertEquals(person, res);*/
             
-            Person person = new Person("Jane Doe (Add)", calendar);
-            personManager.addPerson(person);
+        Person person = new Person("Jane Doe (Add)", calendar);
+        personManager.addPerson(person);
 
-            Long id = person.getId();
-            System.out.println ("Tested ID " + id);
-            assertNotNull(id);
-            Person result = personManager.findPerson(id);
-                System.out.println (result.getName());
-                System.out.println (result.getBirth());
-                System.out.println (result.getId());
-            assertEquals(person.getId(), result.getId());
-            assertNotSame(person, result);
+        Long id = person.getId();
+        assertNotNull(id);
+        Person result = personManager.findPerson(id);
+        assertEquals(person.getId(), result.getId());
+        assertNotSame(person, result);
     }
     
     /**
@@ -94,14 +81,13 @@ public class PersonManagerTest {
     public void testRemovePerson (){
         System.out.println ("Testing removing person...");
         try {
-            Calendar calendar = new GregorianCalendar(1987,5,17);
-            
+            Calendar calendar = new GregorianCalendar(1987,5,17);            
             Person person = new Person("John Doe (Remove)", calendar);
+            
             personManager.addPerson(person);
             //check if person was added
             Person res = personManager.findPerson(person.getId());
             assertNotNull(res);
-            System.out.println(res.getName());
             assertTrue(person.equals(res));
             // if person was added remove it
             personManager.removePerson(person.getId());
@@ -120,6 +106,7 @@ public class PersonManagerTest {
         try{
             Calendar calendar = new GregorianCalendar(1933,0,9);
             Person person = new Person("Wilbur Smith (Find)", calendar);
+            
             personManager.addPerson(person);
             Person addedPerson = personManager.findPerson(person.getId());
             assertNotSame("Created person is not the same as found person.", person, addedPerson);
@@ -143,19 +130,13 @@ public class PersonManagerTest {
         Person updatedPerson = new Person("James Tiberius Kirk", updatedCalendar);
         
         personManager.addPerson(person);
-        long id = person.getId();
+        Long id = person.getId();
         Person res = personManager.findPerson(id);
         res.setName("James Tiberius Kirk");
         res.setBirth(calendar);
         res.setId(person.getId());
         personManager.updatePerson(res);
         assertEquals(person.getName(), res.getName());
-        
-        //updatedPerson.setId(person.getId());
-        //updatedPerson.setName("James");
-        //updatedPerson.setBirth(updatedCalendar);
-        //personManager.updatePerson(updatedPerson);
-        //assertEquals("James Tiberius Kirk", personManager.findPerson(person.getId()).getName());
         
     }
     
