@@ -7,6 +7,9 @@ package com.mycompany.moviemanager;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import javax.sql.DataSource;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.junit.After;
@@ -130,7 +133,7 @@ public class MovieManagerTest {
         
         //try create movie with assigned id
         movie = newMovie();
-        movie.setId(new Long(1));
+        movie.setId(1l);
         try {
             manager.createMovie(movie);
             fail();
@@ -138,7 +141,7 @@ public class MovieManagerTest {
             //OK
         }
         
-        //try update movie with null id
+        //try delete movie with null id
         try {
             movie = newMovie();
             manager.updateMovie(movie);
@@ -149,7 +152,16 @@ public class MovieManagerTest {
         
         //try update movie with null parametr
         try {
-            manager.updateMovie(null);
+            manager.createMovie(null);
+            fail();
+        } catch (IllegalArgumentException ex) {
+            //OK
+        }
+        
+        //try update movie with null id
+        try {
+            movie = newMovie();
+            manager.updateMovie(movie);
             fail();
         } catch (IllegalArgumentException ex) {
             //OK
@@ -183,15 +195,6 @@ public class MovieManagerTest {
             movie.setLength(-1);
             manager.createMovie(movie);
             manager.updateMovie(movie);
-            fail();
-        } catch (IllegalArgumentException ex) {
-            //OK
-        }
-        
-        //try delete and get movie with null parametr
-        try {
-            manager.getMovie(null);
-            manager.deleteMovie(null);
             fail();
         } catch (IllegalArgumentException ex) {
             //OK

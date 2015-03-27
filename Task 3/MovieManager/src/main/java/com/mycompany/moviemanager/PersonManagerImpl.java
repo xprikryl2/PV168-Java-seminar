@@ -22,7 +22,7 @@ import org.slf4j.LoggerFactory;
  * @author Jakub Mlčák
  * @date 2015 4 3
  */
-public class PersonManagerImpl {
+public class PersonManagerImpl implements PersonManager{
     private final DataSource dataSource;
     final static Logger log = LoggerFactory.getLogger(PersonManagerImpl.class);
     
@@ -43,13 +43,14 @@ public class PersonManagerImpl {
         }
         else{
             this.dataSource = dataSource;
-        }        
+        }
     }
     
     /**
      * Method to add person to the database.
      * @param person Instance of class Person to be added to database.
      */
+    @Override
     public void addPerson (Person person) throws ServiceFailureException{        
         // check validity of incoming data
         if (person == null){throw new IllegalArgumentException ("Person is set to null!");}
@@ -83,8 +84,9 @@ public class PersonManagerImpl {
     
     /**
      * Method to remove Person from database.
-     * @param Person Instance of class Person to be removed from database.
+     * @param personID ID of Person to be removed from database.
      */
+    @Override
     public void removePerson (long personID) throws ServiceFailureException{        
         if (personID < 1){throw new IllegalArgumentException("Person ID lower then 0!");}
         
@@ -111,6 +113,7 @@ public class PersonManagerImpl {
      * @param personID ID of person (integer number > 0).
      * @return Person given by it's ID.
      */
+    @Override
     public Person findPerson (long personID) throws ServiceFailureException{        
         if (personID < 1){throw new IllegalArgumentException("Person ID lower then 1!");}
         
@@ -118,7 +121,7 @@ public class PersonManagerImpl {
             
         // try to connect to dtb, if not possible or when it's done, session will be automatically terminated
         try(Connection conn = dataSource.getConnection()){
-            try(PreparedStatement st = conn.prepareStatement("SELECT id, name FROM persons WHERE id=?")){
+            try(PreparedStatement st = conn.prepareStatement("SELECT id, name FROM persons WHERE id=?", Statement.RETURN_GENERATED_KEYS)){
                 st.setLong(1, personID);
                 ResultSet rs = st.executeQuery();
                 
@@ -159,16 +162,16 @@ public class PersonManagerImpl {
      * Method to update person profile in the database.
      * @param person Data and person to be updated.
      */
+    @Override
     public void updatePerson (Person person) throws ServiceFailureException{
         if (person == null){throw new IllegalArgumentException ("Person pointer is null!");}
-        else if (person.getName().equals(null) || person.getName() == ""){throw new IllegalArgumentException ("Person name is empty!");}
+        else if (person.getName().equals("")){throw new IllegalArgumentException ("Person name is empty!");}
         
         // try to connect to dtb, if not possible or when it's done, session will be automatically terminated
         try(Connection conn = dataSource.getConnection()){
-            try(PreparedStatement st = conn.prepareStatement("UPDATE persons SET name=?, birthday=? WHERE id=?")){
+            try(PreparedStatement st = conn.prepareStatement("UPDATE persons SET name=?, birthday=? WHERE id=?", Statement.RETURN_GENERATED_KEYS)){
                 st.setString(1, person.getName());
                 st.setString(2, sdf.format(person.getBirth().getTime()));  // TODO
-                //st.setArray(3, (Array)person.getAffiliatedWithMovies());    // TODO
                 
                 if (st.executeUpdate() != 1){
                     log.error("Updating more entities then supposed to!");

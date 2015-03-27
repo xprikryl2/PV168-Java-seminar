@@ -46,8 +46,7 @@ public class PersonManagerTest {
             conn.prepareStatement("CREATE TABLE PERSONS (\n" +
                     "id INTEGER NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,\n" +
                     "name VARCHAR(128) NOT NULL,\n" +
-                    "birthday VARCHAR(128),\n" + 
-                    "movies VARCHAR(128)\n" +
+                    "birthday VARCHAR(128)\n" + 
                     ")").executeUpdate();
         }catch(SQLException ex){}
         
@@ -61,23 +60,18 @@ public class PersonManagerTest {
      */
     @Test
     public void testAddPerson() {
-        Calendar calendar = new GregorianCalendar(1991,0,31);
-        List<Movie> mov = new ArrayList<>();
-        mov.add(new Movie());
+        System.out.println ("Testing adding person...");
         
-        Person person = new Person("Jane Doe", calendar, mov);
-        //try {
-            System.out.println ("Testing adding person...");
+        Calendar calendar = new GregorianCalendar(1995,11,1);        
+        Person person = new Person("Jane Doe (Add)", calendar);
             
             personManager.addPerson(person);
             System.out.println ("ID: " + person.getId());
             assertNotNull(person.getId());
             Person res = personManager.findPerson(person.getId());
-            if (res == null){System.out.println ("dasdasdas");}
             assertNotNull(res);
             assertNotNull(res.getId());
             assertEquals(person, res);
-        //}catch(SQLException ex){}
     }
     
     /**
@@ -85,21 +79,20 @@ public class PersonManagerTest {
      */
     @Test
     public void testRemovePerson (){
+        System.out.println ("Testing removing person...");
         try {
-            Calendar calendar = new GregorianCalendar(1992,0,31);
-            List<Movie> mov = new ArrayList<>();
-            mov.add(new Movie());
+            Calendar calendar = new GregorianCalendar(1987,5,17);
             
-            System.out.println ("Testing removing person...");
-            Person person = new Person("John Doe", calendar, mov);
+            Person person = new Person("John Doe (Remove)", calendar);
             personManager.addPerson(person);
             //check if person was added
-            List<Person> listOfPersons = personManager.listAll();
-            assertTrue("Person was not added to database.", listOfPersons.contains(person));
+            Person res = personManager.findPerson(person.getId());
+            assertNotNull(res);
+            System.out.println(res.getName());
+            assertTrue(person.equals(res));
             // if person was added remove it
             personManager.removePerson(person.getId());
-            listOfPersons = personManager.listAll();
-            assertTrue("Database contains person after removing it.", !listOfPersons.contains(person));
+            assertNull(personManager.findPerson(person.getId()));
         } catch (ServiceFailureException ex) {
             Logger.getLogger(PersonManagerTest.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -112,8 +105,9 @@ public class PersonManagerTest {
     public void testFindPersonWithID(){
         System.out.println ("Testing searching for person by ID...");
         try{
-            Person person = new Person();
-            assertNotNull("Id of person was null.", person.getId());
+            Calendar calendar = new GregorianCalendar(1933,0,9);
+            Person person = new Person("Wilbur Smith (Find)", calendar);
+            personManager.addPerson(person);
             Person addedPerson = personManager.findPerson(person.getId());
             assertNotSame("Created person is not the same as found person.", person, addedPerson);
             personManager.removePerson(person.getId());
@@ -121,6 +115,35 @@ public class PersonManagerTest {
         }catch(NullPointerException ex){System.out.println("Attempt to create new person resulted in " + ex);} catch (ServiceFailureException ex) {
             Logger.getLogger(PersonManagerTest.class.getName()).log(Level.SEVERE, null, ex);
         }        
+    }
+    
+    /**
+     * Unit test for updating person.
+     */
+    @Test
+    public void testUpdatePerson (){
+        System.out.println ("Testing updating person...");
+        
+        Calendar calendar = new GregorianCalendar(1956, 9, 19);
+        Calendar updatedCalendar = new GregorianCalendar(1955, 9, 19);
+        Person person = new Person("James T. Kirk (Update)", calendar);
+        Person updatedPerson = new Person("James Tiberius Kirk", updatedCalendar);
+        
+        personManager.addPerson(person);
+        long id = person.getId();
+        Person res = personManager.findPerson(id);
+        res.setName("James Tiberius Kirk");
+        res.setBirth(calendar);
+        res.setId(person.getId());
+        personManager.updatePerson(person);
+        assertEquals(person.getName(), res.getName());
+        
+        //updatedPerson.setId(person.getId());
+        //updatedPerson.setName("James");
+        //updatedPerson.setBirth(updatedCalendar);
+        //personManager.updatePerson(updatedPerson);
+        //assertEquals("James Tiberius Kirk", personManager.findPerson(person.getId()).getName());
+        
     }
     
     private Person newPerson (String name, String lastName, long id){
