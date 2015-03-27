@@ -36,7 +36,7 @@ public class PersonManagerImpl implements PersonManager{
     /**
      *
      */
-    public static final RowMapper<Person> personMapper = (ResultSet rs, int rowNum) -> {
+    private static final RowMapper<Person> personMapper = (ResultSet rs, int rowNum) -> {
         Long id = rs.getLong("id");
         String name = rs.getString("name");
         Calendar cal = Calendar.getInstance();
@@ -65,9 +65,7 @@ public class PersonManagerImpl implements PersonManager{
         pars.put("birthday", sdf.format(person.getBirth().getTime()));
         
         Long id = (Long)new SimpleJdbcInsert(jdbc).withTableName("persons").usingGeneratedKeyColumns("id").executeAndReturnKey(pars).longValue();
-        System.out.println("ID " + id);
         person.setId(id);
-        System.out.println (person.getId());
     }
     
     /**

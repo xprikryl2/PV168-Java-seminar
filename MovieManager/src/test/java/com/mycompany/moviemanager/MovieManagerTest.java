@@ -7,9 +7,6 @@ package com.mycompany.moviemanager;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
 import javax.sql.DataSource;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.junit.After;
@@ -73,7 +70,6 @@ public class MovieManagerTest {
         Movie result = manager.getMovie(movieId);
         assertEquals(movie, result);
         assertNotSame(movie, result);
-        assertDeepEquals(movie, result);
     }
     
     @Test
@@ -207,7 +203,8 @@ public class MovieManagerTest {
             movie.setTitle("film");
             movie.setYear(2015);
             movie.setLength(120);
-    /*            List<String> genreList = new ArrayList<>();
+    /*      List<String> genreList = new ArrayList<>();
+            genre.add("genre"));
                 genreList.add("Comedy");
             movie.setGenre(genreList);
                 List<Person> personList = new ArrayList<>();

@@ -9,11 +9,9 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Comparator;
 import java.util.GregorianCalendar;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sql.DataSource;
@@ -70,7 +68,7 @@ public class PersonManagerTest {
         Long id = person.getId();
         assertNotNull(id);
         Person result = personManager.findPerson(id);
-        assertEquals(person.getId(), result.getId());
+        assertEquals(person, result);
         assertNotSame(person, result);
     }
     

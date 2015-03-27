@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="4" failures="0" name="com.mycompany.moviemanager.PersonManagerTest" time="2.473" errors="1" skipped="0">
+<testsuite tests="4" failures="0" name="com.mycompany.moviemanager.PersonManagerTest" time="0.272" errors="1" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="D:\Programming\libs\Java\DevelopmentKit_8\jre\bin"/>
@@ -63,9 +63,8 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.mycompany.moviemanager.PersonManagerTest" name="testFindPersonWithID" time="0.873"/>
-  <testcase classname="com.mycompany.moviemanager.PersonManagerTest" name="testAddPerson" time="0.146"/>
-  <testcase classname="com.mycompany.moviemanager.PersonManagerTest" name="testUpdatePerson" time="1.355">
+  <testcase classname="com.mycompany.moviemanager.PersonManagerTest" name="testFindPersonWithID" time="0.091"/>
+  <testcase classname="com.mycompany.moviemanager.PersonManagerTest" name="testUpdatePerson" time="0.084">
     <error message="PreparedStatementCallback; bad SQL grammar [UPDATE persons SET name=?, birthday=? WHERE id=?]; nested exception is java.sql.SQLException: At least one parameter to the current statement is uninitialized." type="org.springframework.jdbc.BadSqlGrammarException">org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [UPDATE persons SET name=?, birthday=? WHERE id=?]; nested exception is java.sql.SQLException: At least one parameter to the current statement is uninitialized.
 	at org.springframework.jdbc.support.SQLStateSQLExceptionTranslator.doTranslate(SQLStateSQLExceptionTranslator.java:99)
 	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:73)
@@ -75,8 +74,8 @@
 	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:909)
 	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:970)
 	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:980)
-	at com.mycompany.moviemanager.PersonManagerImpl.updatePerson(PersonManagerImpl.java:114)
-	at com.mycompany.moviemanager.PersonManagerTest.testUpdatePerson(PersonManagerTest.java:138)
+	at com.mycompany.moviemanager.PersonManagerImpl.updatePerson(PersonManagerImpl.java:115)
+	at com.mycompany.moviemanager.PersonManagerTest.testUpdatePerson(PersonManagerTest.java:136)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -128,7 +127,7 @@ Caused by: ERROR 07000: At least one parameter to the current statement is unini
 	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
 	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
 	at org.apache.derby.impl.sql.execute.BaseActivation.throwIfMissingParms(Unknown Source)
-	at org.apache.derby.exe.acb31480ecx014cx5d6dx2733x0000065475c80.reinit(Unknown Source)
+	at org.apache.derby.exe.ac1e2700f9x014cx5d91xf9cdx000006548b200.reinit(Unknown Source)
 	at org.apache.derby.impl.sql.execute.BaseActivation.execute(Unknown Source)
 	at org.apache.derby.impl.sql.GenericActivationHolder.execute(Unknown Source)
 	at org.apache.derby.impl.sql.GenericPreparedStatement.executeStmt(Unknown Source)
@@ -136,108 +135,55 @@ Caused by: ERROR 07000: At least one parameter to the current statement is unini
 	... 44 more
 </error>
     <system-out>Testing updating person...
-23:49:40.449 [main] DEBUG c.m.moviemanager.PersonManagerImpl - addPerson(com.mycompany.moviemanager.Person@2a7)
-23:49:40.450 [main] DEBUG o.s.j.core.simple.SimpleJdbcInsert - JdbcInsert not compiled before execution - invoking compile
-23:49:40.467 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-23:49:40.469 [main] DEBUG o.s.j.c.m.TableMetaDataProviderFactory - Using DerbyTableMetaDataProvider
-23:49:40.471 [main] DEBUG o.s.j.c.m.TableMetaDataProvider - GetGeneratedKeys is not supported
-23:49:40.471 [main] DEBUG o.s.j.c.m.TableMetaDataProvider - GeneratedKeysColumnNameArray is not supported for Apache Derby
-23:49:40.472 [main] WARN  o.s.j.c.m.TableMetaDataProvider - Overriding supportsGetGeneratedKeys from DatabaseMetaData to &apos;true&apos;; it was reported as &apos;false&apos; by Apache Derby Embedded JDBC Driver 10.11.1.1 - (1616546)
-23:49:40.516 [main] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieving metadata for /ADMINISTRATOR/PERSONS
-23:49:40.644 [main] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: ID 4 false
-23:49:40.644 [main] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: NAME 12 false
-23:49:40.652 [main] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: BIRTHDAY 12 true
-23:49:40.653 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-23:49:40.655 [main] DEBUG o.s.j.core.simple.SimpleJdbcInsert - Compiled insert object: insert string is [INSERT INTO persons (NAME, BIRTHDAY) VALUES(?, ?)]
-23:49:40.655 [main] DEBUG o.s.j.core.simple.SimpleJdbcInsert - JdbcInsert for table [persons] compiled
-23:49:40.656 [main] DEBUG o.s.j.core.simple.SimpleJdbcInsert - The following parameters are used for call INSERT INTO persons (NAME, BIRTHDAY) VALUES(?, ?) with: [James T. Kirk (Update), 1956 ?íj 19]
-23:49:40.660 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL update and returning generated keys
-23:49:40.661 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement
-23:49:40.662 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-23:49:40.664 [main] DEBUG o.s.j.core.simple.SimpleJdbcInsert - Using generated keys support with Statement.RETURN_GENERATED_KEYS.
-23:49:40.668 [main] DEBUG o.s.jdbc.core.JdbcTemplate - SQL update affected 1 rows and returned 1 keys
-23:49:40.669 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-ID 3
-3
-23:49:40.670 [main] DEBUG c.m.moviemanager.PersonManagerImpl - findPerson(3)
-23:49:40.670 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-23:49:40.670 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM persons WHERE id= ?]
-23:49:40.670 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-23:49:40.672 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-23:49:40.672 [main] DEBUG c.m.moviemanager.PersonManagerImpl - updatePerson(com.mycompany.moviemanager.Person@2aa)
-3
+00:29:52.580 [main] DEBUG c.m.moviemanager.PersonManagerImpl - addPerson(com.mycompany.moviemanager.Person@2a7)
+00:29:52.583 [main] DEBUG o.s.j.core.simple.SimpleJdbcInsert - JdbcInsert not compiled before execution - invoking compile
+00:29:52.583 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+00:29:52.584 [main] DEBUG o.s.j.c.m.TableMetaDataProviderFactory - Using DerbyTableMetaDataProvider
+00:29:52.584 [main] DEBUG o.s.j.c.m.TableMetaDataProvider - GetGeneratedKeys is not supported
+00:29:52.584 [main] DEBUG o.s.j.c.m.TableMetaDataProvider - GeneratedKeysColumnNameArray is not supported for Apache Derby
+00:29:52.588 [main] WARN  o.s.j.c.m.TableMetaDataProvider - Overriding supportsGetGeneratedKeys from DatabaseMetaData to &apos;true&apos;; it was reported as &apos;false&apos; by Apache Derby Embedded JDBC Driver 10.11.1.1 - (1616546)
+00:29:52.607 [main] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieving metadata for /ADMINISTRATOR/PERSONS
+00:29:52.623 [main] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: ID 4 false
+00:29:52.624 [main] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: NAME 12 false
+00:29:52.624 [main] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: BIRTHDAY 12 true
+00:29:52.625 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+00:29:52.625 [main] DEBUG o.s.j.core.simple.SimpleJdbcInsert - Compiled insert object: insert string is [INSERT INTO persons (NAME, BIRTHDAY) VALUES(?, ?)]
+00:29:52.626 [main] DEBUG o.s.j.core.simple.SimpleJdbcInsert - JdbcInsert for table [persons] compiled
+00:29:52.626 [main] DEBUG o.s.j.core.simple.SimpleJdbcInsert - The following parameters are used for call INSERT INTO persons (NAME, BIRTHDAY) VALUES(?, ?) with: [James T. Kirk (Update), 1956 ?íj 19]
+00:29:52.626 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL update and returning generated keys
+00:29:52.626 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement
+00:29:52.627 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+00:29:52.627 [main] DEBUG o.s.j.core.simple.SimpleJdbcInsert - Using generated keys support with Statement.RETURN_GENERATED_KEYS.
+00:29:52.633 [main] DEBUG o.s.jdbc.core.JdbcTemplate - SQL update affected 1 rows and returned 1 keys
+00:29:52.634 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+00:29:52.634 [main] DEBUG c.m.moviemanager.PersonManagerImpl - findPerson(2)
+00:29:52.634 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+00:29:52.634 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM persons WHERE id= ?]
+00:29:52.635 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+00:29:52.637 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+00:29:52.637 [main] DEBUG c.m.moviemanager.PersonManagerImpl - updatePerson(com.mycompany.moviemanager.Person@2a9)
+2
 James Tiberius Kirk
 1956 ?íj 19
-23:49:40.673 [main] DEBUG c.m.moviemanager.PersonManagerImpl - findPerson(3)
-23:49:40.673 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-23:49:40.674 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM persons WHERE id= ?]
-23:49:40.674 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-23:49:40.677 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-3
-23:49:40.677 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
-23:49:40.677 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [UPDATE persons SET name=?, birthday=? WHERE id=?]
-23:49:40.678 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-23:49:40.693 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-23:49:41.035 [main] DEBUG o.s.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
-23:49:41.038 [main] DEBUG o.s.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
-23:49:41.039 [main] DEBUG o.s.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
-23:49:41.077 [main] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
-23:49:41.095 [main] DEBUG o.s.b.f.xml.DefaultDocumentLoader - Using JAXP provider [com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl]
-23:49:41.303 [main] DEBUG o.s.b.factory.xml.BeansDtdResolver - Found beans DTD [http://www.springframework.org/dtd/spring-beans-2.0.dtd] in classpath: spring-beans-2.0.dtd
-23:49:41.382 [main] DEBUG o.s.b.f.x.DefaultBeanDefinitionDocumentReader - Loading bean definitions
-23:49:41.483 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean &apos;DB2&apos;
-23:49:41.484 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean &apos;DB2&apos;
-23:49:41.500 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Eagerly caching bean &apos;DB2&apos; to allow for resolving potential circular references
-23:49:41.654 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean &apos;DB2&apos;
-23:49:41.655 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean &apos;Derby&apos;
-23:49:41.655 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean &apos;Derby&apos;
-23:49:41.656 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Eagerly caching bean &apos;Derby&apos; to allow for resolving potential circular references
-23:49:41.658 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean &apos;Derby&apos;
-23:49:41.659 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean &apos;H2&apos;
-23:49:41.659 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean &apos;H2&apos;
-23:49:41.659 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Eagerly caching bean &apos;H2&apos; to allow for resolving potential circular references
-23:49:41.661 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean &apos;H2&apos;
-23:49:41.661 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean &apos;HSQL&apos;
-23:49:41.661 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean &apos;HSQL&apos;
-23:49:41.661 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Eagerly caching bean &apos;HSQL&apos; to allow for resolving potential circular references
-23:49:41.663 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean &apos;HSQL&apos;
-23:49:41.664 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean &apos;Informix&apos;
-23:49:41.664 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean &apos;Informix&apos;
-23:49:41.664 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Eagerly caching bean &apos;Informix&apos; to allow for resolving potential circular references
-23:49:41.665 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean &apos;Informix&apos;
-23:49:41.665 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean &apos;MS-SQL&apos;
-23:49:41.669 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean &apos;MS-SQL&apos;
-23:49:41.669 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Eagerly caching bean &apos;MS-SQL&apos; to allow for resolving potential circular references
-23:49:41.698 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean &apos;MS-SQL&apos;
-23:49:41.701 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean &apos;MySQL&apos;
-23:49:41.703 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean &apos;MySQL&apos;
-23:49:41.703 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Eagerly caching bean &apos;MySQL&apos; to allow for resolving potential circular references
-23:49:41.704 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean &apos;MySQL&apos;
-23:49:41.705 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean &apos;Oracle&apos;
-23:49:41.706 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean &apos;Oracle&apos;
-23:49:41.706 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Eagerly caching bean &apos;Oracle&apos; to allow for resolving potential circular references
-23:49:41.710 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean &apos;Oracle&apos;
-23:49:41.712 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean &apos;PostgreSQL&apos;
-23:49:41.713 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean &apos;PostgreSQL&apos;
-23:49:41.715 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Eagerly caching bean &apos;PostgreSQL&apos; to allow for resolving potential circular references
-23:49:41.720 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean &apos;PostgreSQL&apos;
-23:49:41.723 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean &apos;Sybase&apos;
-23:49:41.725 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean &apos;Sybase&apos;
-23:49:41.726 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Eagerly caching bean &apos;Sybase&apos; to allow for resolving potential circular references
-23:49:41.734 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean &apos;Sybase&apos;
-23:49:41.736 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean &apos;Hana&apos;
-23:49:41.737 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating instance of bean &apos;Hana&apos;
-23:49:41.737 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Eagerly caching bean &apos;Hana&apos; to allow for resolving potential circular references
-23:49:41.741 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Finished creating instance of bean &apos;Hana&apos;
-23:49:41.742 [main] INFO  o.s.j.support.SQLErrorCodesFactory - SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase, Hana]
-23:49:41.743 [main] DEBUG o.s.j.support.SQLErrorCodesFactory - Looking up default SQLErrorCodes for DataSource [org.apache.commons.dbcp2.BasicDataSource@906d29b]
-23:49:41.744 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-23:49:41.746 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-23:49:41.750 [main] DEBUG o.s.j.support.SQLErrorCodesFactory - Database product name cached for DataSource [org.apache.commons.dbcp2.BasicDataSource@906d29b]: name is &apos;Apache Derby&apos;
-23:49:41.756 [main] DEBUG o.s.j.support.SQLErrorCodesFactory - SQL error codes for &apos;Apache Derby&apos; found
-23:49:41.757 [main] DEBUG o.s.j.s.SQLErrorCodeSQLExceptionTranslator - Unable to translate SQLException with SQL state &apos;07000&apos;, error code &apos;30000, will now try the fallback translator
-23:49:41.758 [main] DEBUG o.s.j.s.SQLStateSQLExceptionTranslator - Extracted SQL state class &apos;07&apos; from value &apos;07000&apos;
+00:29:52.637 [main] DEBUG c.m.moviemanager.PersonManagerImpl - findPerson(2)
+00:29:52.637 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+00:29:52.637 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM persons WHERE id= ?]
+00:29:52.638 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+00:29:52.639 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+2
+00:29:52.639 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+00:29:52.639 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [UPDATE persons SET name=?, birthday=? WHERE id=?]
+00:29:52.639 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+00:29:52.646 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+00:29:52.646 [main] DEBUG o.s.j.support.SQLErrorCodesFactory - Looking up default SQLErrorCodes for DataSource [org.apache.commons.dbcp2.BasicDataSource@44b3606b]
+00:29:52.646 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+00:29:52.647 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+00:29:52.647 [main] DEBUG o.s.j.support.SQLErrorCodesFactory - Database product name cached for DataSource [org.apache.commons.dbcp2.BasicDataSource@44b3606b]: name is &apos;Apache Derby&apos;
+00:29:52.647 [main] DEBUG o.s.j.support.SQLErrorCodesFactory - SQL error codes for &apos;Apache Derby&apos; found
+00:29:52.647 [main] DEBUG o.s.j.s.SQLErrorCodeSQLExceptionTranslator - Unable to translate SQLException with SQL state &apos;07000&apos;, error code &apos;30000, will now try the fallback translator
+00:29:52.647 [main] DEBUG o.s.j.s.SQLStateSQLExceptionTranslator - Extracted SQL state class &apos;07&apos; from value &apos;07000&apos;
 </system-out>
   </testcase>
-  <testcase classname="com.mycompany.moviemanager.PersonManagerTest" name="testRemovePerson" time="0.094"/>
+  <testcase classname="com.mycompany.moviemanager.PersonManagerTest" name="testAddPerson" time="0.041"/>
+  <testcase classname="com.mycompany.moviemanager.PersonManagerTest" name="testRemovePerson" time="0.054"/>
 </testsuite>
