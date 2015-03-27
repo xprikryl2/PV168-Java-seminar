@@ -6,7 +6,6 @@
 package com.mycompany.moviemanager;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -63,11 +62,11 @@ public class PersonManagerTest {
         Calendar calendar = new GregorianCalendar(1995,11,1);        
             
         Person person = new Person("Jane Doe (Add)", calendar);
-        personManager.addPerson(person);
+        personManager.createPerson(person);
 
         Long id = person.getId();
         assertNotNull(id);
-        Person result = personManager.findPerson(id);
+        Person result = personManager.getPerson(id);
         assertEquals(person, result);
         assertNotSame(person, result);
     }
@@ -82,14 +81,14 @@ public class PersonManagerTest {
             Calendar calendar = new GregorianCalendar(1987,5,17);            
             Person person = new Person("John Doe (Remove)", calendar);
             
-            personManager.addPerson(person);
+            personManager.createPerson(person);
             //check if person was added
-            Person res = personManager.findPerson(person.getId());
+            Person res = personManager.getPerson(person.getId());
             assertNotNull(res);
             assertTrue(person.equals(res));
             // if person was added remove it
-            personManager.removePerson(person.getId());
-            assertNull(personManager.findPerson(person.getId()));
+            personManager.deletePerson(person.getId());
+            assertNull(personManager.getPerson(person.getId()));
         } catch (ServiceFailureException ex) {
             Logger.getLogger(PersonManagerTest.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -105,11 +104,11 @@ public class PersonManagerTest {
             Calendar calendar = new GregorianCalendar(1933,0,9);
             Person person = new Person("Wilbur Smith (Find)", calendar);
             
-            personManager.addPerson(person);
-            Person addedPerson = personManager.findPerson(person.getId());
+            personManager.createPerson(person);
+            Person addedPerson = personManager.getPerson(person.getId());
             assertNotSame("Created person is not the same as found person.", person, addedPerson);
-            personManager.removePerson(person.getId());
-            assertNull("Person found after removing it.", personManager.findPerson(person.getId()));
+            personManager.deletePerson(person.getId());
+            assertNull("Person found after removing it.", personManager.getPerson(person.getId()));
         }catch(NullPointerException ex){System.out.println("Attempt to create new person resulted in " + ex);} catch (ServiceFailureException ex) {
             Logger.getLogger(PersonManagerTest.class.getName()).log(Level.SEVERE, null, ex);
         }        
@@ -127,9 +126,9 @@ public class PersonManagerTest {
         Person person = new Person("James T. Kirk (Update)", calendar);
         Person updatedPerson = new Person("James Tiberius Kirk", updatedCalendar);
         
-        personManager.addPerson(person);
+        personManager.createPerson(person);
         Long id = person.getId();
-        Person res = personManager.findPerson(id);
+        Person res = personManager.getPerson(id);
         res.setName("James Tiberius Kirk");
         res.setBirth(calendar);
         res.setId(person.getId());

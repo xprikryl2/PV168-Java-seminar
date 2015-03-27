@@ -34,7 +34,7 @@ public class PersonManagerImpl implements PersonManager{
     }
     
     /**
-     *
+     * Parser for Person.
      */
     private static final RowMapper<Person> personMapper = (ResultSet rs, int rowNum) -> {
         Long id = rs.getLong("id");
@@ -54,7 +54,7 @@ public class PersonManagerImpl implements PersonManager{
      */
     @Override
     @Transactional
-    public void addPerson (Person person) throws ServiceFailureException{        
+    public void createPerson (Person person) throws ServiceFailureException{        
         // check validity of incoming data
         if (person == null){throw new IllegalArgumentException ("Person is set to null!");}
         else if (person.getName().equals(null) || person.getName() == ""){throw new IllegalArgumentException ("Name of the person is not set.");}
@@ -74,7 +74,7 @@ public class PersonManagerImpl implements PersonManager{
      */
     @Override
     @Transactional
-    public void removePerson (long personID) throws ServiceFailureException{        
+    public void deletePerson (long personID) throws ServiceFailureException{        
         if (personID < 1){throw new IllegalArgumentException("Person ID lower then 0!");}
         
         log.debug("removePerson({})", personID);
@@ -88,7 +88,7 @@ public class PersonManagerImpl implements PersonManager{
      * @return Person given by it's ID.
      */
     @Override
-    public Person findPerson (long personID) throws ServiceFailureException{        
+    public Person getPerson (long personID) throws ServiceFailureException{        
         if (personID < 1){throw new IllegalArgumentException("Person ID lower then 1!");}
         
         log.debug("findPerson({})", personID);
@@ -110,7 +110,7 @@ public class PersonManagerImpl implements PersonManager{
             System.out.println (person.getId());
             System.out.println (person.getName());
             System.out.println (sdf.format(person.getBirth().getTime()));
-            Person p = findPerson(person.getId());
+            Person p = getPerson(person.getId());
             System.out.println (p.getId());
         jdbc.update("UPDATE persons SET name=?, birthday=? WHERE id=?", person.getName(), sdf.format(person.getBirth().getTime()));
         //System.out.println ("N is: " + n);
@@ -122,7 +122,7 @@ public class PersonManagerImpl implements PersonManager{
      * @return List<Person> containing all persons in the database.
      */
     @Override
-    public List<Person> listAll() throws ServiceFailureException{    
+    public List<Person> listAllPersons() throws ServiceFailureException{    
         log.debug("listAllPersons()");
         return jdbc.query("SELECT * FROM persons", personMapper);
     }

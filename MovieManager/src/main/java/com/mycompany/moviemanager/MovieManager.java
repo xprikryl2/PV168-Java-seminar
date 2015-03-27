@@ -58,6 +58,6 @@ public interface MovieManager {
      * @return list of all movies in database.
      * @throws  ServiceFailureException when db operation fails.
      */
-    List<Movie> findAllMovies() throws ServiceFailureException;
+    List<Movie> listAllMovies() throws ServiceFailureException;
     
 }

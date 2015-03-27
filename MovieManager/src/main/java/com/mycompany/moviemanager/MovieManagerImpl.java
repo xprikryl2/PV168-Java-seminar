@@ -43,7 +43,7 @@ public class MovieManagerImpl implements MovieManager {
     }
     
     /**
-     *
+     * Parser for Movie.
      */
     private static final RowMapper<Movie> movieMapper = (ResultSet rs, int rowNum) -> {       
         Long id = rs.getLong("id");
@@ -119,7 +119,7 @@ public class MovieManagerImpl implements MovieManager {
     }
 
     @Override
-    public List<Movie> findAllMovies() throws ServiceFailureException {
+    public List<Movie> listAllMovies() throws ServiceFailureException {
         log.debug("findAllMovies()");
         return jdbc.query("SELECT * FROM movies", movieMapper);
     }

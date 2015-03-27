@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.mycompany.moviemanager.MovieManagerTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 2.945 sec <<< FAILURE!
-testUpdateMovie(com.mycompany.moviemanager.MovieManagerTest)  Time elapsed: 0.542 sec  <<< ERROR!
+Tests run: 4, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 5.066 sec <<< FAILURE!
+testUpdateMovie(com.mycompany.moviemanager.MovieManagerTest)  Time elapsed: 1.111 sec  <<< ERROR!
 org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [UPDATE MOVIES SET title=?, movieYear=?, genre=?, length=? WHERE id=?]; nested exception is java.sql.SQLException: At least one parameter to the current statement is uninitialized.
 	at org.springframework.jdbc.support.SQLStateSQLExceptionTranslator.doTranslate(SQLStateSQLExceptionTranslator.java:99)
 	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:73)
@@ -68,7 +68,7 @@ Caused by: ERROR 07000: At least one parameter to the current statement is unini
 	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
 	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
 	at org.apache.derby.impl.sql.execute.BaseActivation.throwIfMissingParms(Unknown Source)
-	at org.apache.derby.exe.acac3880ccx014cx5d91xf9cdx000006548b200.reinit(Unknown Source)
+	at org.apache.derby.exe.acac3880ccx014cx5d99x1fc4x0000065493b00.reinit(Unknown Source)
 	at org.apache.derby.impl.sql.execute.BaseActivation.execute(Unknown Source)
 	at org.apache.derby.impl.sql.GenericActivationHolder.execute(Unknown Source)
 	at org.apache.derby.impl.sql.GenericPreparedStatement.executeStmt(Unknown Source)

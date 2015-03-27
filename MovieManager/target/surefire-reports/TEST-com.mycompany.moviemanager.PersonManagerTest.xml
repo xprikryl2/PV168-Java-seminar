@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="4" failures="0" name="com.mycompany.moviemanager.PersonManagerTest" time="0.272" errors="1" skipped="0">
+<testsuite tests="4" failures="0" name="com.mycompany.moviemanager.PersonManagerTest" time="0.631" errors="1" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="D:\Programming\libs\Java\DevelopmentKit_8\jre\bin"/>
@@ -63,8 +63,7 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.mycompany.moviemanager.PersonManagerTest" name="testFindPersonWithID" time="0.091"/>
-  <testcase classname="com.mycompany.moviemanager.PersonManagerTest" name="testUpdatePerson" time="0.084">
+  <testcase classname="com.mycompany.moviemanager.PersonManagerTest" name="testUpdatePerson" time="0.146">
     <error message="PreparedStatementCallback; bad SQL grammar [UPDATE persons SET name=?, birthday=? WHERE id=?]; nested exception is java.sql.SQLException: At least one parameter to the current statement is uninitialized." type="org.springframework.jdbc.BadSqlGrammarException">org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [UPDATE persons SET name=?, birthday=? WHERE id=?]; nested exception is java.sql.SQLException: At least one parameter to the current statement is uninitialized.
 	at org.springframework.jdbc.support.SQLStateSQLExceptionTranslator.doTranslate(SQLStateSQLExceptionTranslator.java:99)
 	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:73)
@@ -75,7 +74,7 @@
 	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:970)
 	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:980)
 	at com.mycompany.moviemanager.PersonManagerImpl.updatePerson(PersonManagerImpl.java:115)
-	at com.mycompany.moviemanager.PersonManagerTest.testUpdatePerson(PersonManagerTest.java:136)
+	at com.mycompany.moviemanager.PersonManagerTest.testUpdatePerson(PersonManagerTest.java:135)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -127,7 +126,7 @@ Caused by: ERROR 07000: At least one parameter to the current statement is unini
 	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
 	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
 	at org.apache.derby.impl.sql.execute.BaseActivation.throwIfMissingParms(Unknown Source)
-	at org.apache.derby.exe.ac1e2700f9x014cx5d91xf9cdx000006548b200.reinit(Unknown Source)
+	at org.apache.derby.exe.ac16e300d9x014cx5d99x1fc4x0000065493b03.reinit(Unknown Source)
 	at org.apache.derby.impl.sql.execute.BaseActivation.execute(Unknown Source)
 	at org.apache.derby.impl.sql.GenericActivationHolder.execute(Unknown Source)
 	at org.apache.derby.impl.sql.GenericPreparedStatement.executeStmt(Unknown Source)
@@ -135,55 +134,56 @@ Caused by: ERROR 07000: At least one parameter to the current statement is unini
 	... 44 more
 </error>
     <system-out>Testing updating person...
-00:29:52.580 [main] DEBUG c.m.moviemanager.PersonManagerImpl - addPerson(com.mycompany.moviemanager.Person@2a7)
-00:29:52.583 [main] DEBUG o.s.j.core.simple.SimpleJdbcInsert - JdbcInsert not compiled before execution - invoking compile
-00:29:52.583 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-00:29:52.584 [main] DEBUG o.s.j.c.m.TableMetaDataProviderFactory - Using DerbyTableMetaDataProvider
-00:29:52.584 [main] DEBUG o.s.j.c.m.TableMetaDataProvider - GetGeneratedKeys is not supported
-00:29:52.584 [main] DEBUG o.s.j.c.m.TableMetaDataProvider - GeneratedKeysColumnNameArray is not supported for Apache Derby
-00:29:52.588 [main] WARN  o.s.j.c.m.TableMetaDataProvider - Overriding supportsGetGeneratedKeys from DatabaseMetaData to &apos;true&apos;; it was reported as &apos;false&apos; by Apache Derby Embedded JDBC Driver 10.11.1.1 - (1616546)
-00:29:52.607 [main] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieving metadata for /ADMINISTRATOR/PERSONS
-00:29:52.623 [main] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: ID 4 false
-00:29:52.624 [main] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: NAME 12 false
-00:29:52.624 [main] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: BIRTHDAY 12 true
-00:29:52.625 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-00:29:52.625 [main] DEBUG o.s.j.core.simple.SimpleJdbcInsert - Compiled insert object: insert string is [INSERT INTO persons (NAME, BIRTHDAY) VALUES(?, ?)]
-00:29:52.626 [main] DEBUG o.s.j.core.simple.SimpleJdbcInsert - JdbcInsert for table [persons] compiled
-00:29:52.626 [main] DEBUG o.s.j.core.simple.SimpleJdbcInsert - The following parameters are used for call INSERT INTO persons (NAME, BIRTHDAY) VALUES(?, ?) with: [James T. Kirk (Update), 1956 ?íj 19]
-00:29:52.626 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL update and returning generated keys
-00:29:52.626 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement
-00:29:52.627 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-00:29:52.627 [main] DEBUG o.s.j.core.simple.SimpleJdbcInsert - Using generated keys support with Statement.RETURN_GENERATED_KEYS.
-00:29:52.633 [main] DEBUG o.s.jdbc.core.JdbcTemplate - SQL update affected 1 rows and returned 1 keys
-00:29:52.634 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-00:29:52.634 [main] DEBUG c.m.moviemanager.PersonManagerImpl - findPerson(2)
-00:29:52.634 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-00:29:52.634 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM persons WHERE id= ?]
-00:29:52.635 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-00:29:52.637 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-00:29:52.637 [main] DEBUG c.m.moviemanager.PersonManagerImpl - updatePerson(com.mycompany.moviemanager.Person@2a9)
-2
+00:37:42.738 [main] DEBUG c.m.moviemanager.PersonManagerImpl - addPerson(com.mycompany.moviemanager.Person@2a7)
+00:37:42.739 [main] DEBUG o.s.j.core.simple.SimpleJdbcInsert - JdbcInsert not compiled before execution - invoking compile
+00:37:42.740 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+00:37:42.740 [main] DEBUG o.s.j.c.m.TableMetaDataProviderFactory - Using DerbyTableMetaDataProvider
+00:37:42.740 [main] DEBUG o.s.j.c.m.TableMetaDataProvider - GetGeneratedKeys is not supported
+00:37:42.740 [main] DEBUG o.s.j.c.m.TableMetaDataProvider - GeneratedKeysColumnNameArray is not supported for Apache Derby
+00:37:42.740 [main] WARN  o.s.j.c.m.TableMetaDataProvider - Overriding supportsGetGeneratedKeys from DatabaseMetaData to &apos;true&apos;; it was reported as &apos;false&apos; by Apache Derby Embedded JDBC Driver 10.11.1.1 - (1616546)
+00:37:42.753 [main] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieving metadata for /ADMINISTRATOR/PERSONS
+00:37:42.777 [main] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: ID 4 false
+00:37:42.777 [main] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: NAME 12 false
+00:37:42.778 [main] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: BIRTHDAY 12 true
+00:37:42.778 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+00:37:42.778 [main] DEBUG o.s.j.core.simple.SimpleJdbcInsert - Compiled insert object: insert string is [INSERT INTO persons (NAME, BIRTHDAY) VALUES(?, ?)]
+00:37:42.779 [main] DEBUG o.s.j.core.simple.SimpleJdbcInsert - JdbcInsert for table [persons] compiled
+00:37:42.779 [main] DEBUG o.s.j.core.simple.SimpleJdbcInsert - The following parameters are used for call INSERT INTO persons (NAME, BIRTHDAY) VALUES(?, ?) with: [James T. Kirk (Update), 1956 ?íj 19]
+00:37:42.779 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL update and returning generated keys
+00:37:42.779 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement
+00:37:42.779 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+00:37:42.780 [main] DEBUG o.s.j.core.simple.SimpleJdbcInsert - Using generated keys support with Statement.RETURN_GENERATED_KEYS.
+00:37:42.795 [main] DEBUG o.s.jdbc.core.JdbcTemplate - SQL update affected 1 rows and returned 1 keys
+00:37:42.796 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+00:37:42.796 [main] DEBUG c.m.moviemanager.PersonManagerImpl - findPerson(1)
+00:37:42.796 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+00:37:42.796 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM persons WHERE id= ?]
+00:37:42.796 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+00:37:42.805 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+00:37:42.806 [main] DEBUG c.m.moviemanager.PersonManagerImpl - updatePerson(com.mycompany.moviemanager.Person@2a8)
+1
 James Tiberius Kirk
 1956 ?íj 19
-00:29:52.637 [main] DEBUG c.m.moviemanager.PersonManagerImpl - findPerson(2)
-00:29:52.637 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-00:29:52.637 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM persons WHERE id= ?]
-00:29:52.638 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-00:29:52.639 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-2
-00:29:52.639 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
-00:29:52.639 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [UPDATE persons SET name=?, birthday=? WHERE id=?]
-00:29:52.639 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-00:29:52.646 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-00:29:52.646 [main] DEBUG o.s.j.support.SQLErrorCodesFactory - Looking up default SQLErrorCodes for DataSource [org.apache.commons.dbcp2.BasicDataSource@44b3606b]
-00:29:52.646 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-00:29:52.647 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-00:29:52.647 [main] DEBUG o.s.j.support.SQLErrorCodesFactory - Database product name cached for DataSource [org.apache.commons.dbcp2.BasicDataSource@44b3606b]: name is &apos;Apache Derby&apos;
-00:29:52.647 [main] DEBUG o.s.j.support.SQLErrorCodesFactory - SQL error codes for &apos;Apache Derby&apos; found
-00:29:52.647 [main] DEBUG o.s.j.s.SQLErrorCodeSQLExceptionTranslator - Unable to translate SQLException with SQL state &apos;07000&apos;, error code &apos;30000, will now try the fallback translator
-00:29:52.647 [main] DEBUG o.s.j.s.SQLStateSQLExceptionTranslator - Extracted SQL state class &apos;07&apos; from value &apos;07000&apos;
+00:37:42.807 [main] DEBUG c.m.moviemanager.PersonManagerImpl - findPerson(1)
+00:37:42.807 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+00:37:42.807 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM persons WHERE id= ?]
+00:37:42.807 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+00:37:42.809 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+1
+00:37:42.809 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+00:37:42.810 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [UPDATE persons SET name=?, birthday=? WHERE id=?]
+00:37:42.810 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+00:37:42.826 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+00:37:42.826 [main] DEBUG o.s.j.support.SQLErrorCodesFactory - Looking up default SQLErrorCodes for DataSource [org.apache.commons.dbcp2.BasicDataSource@2d96543c]
+00:37:42.826 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+00:37:42.827 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+00:37:42.827 [main] DEBUG o.s.j.support.SQLErrorCodesFactory - Database product name cached for DataSource [org.apache.commons.dbcp2.BasicDataSource@2d96543c]: name is &apos;Apache Derby&apos;
+00:37:42.827 [main] DEBUG o.s.j.support.SQLErrorCodesFactory - SQL error codes for &apos;Apache Derby&apos; found
+00:37:42.827 [main] DEBUG o.s.j.s.SQLErrorCodeSQLExceptionTranslator - Unable to translate SQLException with SQL state &apos;07000&apos;, error code &apos;30000, will now try the fallback translator
+00:37:42.827 [main] DEBUG o.s.j.s.SQLStateSQLExceptionTranslator - Extracted SQL state class &apos;07&apos; from value &apos;07000&apos;
 </system-out>
   </testcase>
-  <testcase classname="com.mycompany.moviemanager.PersonManagerTest" name="testAddPerson" time="0.041"/>
-  <testcase classname="com.mycompany.moviemanager.PersonManagerTest" name="testRemovePerson" time="0.054"/>
+  <testcase classname="com.mycompany.moviemanager.PersonManagerTest" name="testAddPerson" time="0.474"/>
+  <testcase classname="com.mycompany.moviemanager.PersonManagerTest" name="testRemovePerson" time="0.009"/>
+  <testcase classname="com.mycompany.moviemanager.PersonManagerTest" name="testFindPersonWithID" time="0.001"/>
 </testsuite>

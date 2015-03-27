@@ -3,19 +3,8 @@
  */
 package com.mycompany.moviemanager;
 
-import static com.mycompany.moviemanager.PersonManagerImpl.log;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.List;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
- 
+import org.springframework.transaction.annotation.EnableTransactionManagement; 
 import javax.sql.DataSource;
-import java.io.IOException;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -30,7 +19,7 @@ import org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy;
  *
  * @author Lukáš Šrom
  * @author Jakub Mlčák
- * @date 2015 4 3
+ * @date 2015 3 27
  */
 public class DtbManager {
     private static final String LOGIN = "administrator";
