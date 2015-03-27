@@ -36,13 +36,13 @@ public class PersonManagerTest {
     
     @Before
     public void setUp() {
-        BasicDataSource bsd = new BasicDataSource();
-        bsd.setUrl(URL);
-        bsd.setUsername("administrator");
-        bsd.setPassword("admin");
-        this.dataSource = bsd;
+        BasicDataSource ds = new BasicDataSource();
+        ds.setUsername("administrator");
+        ds.setPassword("admin");
+        ds.setUrl(URL);
+        dataSource = ds;
         
-        try (Connection conn = bsd.getConnection()) {
+        try (Connection conn = dataSource.getConnection()) {
             conn.prepareStatement("CREATE TABLE PERSONS (\n" +
                     "id INTEGER NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,\n" +
                     "name VARCHAR(128) NOT NULL,\n" +
@@ -50,7 +50,7 @@ public class PersonManagerTest {
                     ")").executeUpdate();
         }catch(SQLException ex){}
         
-        personManager = new PersonManagerImpl(bsd);
+        personManager = new PersonManagerImpl(dataSource);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy MMM dd");
     }
 
@@ -63,15 +63,28 @@ public class PersonManagerTest {
         System.out.println ("Testing adding person...");
         
         Calendar calendar = new GregorianCalendar(1995,11,1);        
-        Person person = new Person("Jane Doe (Add)", calendar);
-            
+        //Person person = new Person("Jane Doe (Add)", calendar);
+            /*
             personManager.addPerson(person);
             System.out.println ("ID: " + person.getId());
             assertNotNull(person.getId());
             Person res = personManager.findPerson(person.getId());
             assertNotNull(res);
             assertNotNull(res.getId());
-            assertEquals(person, res);
+            assertEquals(person, res);*/
+            
+            Person person = new Person("Jane Doe (Add)", calendar);
+            personManager.addPerson(person);
+
+            Long id = person.getId();
+            System.out.println ("Tested ID " + id);
+            assertNotNull(id);
+            Person result = personManager.findPerson(id);
+                System.out.println (result.getName());
+                System.out.println (result.getBirth());
+                System.out.println (result.getId());
+            assertEquals(person.getId(), result.getId());
+            assertNotSame(person, result);
     }
     
     /**
@@ -135,7 +148,7 @@ public class PersonManagerTest {
         res.setName("James Tiberius Kirk");
         res.setBirth(calendar);
         res.setId(person.getId());
-        personManager.updatePerson(person);
+        personManager.updatePerson(res);
         assertEquals(person.getName(), res.getName());
         
         //updatedPerson.setId(person.getId());

@@ -32,6 +32,12 @@ public class Person {
         this.id = null;
     }
     
+    public Person(Long id, String name, Calendar birth) {
+        this.name = name;
+        this.birth = birth;
+        this.id = id;
+    }
+    
     /**
      * Constructor of class Person.
      */
@@ -99,7 +105,7 @@ public class Person {
         this.name = name;
     }
     
-    public void setId (long id){
+    public void setId (Long id){
         this.id = id;
     }
     

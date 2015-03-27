@@ -8,13 +8,21 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
 import javax.sql.DataSource;
-import org.apache.commons.dbcp2.BasicDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
 /**
  *
@@ -23,8 +31,9 @@ import org.slf4j.LoggerFactory;
  * @date 2015 4 3
  */
 public class PersonManagerImpl implements PersonManager{
-    private final DataSource dataSource;
+    //private final DataSource dataSource;
     final static Logger log = LoggerFactory.getLogger(PersonManagerImpl.class);
+    private final JdbcTemplate jdbc;
     
     private static final String LOGIN = "administrator";
     private static final String PASSWORD = "admin";
@@ -33,18 +42,33 @@ public class PersonManagerImpl implements PersonManager{
     private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy MMM dd");
     
     public PersonManagerImpl (DataSource dataSource){
-        if (dataSource == null){
-            log.info("No DataSource received in constructor. Using default values.");
-            BasicDataSource bsd = new BasicDataSource();
-            bsd.setUrl(URL);
-            bsd.setUsername("administrator");
-            bsd.setPassword("admin");
-            this.dataSource = bsd;
-        }
-        else{
-            this.dataSource = dataSource;
-        }
+            if (dataSource == null){            
+                try {
+                    dataSource.getConnection(LOGIN, PASSWORD);
+                } catch (SQLException ex) {
+                    java.util.logging.Logger.getLogger(PersonManagerImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                this.jdbc = new JdbcTemplate(dataSource);
+            }
+            else{
+                this.jdbc = new JdbcTemplate(dataSource);
+            }      
     }
+    
+    /**
+     *
+     */
+    public static final RowMapper<Person> personMapper = (rs, rowNum) -> {
+        Long id = rs.getLong("id");
+        String name = rs.getString("name");
+        Calendar cal = Calendar.getInstance();
+        try{
+        cal.setTime(sdf.parse(rs.getString("birthday")));
+        }catch(ParseException ex){
+            log.error("Exception when parsing date of birth!" + ex);
+        }
+        return new Person(id, name, cal);
+    };
     
     /**
      * Method to add person to the database.
@@ -56,30 +80,15 @@ public class PersonManagerImpl implements PersonManager{
         if (person == null){throw new IllegalArgumentException ("Person is set to null!");}
         else if (person.getName().equals(null) || person.getName() == ""){throw new IllegalArgumentException ("Name of the person is not set.");}
         
-        // try to connect to dtb, if not possible or when it's done, session will be automatically terminated
-        try(Connection conn = dataSource.getConnection()){
-            // try to store data in dtb, if error occures, dtb will come back to it's original state
-            try(PreparedStatement st = conn.prepareStatement("INSERT INTO PERSONS (name, birthday) VALUES (?,?)", Statement.RETURN_GENERATED_KEYS)){
-                //st.setInt(1, getId());                
-                st.setString(1, person.getName());
-                st.setString(2, sdf.format(person.getBirth().getTime()));  //TODO: how to store calendar type in dtb?
-                //st.setString(3, person.getAffiliatedWithMovies().toString());   // TODO: check if this works and it's viable
-                // checks if only one row was updated (meaning only one entry to table as made)
-                if(st.executeUpdate() != 1){
-                    log.error("More rows inserted when trying to insert new person!");
-                    throw new ServiceFailureException ("More rows inserted when trying to insert new person: " + person);
-                }
-                ResultSet keys = st.getGeneratedKeys();
-                keys.next();
-                person.setId(keys.getLong(1));
-            }catch (SQLException ex){   // in case error occures when trying to store data
-                log.error("Cannot store data to dtb!", ex);
-                conn.rollback();        // atomically fail and restore all changes made in this session
-            }
-        }catch (SQLException ex){
-            log.error("Database connection problems!", ex);
-            throw new ServiceFailureException("Error when adding person!", ex);
-        };
+        log.debug("addPerson({})", person);
+        Map<String, Object> pars = new HashMap<>();
+        pars.put("name", person.getName());
+        pars.put("birthday", sdf.format(person.getBirth().getTime()));
+        
+        Long id = (Long)new SimpleJdbcInsert(jdbc).withTableName("persons").usingGeneratedKeyColumns("id").executeAndReturnKey(pars).longValue();
+        System.out.println("ID " + id);
+        person.setId(id);
+        System.out.println (person.getId());
     }
     
     /**
@@ -90,22 +99,9 @@ public class PersonManagerImpl implements PersonManager{
     public void removePerson (long personID) throws ServiceFailureException{        
         if (personID < 1){throw new IllegalArgumentException("Person ID lower then 0!");}
         
-        // try to connect to dtb, if not possible or when it's done, session will be automatically terminated
-        try(Connection conn = dataSource.getConnection()){
-            try(PreparedStatement st = conn.prepareStatement("DELETE FROM PERSONS WHERE id=?")){
-                st.setLong(1, personID);
-                if(st.executeUpdate()!=1) {
-                    log.error("Removing person with id " + personID + " failed!");
-                    throw new ServiceFailureException("Person with id " + personID + " was not deleted!");
-                }
-            }catch(SQLException ex){    // in case error occures when trying to remove data
-                log.error("Cannot remove data from dtb!", ex);
-                conn.rollback();        // atomically fail and restore all changes made in this session
-            }        
-        }catch (SQLException ex){
-            log.error("Database connection problems!", ex);
-            throw new ServiceFailureException("Error when removing person!", ex);
-        }; 
+        log.debug("removePerson({})", personID);
+        int n = jdbc.update("DELETE FROM persons WHERE id = ?", personID);
+        if (n != 1) throw new ServiceFailureException("Person with ID " + personID + " not deleted");
     }
     
     /**
@@ -117,34 +113,9 @@ public class PersonManagerImpl implements PersonManager{
     public Person findPerson (long personID) throws ServiceFailureException{        
         if (personID < 1){throw new IllegalArgumentException("Person ID lower then 1!");}
         
-        Person person = null;
-            
-        // try to connect to dtb, if not possible or when it's done, session will be automatically terminated
-        try(Connection conn = dataSource.getConnection()){
-            try(PreparedStatement st = conn.prepareStatement("SELECT id, name FROM persons WHERE id=?", Statement.RETURN_GENERATED_KEYS)){
-                st.setLong(1, personID);
-                ResultSet rs = st.executeQuery();
-                
-                if (rs.next()){
-                    person = resultSetToPerson(rs);
-                    /*if (rs.next()){
-                        log.error("Found multiple entities with the same ID " + personID + " in the dtb!");
-                        throw new ServiceFailureException ("More entities with the same ID " + personID + " found!");
-                    }
-                    return person;*/
-                }
-                /*else{
-                    return null;
-                }*/
-            }catch(SQLException ex){
-                log.error("Cannot find data in dtb!", ex);
-                conn.rollback();
-            }
-        }catch (SQLException ex){
-            log.error("Database connection problems!", ex);
-            throw new ServiceFailureException("Error when searching for person!", ex);
-        };
-        return person;
+        log.debug("findPerson({})", personID);
+        List<Person> list = jdbc.query("SELECT * FROM persons WHERE id= ?", personMapper, personID);
+        return list.isEmpty() ? null : list.get(0);
     }
     
     private Person resultSetToPerson (ResultSet rs) throws SQLException{
@@ -167,54 +138,23 @@ public class PersonManagerImpl implements PersonManager{
         if (person == null){throw new IllegalArgumentException ("Person pointer is null!");}
         else if (person.getName().equals("")){throw new IllegalArgumentException ("Person name is empty!");}
         
-        // try to connect to dtb, if not possible or when it's done, session will be automatically terminated
-        try(Connection conn = dataSource.getConnection()){
-            try(PreparedStatement st = conn.prepareStatement("UPDATE persons SET name=?, birthday=? WHERE id=?", Statement.RETURN_GENERATED_KEYS)){
-                st.setString(1, person.getName());
-                st.setString(2, sdf.format(person.getBirth().getTime()));  // TODO
-                
-                if (st.executeUpdate() != 1){
-                    log.error("Updating more entities then supposed to!");
-                    throw new ServiceFailureException("Updating entities failed!");
-                }
-            }catch(SQLException ex){
-                log.error("Cannot update data in the dtb!");
-                throw new ServiceFailureException ("Error when trying to update entity in the dtb.", ex);
-            }            
-        }catch (SQLException ex){
-            log.error("Database connection problems!", ex);
-            throw new ServiceFailureException("Error when updating person!", ex);
-        };
+        log.debug("updatePerson({})", person);
+            System.out.println (person.getId());
+            System.out.println (person.getName());
+            System.out.println (sdf.format(person.getBirth().getTime()));
+            Person p = findPerson(person.getId());
+            System.out.println (p.getId());
+        jdbc.update("UPDATE persons SET name=?, birthday=? WHERE id=?", person.getName(), sdf.format(person.getBirth().getTime()).toString());
+        //System.out.println ("N is: " + n);
+        //if (n != 1) throw new ServiceFailureException("Person " + person + " not updated");
     }
     
     /**
      * Method to list all person in the database.
      * @return List<Person> containing all persons in the database.
      */
-    public List<Person> listAll() throws ServiceFailureException{        
-        try(Connection conn = dataSource.getConnection()){
-            try (PreparedStatement st = conn.prepareStatement("SELECT id,name FROM PERSONS")) {
-                ResultSet rs = st.executeQuery();
-                List<Person> result = new ArrayList<>();
-                while (rs.next()) {
-                    result.add(resultSetToPerson(rs));
-                }
-                return result;
-            }catch(SQLException ex){
-                log.error("Cannot lookup data in the dtb!");
-                throw new ServiceFailureException ("Error when trying to lookup all entities in the dtb.", ex);
-            }
-        }catch (SQLException ex){
-            log.error("Database connection problems!", ex);
-            throw new ServiceFailureException("Error when listing persons!", ex);
-        }        
-    }
-    
-    /**
-     * Method to create ID for person. Looks to dtb for highest id and returns found value plus 1.
-     * @return ID for the person to be inserted to dtb.
-     */
-    private int getId(){
-        return 6;
+    public List<Person> listAll() throws ServiceFailureException{    
+        log.debug("listAllPersons()");
+        return jdbc.query("SELECT * FROM persons", personMapper);
     }
 }
