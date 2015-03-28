@@ -5,6 +5,11 @@
  */
 package com.mycompany.moviemanager;
 
+import moviemanager.backend.Person;
+import moviemanager.backend.MovieManager;
+import moviemanager.backend.PersonManagerImpl;
+import common.ServiceFailureException;
+import common.DBUtils;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -15,6 +20,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sql.DataSource;
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.junit.After;
 import org.junit.Before;
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -28,27 +34,27 @@ public class PersonManagerTest {
     PersonManagerImpl personManager;
     private DataSource dataSource;
 
-    private static final String URL = "jdbc:derby:memory:MovieManagerDtb;create=true";
-    //private static final String URL = "jdbc:derby://localhost:1527/MovieManagerDtb;";
+    private static final String URL = "jdbc:derby:memory:MovieManagerDtb-test;create=true";
+    
+    private static DataSource prepareDataSource() throws SQLException {
+        BasicDataSource ds = new BasicDataSource();
+        //we will use in memory database
+        ds.setUrl(URL);
+        return ds;
+    }
     
     @Before
-    public void setUp() {
-        BasicDataSource ds = new BasicDataSource();
-        ds.setUsername("administrator");
-        ds.setPassword("admin");
-        ds.setUrl(URL);
-        dataSource = ds;
-        
-        try (Connection conn = dataSource.getConnection()) {
-            conn.prepareStatement("CREATE TABLE PERSONS (\n" +
-                    "id INTEGER NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,\n" +
-                    "name VARCHAR(128) NOT NULL,\n" +
-                    "birthday VARCHAR(128)\n" + 
-                    ")").executeUpdate();
-        }catch(SQLException ex){}
+    public void setUp() throws SQLException {
+        dataSource = prepareDataSource();
+        DBUtils.executeSqlScript(dataSource, MovieManager.class.getResourceAsStream("/createTables.sql"));
         
         personManager = new PersonManagerImpl(dataSource);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy MMM dd");
+    }
+    
+    @After
+    public void tearDown() throws SQLException {
+        DBUtils.executeSqlScript(dataSource, MovieManager.class.getResourceAsStream("/dropTables.sql"));
     }
 
     /**

@@ -5,6 +5,10 @@
  */
 package com.mycompany.moviemanager;
 
+import moviemanager.backend.Movie;
+import moviemanager.backend.MovieManagerImpl;
+import moviemanager.backend.MovieManager;
+import common.DBUtils;
 import java.sql.Connection;
 import java.sql.SQLException;
 import javax.sql.DataSource;
@@ -23,42 +27,29 @@ import static org.junit.Assert.*;
  * @date 2015 4 3
  */
 public class MovieManagerTest {
-    
-    private MovieManagerImpl manager;
+    MovieManagerImpl manager;
     private DataSource dataSource;
-    private static final String URL = "jdbc:derby:memory:MovieManagerDtb;create=true";
+
+    private static final String URL = "jdbc:derby:memory:MovieManagerDtb-test;create=true";
     
-    public MovieManagerTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
+    private static DataSource prepareDataSource() throws SQLException {
+        BasicDataSource ds = new BasicDataSource();
+        //we will use in memory database
+        ds.setUrl(URL);
+        return ds;
     }
     
     @Before
     public void setUp() throws SQLException {
-        BasicDataSource bsd = new BasicDataSource();
-        bsd.setUrl(URL);
-        this.dataSource = bsd;
-        try (Connection conn = bsd.getConnection()) {
-             conn.prepareStatement("CREATE TABLE MOVIES (\n" +
-                    "id INTEGER NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,\n" +
-                    "title VARCHAR(128) NOT NULL,\n" +
-                    "movieYear INTEGER,\n" + 
-                    "genre VARCHAR(128),\n" +
-                    "length INTEGER\n" +
-                    ")").executeUpdate();
-        }catch(SQLException ex){}
+        dataSource = prepareDataSource();
+        DBUtils.executeSqlScript(dataSource, MovieManager.class.getResourceAsStream("/createTables.sql"));
         
-        manager = new MovieManagerImpl(bsd);
+        manager = new MovieManagerImpl(dataSource);
     }
     
     @After
-    public void tearDown() {
+    public void tearDown() throws SQLException {
+        DBUtils.executeSqlScript(dataSource, MovieManager.class.getResourceAsStream("/dropTables.sql"));
     }
     
     @Test
