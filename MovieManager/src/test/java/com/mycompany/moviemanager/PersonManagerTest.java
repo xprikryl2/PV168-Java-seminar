@@ -126,21 +126,25 @@ public class PersonManagerTest {
     @Test
     public void testUpdatePerson (){
         System.out.println ("Testing updating person...");
+        String newName = "James Tiberius Kirk (Update)";
         
         Calendar calendar = new GregorianCalendar(1956, 9, 19);
         Calendar updatedCalendar = new GregorianCalendar(1955, 9, 19);
         Person person = new Person("James T. Kirk (Update)", calendar);
-        Person updatedPerson = new Person("James Tiberius Kirk", updatedCalendar);
+        Person updatedPerson = new Person(newName, updatedCalendar);
         
         personManager.createPerson(person);
         Long id = person.getId();
         Person res = personManager.getPerson(id);
-        res.setName("James Tiberius Kirk");
+        res.setName(newName);
         res.setBirth(calendar);
         res.setId(person.getId());
         personManager.updatePerson(res);
-        assertEquals(person.getName(), res.getName());
-        
+        assertEquals(newName, res.getName());
+        assertEquals(res.getBirth(), person.getBirth());
+        res.setBirth(updatedCalendar);
+        assertTrue(res.getBirth() != person.getBirth());
+        assertEquals(res.getBirth(), updatedCalendar);
     }
     
     private Person newPerson (String name, String lastName, long id){

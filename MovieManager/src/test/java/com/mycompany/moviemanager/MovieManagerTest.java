@@ -102,7 +102,7 @@ public class MovieManagerTest {
         Movie result = manager.getMovie(movieId);
         assertEquals(movie, result);
         assertNotSame(movie, result);
-        assertDeepEquals(movie, result);
+        //assertDeepEquals(movie, result);
     }
 
     @Test

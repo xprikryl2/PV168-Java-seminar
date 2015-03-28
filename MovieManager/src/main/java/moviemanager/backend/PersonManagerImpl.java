@@ -113,7 +113,7 @@ public class PersonManagerImpl implements PersonManager{
             System.out.println (sdf.format(person.getBirth().getTime()));
             Person p = getPerson(person.getId());
             System.out.println (p.getId());
-        jdbc.update("UPDATE persons SET name=?, birthday=? WHERE id=?", person.getName(), sdf.format(person.getBirth().getTime()));
+        jdbc.update("UPDATE persons SET name=?, birthday=? WHERE id=?", person.getName(), sdf.format(person.getBirth().getTime()), person.getId());
         //System.out.println ("N is: " + n);
         //if (n != 1) throw new ServiceFailureException("Person " + person + " not updated");
     }

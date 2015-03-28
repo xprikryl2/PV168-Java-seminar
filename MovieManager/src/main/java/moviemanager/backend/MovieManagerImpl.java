@@ -106,7 +106,7 @@ public class MovieManagerImpl implements MovieManager {
         if(movie.getLength() < 0){throw new IllegalArgumentException ("Movie length less then zero!");}
         
         log.debug("updateMovie({})", movie);
-        jdbc.update("UPDATE MOVIES SET title=?, movieYear=?, genre=?, length=? WHERE id=?", movie.getTitle(), movie.getYear(), movie.getGenre(), movie.getLength());
+        int n = jdbc.update("UPDATE Movies SET title= ?, movieYear= ?, genre= ?, length= ? WHERE id= ?", movie.getTitle(), movie.getYear(), movie.getGenre(), movie.getLength(), movie.getId());
     }
 
     @Override
