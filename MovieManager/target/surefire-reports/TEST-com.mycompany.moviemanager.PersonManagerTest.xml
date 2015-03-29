@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="4" failures="0" name="com.mycompany.moviemanager.PersonManagerTest" time="0.729" errors="0" skipped="0">
+<testsuite tests="4" failures="0" name="com.mycompany.moviemanager.PersonManagerTest" time="0.717" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="D:\Programming\libs\Java\DevelopmentKit_8\jre\bin"/>
@@ -63,8 +63,8 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.mycompany.moviemanager.PersonManagerTest" name="testAddPerson" time="0.046"/>
-  <testcase classname="com.mycompany.moviemanager.PersonManagerTest" name="testUpdatePerson" time="0.189"/>
-  <testcase classname="com.mycompany.moviemanager.PersonManagerTest" name="testRemovePerson" time="0.286"/>
-  <testcase classname="com.mycompany.moviemanager.PersonManagerTest" name="testFindPersonWithID" time="0.207"/>
+  <testcase classname="com.mycompany.moviemanager.PersonManagerTest" name="testAddPerson" time="0.104"/>
+  <testcase classname="com.mycompany.moviemanager.PersonManagerTest" name="testUpdatePerson" time="0.166"/>
+  <testcase classname="com.mycompany.moviemanager.PersonManagerTest" name="testRemovePerson" time="0.435"/>
+  <testcase classname="com.mycompany.moviemanager.PersonManagerTest" name="testFindPersonWithID" time="0.004"/>
 </testsuite>

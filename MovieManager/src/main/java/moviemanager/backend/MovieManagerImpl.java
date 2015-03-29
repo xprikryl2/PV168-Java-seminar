@@ -3,20 +3,12 @@
  */
 package moviemanager.backend;
 import common.ServiceFailureException;
-import static moviemanager.backend.PersonManagerImpl.log;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.sql.DataSource;
-import org.apache.commons.dbcp2.BasicDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -33,11 +25,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class MovieManagerImpl implements MovieManager {
     private final JdbcTemplate jdbc;
     final static Logger log = LoggerFactory.getLogger(MovieManagerImpl.class);
-    
-    private static final String LOGIN = "administrator";
-    private static final String PASSWORD = "admin";
-    private static final String URL = "jdbc:derby://localhost:1527/MovieManagerDtb;";
-    private static final String DRIVER = "org.apache.derby.jdbc.ClientDriver";
     
     public MovieManagerImpl (DataSource dataSource){
         this.jdbc = new JdbcTemplate(dataSource);
