@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="moviemanager.backend.RelationshipsManagerTest" time="0.74" errors="0" skipped="0">
+<testsuite tests="3" failures="0" name="moviemanager.backend.RelationshipsManagerTest" time="0.656" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="D:\Programming\libs\Java\DevelopmentKit_8\jre\bin"/>
@@ -63,7 +63,7 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="moviemanager.backend.RelationshipsManagerTest" name="addPersonAsWriter" time="0.41"/>
-  <testcase classname="moviemanager.backend.RelationshipsManagerTest" name="addPersonAsDirector" time="0.084"/>
-  <testcase classname="moviemanager.backend.RelationshipsManagerTest" name="addPersonAsCast" time="0.075"/>
+  <testcase classname="moviemanager.backend.RelationshipsManagerTest" name="addPersonAsWriter" time="0.104"/>
+  <testcase classname="moviemanager.backend.RelationshipsManagerTest" name="addPersonAsDirector" time="0.245"/>
+  <testcase classname="moviemanager.backend.RelationshipsManagerTest" name="addPersonAsCast" time="0.281"/>
 </testsuite>
