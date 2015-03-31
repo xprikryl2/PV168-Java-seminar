@@ -72,7 +72,7 @@ public class RelationshipsManagerTest {
         Person person = new Person("Jane Doe (personAsCast)", calendar);
         personManager.createPerson(person);
         
-        relationManager.addPersonAsCast(person, movie);
+        relationManager.addPersonToRole(person, movie, "movieCast");
         
     }
     
@@ -90,7 +90,7 @@ public class RelationshipsManagerTest {
         Person person = new Person("John Doe (personAsDirector)", calendar);
         personManager.createPerson(person);
         
-        relationManager.addPersonAsDirector(person, movie);
+        relationManager.addPersonToRole(person, movie, "director");
         
     }
     
@@ -108,7 +108,7 @@ public class RelationshipsManagerTest {
         Person person = new Person("John Smith (personAsWriter)", calendar);
         personManager.createPerson(person);
         
-        relationManager.addPersonAsWriter(person, movie);
+        relationManager.addPersonToRole(person, movie, "writer");
         
     }
 

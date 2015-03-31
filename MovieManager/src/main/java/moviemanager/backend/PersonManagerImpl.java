@@ -108,11 +108,6 @@ public class PersonManagerImpl implements PersonManager{
         else if (person.getName().equals("")){throw new IllegalArgumentException ("Person name is empty!");}
         
         log.debug("updatePerson({})", person);
-            System.out.println (person.getId());
-            System.out.println (person.getName());
-            System.out.println (sdf.format(person.getBirth().getTime()));
-            Person p = getPerson(person.getId());
-            System.out.println (p.getId());
         jdbc.update("UPDATE persons SET name=?, birthday=? WHERE id=?", person.getName(), sdf.format(person.getBirth().getTime()), person.getId());
         //System.out.println ("N is: " + n);
         //if (n != 1) throw new ServiceFailureException("Person " + person + " not updated");
