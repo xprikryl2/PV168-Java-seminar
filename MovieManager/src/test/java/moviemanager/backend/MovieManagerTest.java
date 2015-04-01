@@ -5,18 +5,12 @@
  */
 package moviemanager.backend;
 
-import moviemanager.backend.Movie;
-import moviemanager.backend.MovieManagerImpl;
-import moviemanager.backend.MovieManager;
 import common.DBUtils;
-import java.sql.Connection;
 import java.sql.SQLException;
 import javax.sql.DataSource;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

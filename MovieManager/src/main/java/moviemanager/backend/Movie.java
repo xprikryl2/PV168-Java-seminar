@@ -208,4 +208,8 @@ public class Movie {
         }
     }    
     
+    @Override
+    public String toString(){
+        return this.getId() + ": " + this.getTitle();
+    }
 }
