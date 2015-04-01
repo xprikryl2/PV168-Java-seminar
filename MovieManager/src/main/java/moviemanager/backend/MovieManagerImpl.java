@@ -2,6 +2,7 @@
  * Class to manage movies in the database.
  */
 package moviemanager.backend;
+import common.EntityValidator;
 import common.ServiceFailureException;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -25,6 +26,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class MovieManagerImpl implements MovieManager {
     private final JdbcTemplate jdbc;
     final static Logger log = LoggerFactory.getLogger(MovieManagerImpl.class);
+    private EntityValidator validator = new EntityValidator();
     
     public MovieManagerImpl (DataSource dataSource){
         this.jdbc = new JdbcTemplate(dataSource);
@@ -54,13 +56,9 @@ public class MovieManagerImpl implements MovieManager {
     @Override
     @Transactional
     public void createMovie(Movie movie) throws ServiceFailureException{
-
-        // checkvalidity of incoming data
-        if(movie == null){throw new IllegalArgumentException ("Movie is null!");}
-        if(movie.getId() != null){throw new IllegalArgumentException ("Movie id is not null!");}
-        if(movie.getTitle() == null){throw new IllegalArgumentException ("Movie title is null!");}
-        if(movie.getYear() < 0){throw new IllegalArgumentException ("Movie year less then zero!");}
-        if(movie.getLength() < 0){throw new IllegalArgumentException ("Movie length less then zero!");}
+        // to validate if incoming paramter movie is valid
+        validator.validateMovie(movie);
+        if (movie.getId() != null){throw new IllegalArgumentException();}
         
         log.debug("createMovie({})", movie);
         Map<String, Object> pars = new HashMap<>();
@@ -84,13 +82,9 @@ public class MovieManagerImpl implements MovieManager {
     @Override
     @Transactional
     public void updateMovie(Movie movie) throws ServiceFailureException {
-
-        // checkvalidity of incoming data
-        if(movie == null){throw new IllegalArgumentException ("Movie is null!");}
-        if(movie.getId() == null){throw new IllegalArgumentException ("Movie id is null!");}
-        if(movie.getTitle() == null){throw new IllegalArgumentException ("Movie title is null!");}
-        if(movie.getYear() < 0){throw new IllegalArgumentException ("Movie year less then zero!");}
-        if(movie.getLength() < 0){throw new IllegalArgumentException ("Movie length less then zero!");}
+        // check validity of incoming data
+        validator.validateMovie(movie);
+        if (movie.getId() == null){throw new IllegalArgumentException();}
         
         log.debug("updateMovie({})", movie);
         int n = jdbc.update("UPDATE Movies SET title= ?, movieYear= ?, genre= ?, length= ? WHERE id= ?", movie.getTitle(), movie.getYear(), movie.getGenre(), movie.getLength(), movie.getId());

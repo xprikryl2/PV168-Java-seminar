@@ -13,6 +13,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -25,6 +26,7 @@ public class MovieManagerTest {
     private DataSource dataSource;
 
     private static final String URL = "jdbc:derby:memory:MovieManagerDtb-test;create=true";
+    final static org.slf4j.Logger log = LoggerFactory.getLogger(MovieManagerTest.class);
     
     private static DataSource prepareDataSource() throws SQLException {
         BasicDataSource ds = new BasicDataSource();
@@ -48,6 +50,7 @@ public class MovieManagerTest {
     
     @Test
     public void testCreateMovie() {
+        log.info ("Testing creaating movie...");
         Movie movie = newMovie();
         manager.createMovie(movie);
         Long movieId = movie.getId();
@@ -59,6 +62,7 @@ public class MovieManagerTest {
     
     @Test
     public void testDeleteMovie() {
+        log.info("Testing deleting movie...");
         Movie movie = newMovie();
         manager.createMovie(movie);
         Long movieId = movie.getId();
@@ -70,6 +74,7 @@ public class MovieManagerTest {
     
     @Test
     public void testUpdateMovie() {
+        log.info("Testing updating movie");
         Movie movie = newMovie();
         manager.createMovie(movie);
         
@@ -100,7 +105,8 @@ public class MovieManagerTest {
     }
 
     @Test
-    public void testMovieWithWrongAttributes() {
+    public void testMovieWithIncorrectAttributes() {
+        log.info("Testing movie with incorrect attributes...");
 
         Movie movie;
         
@@ -207,9 +213,6 @@ public class MovieManagerTest {
         assertEquals(expected.getYear(), actual.getYear());
         assertEquals(expected.getGenre(), actual.getGenre());
         assertEquals(expected.getLength(), actual.getLength());
-        assertEquals(expected.getDirector(), actual.getDirector());
-        assertEquals(expected.getWriter(), actual.getWriter());
-        assertEquals(expected.getCast(), actual.getCast());
     }
 
 }

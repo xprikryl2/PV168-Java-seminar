@@ -6,7 +6,7 @@ package moviemanager.backend;
 import java.util.List;
 
 /**
- *
+ * Class representing entity movie.
  * @author Lukáš Šrom
  * @author Jakub Mlčák
  * @date 2015 4 3
@@ -17,9 +17,6 @@ public class Movie {
     private int year;
     private List<String> genre;
     private int length;
-    private List<Person> director;
-    private List<Person> writer;
-    private List<Person> cast;
 
     /**
      * Movie class constructor.
@@ -37,9 +34,6 @@ public class Movie {
         this.year = year;
         this.genre = genre;
         this.length = length;
-        this.director = director;
-        this.writer = writer;
-        this.cast = cast;
     }
 
     /**
@@ -51,9 +45,6 @@ public class Movie {
         this.year = 0;
         this.genre = null;
         this.length = 0;
-        this.director = null;
-        this.writer = null;
-        this.cast = null;
     }
     
     /**
@@ -134,54 +125,6 @@ public class Movie {
      */
     public void setLength(int length) {
         this.length = length;
-    }
-    
-    /**
-     * Get method to return List of directors.
-     * @return List<Person> containing directors of the movie.
-     */
-    public List<Person> getDirector() {
-        return director;
-    }
-    
-    /**
-     * Method to set director of the movie.
-     * @param director List<Person> with directors of the movie.
-     */
-    public void setDirector(List<Person> director) {
-        this.director = director;
-    }
-    
-    /**
-     * Get method to return List of Writers.
-     * @return List<Person> containing writers of the movie.
-     */
-    public List<Person> getWriter() {
-        return writer;
-    }
-    
-    /**
-     * Method to set writer of the movie.
-     * @param writer List<Person> containing writers of the movie.
-     */
-    public void setWriter(List<Person> writer) {
-        this.writer = writer;
-    }
-    
-    /**
-     * Get method to return List of actors.
-     * @return List<Person> containing actors in the movie.
-     */
-    public List<Person> getCast() {
-        return cast;
-    }
-    
-    /**
-     * Method to set cast of movie.
-     * @param cast List<Person> with actors in the movie.
-     */
-    public void setCast(List<Person> cast) {
-        this.cast = cast;
     }
     
     @Override

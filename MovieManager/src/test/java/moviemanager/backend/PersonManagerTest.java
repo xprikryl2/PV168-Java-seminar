@@ -21,6 +21,7 @@ import org.junit.After;
 import org.junit.Before;
 import static org.junit.Assert.*;
 import org.junit.Test;
+import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -33,6 +34,7 @@ public class PersonManagerTest {
 
     private static final String URL = "jdbc:derby:memory:MovieManagerDtb-test;create=true";
     //private static final String URL = "jdbc:derby://localhost:1527/MovieManagerDtb";
+    final static org.slf4j.Logger log = LoggerFactory.getLogger(PersonManagerTest.class);
     
     private static DataSource prepareDataSource() throws SQLException {
         BasicDataSource ds = new BasicDataSource();
@@ -61,9 +63,9 @@ public class PersonManagerTest {
      */
     @Test
     public void testAddPerson() {
-        System.out.println ("Testing adding person...");
+        log.info ("Testing adding person...");
         
-        Calendar calendar = new GregorianCalendar(1995, 11, 1);        
+        Calendar calendar = new GregorianCalendar(1995, Calendar.DECEMBER, 1);        
             
         Person person = new Person("Jane Doe (Add)", calendar);
         personManager.createPerson(person);
@@ -80,9 +82,9 @@ public class PersonManagerTest {
      */
     @Test
     public void testRemovePerson (){
-        System.out.println ("Testing removing person...");
+        log.info ("Testing removing person...");
         try {
-            Calendar calendar = new GregorianCalendar(1987, 5, 17);            
+            Calendar calendar = new GregorianCalendar(1987, Calendar.JUNE, 17);            
             Person person = new Person("John Doe (Remove)", calendar);
             
             personManager.createPerson(person);
@@ -103,9 +105,9 @@ public class PersonManagerTest {
      */
     @Test
     public void testFindPersonWithID(){
-        System.out.println ("Testing searching for person by ID...");
+        log.info ("Testing searching for person by ID...");
         try{
-            Calendar calendar = new GregorianCalendar(1933, 0, 9);
+            Calendar calendar = new GregorianCalendar(1933, Calendar.JANUARY, 9);
             Person person = new Person("Wilbur Smith (Find)", calendar);
             
             personManager.createPerson(person);
@@ -123,12 +125,13 @@ public class PersonManagerTest {
      */
     @Test
     public void testUpdatePerson (){
-        System.out.println ("Testing updating person...");
+        log.info ("Testing updating person...");
         String newName = "James Tiberius Kirk (Update)";
+        String personName = "James T. Kirk (Update)";
         
-        Calendar calendar = new GregorianCalendar(1956, 9, 19);
-        Calendar updatedCalendar = new GregorianCalendar(1955, 9, 19);
-        Person person = new Person("James T. Kirk (Update)", calendar);
+        Calendar calendar = new GregorianCalendar(1956, Calendar.AUGUST, 19);
+        Calendar updatedCalendar = new GregorianCalendar(1955, Calendar.SEPTEMBER, 19);
+        Person person = new Person(personName, calendar);
         Person updatedPerson = new Person(newName, updatedCalendar);
         
         personManager.createPerson(person);
@@ -145,12 +148,40 @@ public class PersonManagerTest {
         assertEquals(res.getBirth(), updatedCalendar);
     }
     
-    private Person newPerson (String name, String lastName, long id){
-        Person person = new Person();
-        person.setName(name);
-        person.setId(id);
+    @Test //(expected = IllegalArgumentException.class)
+    public void createPersonWithIncorrectArgument (){
+        log.info("Testing creating person with incorrect arguments...");
         
-        return person;
+        String personName = "John Doe (createIncorrectly)";
+        
+        // null argument
+        try{
+            personManager.createPerson(null);
+        }catch(IllegalArgumentException ex){
+            log.debug("Creating person with argument null threw " + IllegalArgumentException.class.getCanonicalName() + ".");
+        }
+        
+        Calendar calendar = new GregorianCalendar(1987,Calendar.APRIL,27);
+        Person person = new Person(personName, calendar);
+        personManager.createPerson(person);
+        assertNotNull(person);
+        
+        // name set to null
+        try{
+            person.setName(null);
+            personManager.createPerson(person);
+        }catch(IllegalArgumentException ex){
+            log.debug("Creating person with name null threw " + IllegalArgumentException.class.getCanonicalName() + ".");
+        }
+        
+        // blank name
+        try{
+            person.setName("");
+            personManager.createPerson(person);
+        }catch(IllegalArgumentException ex){
+            log.debug("Creating person with blank name threw " + IllegalArgumentException.class.getCanonicalName() + ".");
+        }
+        
     }
     
     private static Comparator<Person> idComparator = new Comparator<Person>() {

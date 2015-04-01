@@ -7,7 +7,7 @@ import common.ServiceFailureException;
 import java.util.List;
 
 /**
- *
+ * 
  * @author Lukáš Šrom
  * @author Jakub Mlčák
  * @date 2015 4 3

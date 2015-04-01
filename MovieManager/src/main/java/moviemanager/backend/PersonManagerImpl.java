@@ -4,6 +4,7 @@
 package moviemanager.backend;
 
 import common.Consts;
+import common.EntityValidator;
 import common.ServiceFailureException;
 import java.sql.ResultSet;
 import java.text.ParseException;
@@ -21,7 +22,7 @@ import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- *
+ * Implementation of class PersonManager. Covers basic CRUD functions (Create, Remove, Update and Delete).
  * @author Lukáš Šrom
  * @author Jakub Mlčák
  * @date 2015 3 27
@@ -30,6 +31,7 @@ public class PersonManagerImpl implements PersonManager{
     final static Logger log = LoggerFactory.getLogger(PersonManagerImpl.class);
     private final JdbcTemplate jdbc;
     private static final SimpleDateFormat sdf = new SimpleDateFormat(Consts.TIME_FORMAT);
+    private final EntityValidator validator = new EntityValidator();
     
     public PersonManagerImpl (DataSource dataSource){
         this.jdbc = new JdbcTemplate(dataSource);
@@ -58,8 +60,7 @@ public class PersonManagerImpl implements PersonManager{
     @Transactional
     public void createPerson (Person person) throws ServiceFailureException{        
         // check validity of incoming data
-        if (person == null){throw new IllegalArgumentException ("Person is set to null!");}
-        else if (person.getName().equals(null) || person.getName() == ""){throw new IllegalArgumentException ("Name of the person is not set.");}
+        validator.validatePerson(person);
         
         log.debug("addPerson({})", person);
         Map<String, Object> pars = new HashMap<>();
@@ -105,13 +106,11 @@ public class PersonManagerImpl implements PersonManager{
     @Override
     @Transactional
     public void updatePerson (Person person) throws ServiceFailureException{
-        if (person == null){throw new IllegalArgumentException ("Person pointer is null!");}
-        else if (person.getName().equals("")){throw new IllegalArgumentException ("Person name is empty!");}
-        
         log.debug("updatePerson({})", person);
-        jdbc.update("UPDATE persons SET name=?, birthday=? WHERE id=?", person.getName(), sdf.format(person.getBirth().getTime()), person.getId());
-        //System.out.println ("N is: " + n);
-        //if (n != 1) throw new ServiceFailureException("Person " + person + " not updated");
+        validator.validatePerson(person);        
+        
+        int n = jdbc.update("UPDATE persons SET name=?, birthday=? WHERE id=?", person.getName(), sdf.format(person.getBirth().getTime()), person.getId());
+        if (n != 1) throw new ServiceFailureException("Person " + person + " not updated");
     }
     
     /**

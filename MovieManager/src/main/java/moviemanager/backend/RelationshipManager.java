@@ -37,7 +37,5 @@ public interface RelationshipManager {
      * @param person Person to be removed from movie relation.
      * @param movie Movie to be removed from person relation.
      */
-    public void removePersonFromMovie (Person person, Movie movie) throws ServiceFailureException;
-    
-    public void removeMovieFromPerson (Person person, Movie movie) throws ServiceFailureException;
+    public void removeRelationship (Person person, Movie movie) throws ServiceFailureException;
 }

@@ -4,12 +4,9 @@
 package moviemanager.backend;
 
 import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.List;
 
 /**
- *
+ * Class representing entity person.
  * @author Lukáš Šrom
  * @author Jakub Mlčák
  * @date 2015 4 3
@@ -18,13 +15,11 @@ public class Person {
     private Long id;
     private String name;
     private Calendar birth;
-    private List<Movie> affiliatedWithMovies;
 
     /**
      * Constructor of class Person.
      * @param name String with name of the person.
      * @param birth Date object with date of birth of he person
-     * @param affiliatedWithMovies List<Movie> with all the movies related to this person.
      */
     public Person(String name, Calendar birth) {
         this.name = name;
@@ -45,15 +40,6 @@ public class Person {
         this.id = null;
         this.name = "";
         this.birth = null;
-        this.affiliatedWithMovies = null;
-    }
-
-    /**
-     * Method to get movies related to person.
-     * @return List<Movie> containing movies affiliated to the person.
-     */
-    public List<Movie> getAffiliatedWithMovies() {
-        return this.affiliatedWithMovies;
     }
 
     /**
@@ -78,14 +64,6 @@ public class Person {
      */
     public Long getId() {
         return this.id;
-    }
-
-    /**
-     * Method to set movies affiliated with the person.
-     * @param affiliatedWithMovies List<Movie> containing movies affiliated with person.
-     */
-    public void setAffiliatedWithMovies(List<Movie> affiliatedWithMovies) {
-        this.affiliatedWithMovies = affiliatedWithMovies;
     }
 
     /**
