@@ -3,7 +3,6 @@
  */
 package moviemanager.backend;
 
-import common.Consts;
 import common.ServiceFailureException;
 import java.sql.ResultSet;
 import java.text.ParseException;
@@ -29,7 +28,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class PersonManagerImpl implements PersonManager{
     final static Logger log = LoggerFactory.getLogger(PersonManagerImpl.class);
     private final JdbcTemplate jdbc;
-    private static final SimpleDateFormat sdf = new SimpleDateFormat(Consts.TIME_FORMAT);
+    private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy MMM dd");
     
     public PersonManagerImpl (DataSource dataSource){
         this.jdbc = new JdbcTemplate(dataSource);

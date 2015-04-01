@@ -25,6 +25,10 @@ class RelationshipManagerImpl implements RelationshipManager {
     final static Logger log = LoggerFactory.getLogger(PersonManagerImpl.class);
     private final JdbcTemplate jdbc;
     
+    private static final String CAST = "movieCast";
+    private static final String DIRECTOR = "director";
+    private static final String WRITER = "writer";
+    
     public RelationshipManagerImpl(DataSource dataSource){
         this.jdbc = new JdbcTemplate(dataSource);
     }
@@ -89,32 +93,4 @@ class RelationshipManagerImpl implements RelationshipManager {
         int n = jdbc.update("DELETE FROM relationships WHERE movieId = ? AND personId = ?", movie.getId(), person.getId());
         if (n != 1) throw new ServiceFailureException("Movie affiliation of person with ID " + person.getId() + " not deleted");
     }
-    
-    private static final RowMapper<Boolean> affiliationMapper = (ResultSet rs, int rowNum) -> {
-        boolean isAffiliated = rs.getBoolean(1);
-        return isAffiliated;
-    };
-    
-    public Boolean checkIfPersonIsCast (Person person, Movie movie){
-        log.debug("checking if person is cast of movie", person, movie);
-        
-        List<Boolean> list = jdbc.query("SELECT movieCast FROM relationships WHERE personId = ? AND movieId = ?", affiliationMapper, person.getId(), movie.getId());
-        return list.get(0);
-    }
-    
-    public Boolean checkIfPersonIsWriter (Person person, Movie movie){
-        log.debug("checking if person is writer of movie", person, movie);
-        
-        List<Boolean> list = jdbc.query("SELECT writer FROM relationships WHERE personId = ? AND movieId = ?", affiliationMapper, person.getId(), movie.getId());
-        return list.get(0);
-    }
-    
-    public Boolean checkIfPersonIsDirector (Person person, Movie movie){
-        log.debug("checking if person is director of movie", person, movie);
-        
-        List<Boolean> list = jdbc.query("SELECT director FROM relationships WHERE personId = ? AND movieId = ?", affiliationMapper, person.getId(), movie.getId());
-        return list.get(0);
-    }
-    
-    
 }

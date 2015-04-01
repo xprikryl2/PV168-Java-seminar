@@ -130,9 +130,4 @@ public class Person {
         hash = 97 * hash + (this.id != null ? this.id.hashCode() : 0);
         return hash;
     }
-    
-    @Override
-    public String toString (){
-        return this.getId() + ": " + this.getName() + " born: " + this.getBirth();
-    }
 }

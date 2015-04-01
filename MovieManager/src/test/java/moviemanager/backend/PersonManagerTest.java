@@ -5,9 +5,12 @@
  */
 package moviemanager.backend;
 
-import common.Consts;
+import moviemanager.backend.Person;
+import moviemanager.backend.MovieManager;
+import moviemanager.backend.PersonManagerImpl;
 import common.ServiceFailureException;
 import common.DBUtils;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -32,7 +35,6 @@ public class PersonManagerTest {
     private DataSource dataSource;
 
     private static final String URL = "jdbc:derby:memory:MovieManagerDtb-test;create=true";
-    //private static final String URL = "jdbc:derby://localhost:1527/MovieManagerDtb";
     
     private static DataSource prepareDataSource() throws SQLException {
         BasicDataSource ds = new BasicDataSource();
@@ -47,7 +49,7 @@ public class PersonManagerTest {
         DBUtils.executeSqlScript(dataSource, MovieManager.class.getResourceAsStream("/createTables.sql"));
         
         personManager = new PersonManagerImpl(dataSource);
-        SimpleDateFormat sdf = new SimpleDateFormat(Consts.TIME_FORMAT);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy MMM dd");
     }
     
     @After
@@ -63,7 +65,7 @@ public class PersonManagerTest {
     public void testAddPerson() {
         System.out.println ("Testing adding person...");
         
-        Calendar calendar = new GregorianCalendar(1995, 11, 1);        
+        Calendar calendar = new GregorianCalendar(1995,11,1);        
             
         Person person = new Person("Jane Doe (Add)", calendar);
         personManager.createPerson(person);
@@ -82,7 +84,7 @@ public class PersonManagerTest {
     public void testRemovePerson (){
         System.out.println ("Testing removing person...");
         try {
-            Calendar calendar = new GregorianCalendar(1987, 5, 17);            
+            Calendar calendar = new GregorianCalendar(1987,5,17);            
             Person person = new Person("John Doe (Remove)", calendar);
             
             personManager.createPerson(person);
@@ -105,7 +107,7 @@ public class PersonManagerTest {
     public void testFindPersonWithID(){
         System.out.println ("Testing searching for person by ID...");
         try{
-            Calendar calendar = new GregorianCalendar(1933, 0, 9);
+            Calendar calendar = new GregorianCalendar(1933,0,9);
             Person person = new Person("Wilbur Smith (Find)", calendar);
             
             personManager.createPerson(person);
