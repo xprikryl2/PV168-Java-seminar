@@ -1,13 +1,13 @@
-D:\School\PV168 Java\MovieManager\src\main\java\moviemanager\backend\PersonManagerImpl.java
-D:\School\PV168 Java\MovieManager\src\main\java\moviemanager\backend\RelationshipManager.java
-D:\School\PV168 Java\MovieManager\src\main\java\common\ServiceFailureException.java
-D:\School\PV168 Java\MovieManager\src\main\java\common\DBUtils.java
-D:\School\PV168 Java\MovieManager\src\main\java\moviemanager\backend\Movie.java
-D:\School\PV168 Java\MovieManager\src\main\java\moviemanager\backend\DtbManager.java
-D:\School\PV168 Java\MovieManager\src\main\java\moviemanager\backend\MovieManagerImpl.java
-D:\School\PV168 Java\MovieManager\src\main\java\moviemanager\backend\Person.java
-D:\School\PV168 Java\MovieManager\src\main\java\moviemanager\backend\PersonManager.java
-D:\School\PV168 Java\MovieManager\src\main\java\common\Consts.java
-D:\School\PV168 Java\MovieManager\src\main\java\common\EntityValidator.java
-D:\School\PV168 Java\MovieManager\src\main\java\moviemanager\backend\MovieManager.java
-D:\School\PV168 Java\MovieManager\src\main\java\moviemanager\backend\RelationshipManagerImpl.java
+D:\Programming\GitHub\PV168-Java-seminar\MovieManager\src\main\java\moviemanager\backend\Person.java
+D:\Programming\GitHub\PV168-Java-seminar\MovieManager\src\main\java\moviemanager\backend\PersonManagerImpl.java
+D:\Programming\GitHub\PV168-Java-seminar\MovieManager\src\main\java\moviemanager\backend\RelationshipManager.java
+D:\Programming\GitHub\PV168-Java-seminar\MovieManager\src\main\java\moviemanager\backend\MovieManager.java
+D:\Programming\GitHub\PV168-Java-seminar\MovieManager\src\main\java\moviemanager\backend\PersonManager.java
+D:\Programming\GitHub\PV168-Java-seminar\MovieManager\src\main\java\moviemanager\backend\RelationshipManagerImpl.java
+D:\Programming\GitHub\PV168-Java-seminar\MovieManager\src\main\java\common\DBUtils.java
+D:\Programming\GitHub\PV168-Java-seminar\MovieManager\src\main\java\moviemanager\backend\DtbManager.java
+D:\Programming\GitHub\PV168-Java-seminar\MovieManager\src\main\java\moviemanager\backend\MovieManagerImpl.java
+D:\Programming\GitHub\PV168-Java-seminar\MovieManager\src\main\java\common\ServiceFailureException.java
+D:\Programming\GitHub\PV168-Java-seminar\MovieManager\src\main\java\common\Consts.java
+D:\Programming\GitHub\PV168-Java-seminar\MovieManager\src\main\java\common\EntityValidator.java
+D:\Programming\GitHub\PV168-Java-seminar\MovieManager\src\main\java\moviemanager\backend\Movie.java
