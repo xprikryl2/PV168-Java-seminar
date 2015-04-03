@@ -6,3 +6,4 @@ jdk:
 notifications:
   email:
     - lukas.srom@gmail.com
+    - jakub.mlcak@seznam.cz
