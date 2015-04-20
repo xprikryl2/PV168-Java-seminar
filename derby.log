@@ -1,11 +1,11 @@
 ----------------------------------------------------------------
-Thu Apr 02 21:02:25 CEST 2015:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-7b83-4df0-0000064e3c88 
-on database directory memory:D:\Programming\GitHub\PV168-Java-seminar\MovieManager\MovieManagerDtb-test with class loader sun.misc.Launcher$AppClassLoader@6bc7c054 
+Mon Apr 20 23:31:54 CEST 2015:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-d8be-a138-000006562698 
+on database directory memory:D:\School\PV168_Java\MovieManager\MovieManagerDtb-test with class loader sun.misc.Launcher$AppClassLoader@6bc7c054 
 Loaded from file:/C:/Users/Luk%c3%a1%c5%a1/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_25-b18
-user.dir=D:\Programming\GitHub\PV168-Java-seminar\MovieManager
+user.dir=D:\School\PV168_Java\MovieManager
 os.name=Windows 8.1
 os.arch=amd64
 os.version=6.3

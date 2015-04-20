@@ -69,7 +69,7 @@ public class DtbManager {
         }
  
         @Bean
-        public RelationshipManager leaseManager() {
+        public RelationshipManager relationManager() {
             RelationshipManagerImpl relationshipManager = new RelationshipManagerImpl(dataSource());
             
             return relationshipManager;
