@@ -25,6 +25,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @PropertySource("classpath:myconf.properties")
 public class SpringConfig {
+    
     @Autowired
         Environment env;
  

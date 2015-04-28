@@ -21,6 +21,9 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.transaction.annotation.Transactional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
+
 /**
  * Implementation of class PersonManager. Covers basic CRUD functions (Create, Remove, Update and Delete).
  * @author Lukáš Šrom
@@ -33,8 +36,11 @@ public class PersonManagerImpl implements PersonManager{
     private static final SimpleDateFormat sdf = new SimpleDateFormat(Consts.TIME_FORMAT);
     private final EntityValidator validator = new EntityValidator();
     
+    @Autowired
+        Environment env;
+    
     public PersonManagerImpl (DataSource dataSource){
-        this.jdbc = new JdbcTemplate(dataSource);
+            this.jdbc = new JdbcTemplate(dataSource);
     }
     
     /**
@@ -117,6 +123,7 @@ public class PersonManagerImpl implements PersonManager{
      * Method to list all person in the database.
      * @return List<Person> containing all persons in the database.
      */
+    @Transactional
     @Override
     public List<Person> listAllPersons() throws ServiceFailureException{    
         log.debug("listAllPersons()");

@@ -32,30 +32,32 @@ public class PersonManagerTest {
     PersonManagerImpl personManager;
     private DataSource dataSource;
 
-    private static final String URL = "jdbc:derby:memory:MovieManagerDtb-test;create=true";
-    //private static final String URL = "jdbc:derby://localhost:1527/MovieManagerDtb";
+    //private static final String URL = "jdbc:derby:memory:MovieManagerDtb-test;create=true";
+    private static final String URL = "jdbc:derby://localhost:1527/MovieManagerDtb";
     final static org.slf4j.Logger log = LoggerFactory.getLogger(PersonManagerTest.class);
     
     private static DataSource prepareDataSource() throws SQLException {
         BasicDataSource ds = new BasicDataSource();
         //we will use in memory database
         ds.setUrl(URL);
+        ds.setUsername("administrator");
+        ds.setPassword("admin");
         return ds;
     }
     
     @Before
     public void setUp() throws SQLException {
         dataSource = prepareDataSource();
-        DBUtils.executeSqlScript(dataSource, MovieManager.class.getResourceAsStream("/createTables.sql"));
+        //DBUtils.executeSqlScript(dataSource, MovieManager.class.getResourceAsStream("/createTables.sql"));
         
         personManager = new PersonManagerImpl(dataSource);
         SimpleDateFormat sdf = new SimpleDateFormat(Consts.TIME_FORMAT);
     }
-    
+    /*
     @After
     public void tearDown() throws SQLException {
         DBUtils.executeSqlScript(dataSource, MovieManager.class.getResourceAsStream("/dropTables.sql"));
-    }
+    }*/
 
     /**
      * Unit test for adding persons to database.

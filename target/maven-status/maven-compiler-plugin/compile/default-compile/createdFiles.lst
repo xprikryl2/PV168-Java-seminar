@@ -1,0 +1,13 @@
+moviemanager\backend\Person.class
+moviemanager\backend\PersonManager.class
+moviemanager\backend\SpringConfig.class
+common\Consts.class
+moviemanager\backend\MovieManagerImpl.class
+moviemanager\backend\PersonManagerImpl.class
+moviemanager\backend\RelationshipManager.class
+common\DBUtils.class
+moviemanager\backend\MovieManager.class
+moviemanager\backend\RelationshipManagerImpl.class
+moviemanager\backend\Movie.class
+common\EntityValidator.class
+common\ServiceFailureException.class
