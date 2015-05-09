@@ -3,6 +3,8 @@
  */
 package moviemanager.backend;
 
+import common.Consts;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 /**
@@ -12,6 +14,8 @@ import java.util.Calendar;
  * @date 2015 4 3
  */
 public class Person {
+    private static final SimpleDateFormat sdf = new SimpleDateFormat(Consts.TIME_FORMAT);
+    
     private Long id;
     private String name;
     private Calendar birth;
@@ -111,6 +115,6 @@ public class Person {
     
     @Override
     public String toString (){
-        return this.getId() + ": " + this.getName() + " born: " + this.getBirth();
+        return this.getId() + ": " + this.getName() + " born: " + sdf.format(this.getBirth().getTime());
     }
 }

@@ -4,6 +4,13 @@
 package moviemanager.backend;
 
 import common.ServiceFailureException;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.springframework.transaction.annotation.EnableTransactionManagement; 
 import javax.sql.DataSource;
 import org.apache.commons.dbcp2.BasicDataSource;
@@ -30,49 +37,25 @@ public class DtbManager {
     
     public static void main(String[] args) throws ServiceFailureException, ClassNotFoundException{
         System.out.println("this is main");
-        PersonManagerImpl mngr = new PersonManagerImpl(null);
-                
+        SpringConfig sc = new SpringConfig();
+        
+        PersonManagerImpl mngr = (PersonManagerImpl) sc.personManager();
+        System.out.println("person: " + mngr.getPerson(1l).toString());
+        DataSource d = null;
+        if (d == null){System.out.println ("errrror");}
+        d = sc.dataSource();
+        if (d == null){System.out.println ("errrror");}
+                System.out.println("this is main");
+        try {
+            Connection c = d.getConnection();
+            Properties p = c.getClientInfo();
+            p.toString();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DtbManager.class.getName()).log(Level.SEVERE, "tu to spadlo", ex);
+        }
     }
     
-    @Configuration  //je to konfigurace pro Spring
-    @EnableTransactionManagement //bude řídit transakce u metod označených @Transactional
-    @PropertySource("classpath:myconf.properties") //načte konfiguraci z myconf.properties
-    public static class SpringConfig {
- 
-        @Autowired
-        Environment env;
- 
-        @Bean
-        public DataSource dataSource() {
-            BasicDataSource bds = new BasicDataSource(); //Apache DBCP connection pooling DataSource
-            bds.setDriverClassName(env.getProperty("jdbc.driver"));
-            bds.setUrl(env.getProperty("jdbc.url"));
-            bds.setUsername(env.getProperty("jdbc.user"));
-            bds.setPassword(env.getProperty("jdbc.password"));
-            return bds;
-        }
- 
-        @Bean //potřeba pro @EnableTransactionManagement
-        public PlatformTransactionManager transactionManager() {
-            return new DataSourceTransactionManager(dataSource());
-        }
- 
-        @Bean //náš manager, bude automaticky obalen řízením transakcí
-        public PersonManager personManager() {
-            return new PersonManagerImpl(dataSource());
-        }
- 
-        @Bean
-        public MovieManager movieManager() {
-            // BookManagerImpl nepoužívá Spring JDBC, musíme mu vnutit spolupráci se Spring transakcemi
-            return new MovieManagerImpl(new TransactionAwareDataSourceProxy(dataSource()));
-        }
- 
-        @Bean
-        public RelationshipManager relationManager() {
-            RelationshipManagerImpl relationshipManager = new RelationshipManagerImpl(dataSource());
-            
-            return relationshipManager;
-        }
-    }
+    
+    
 }

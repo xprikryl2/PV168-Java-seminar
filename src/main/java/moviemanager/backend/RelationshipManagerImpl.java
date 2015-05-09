@@ -23,7 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author Lukáš
  */
-class RelationshipManagerImpl implements RelationshipManager {
+public class RelationshipManagerImpl implements RelationshipManager {
     final static Logger log = LoggerFactory.getLogger(RelationshipManagerImpl.class);
     private final JdbcTemplate jdbc;
     
