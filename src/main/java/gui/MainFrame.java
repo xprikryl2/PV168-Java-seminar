@@ -13,6 +13,7 @@ import java.io.PrintStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -42,7 +43,7 @@ public class MainFrame extends javax.swing.JFrame {
         try {
             System.setOut(new PrintStream(new BufferedOutputStream(new FileOutputStream("log.log")), true));
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(DtbManager.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         initComponents();
@@ -59,6 +60,8 @@ public class MainFrame extends javax.swing.JFrame {
 
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jDatePickerUtil1 = new org.jdatepicker.util.JDatePickerUtil();
+        utilDateModel1 = new org.jdatepicker.impl.UtilDateModel();
         allPanel = new javax.swing.JTabbedPane();
         headerPersonPanel = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -70,7 +73,6 @@ public class MainFrame extends javax.swing.JFrame {
         personNameTextField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        PersonBirthTextField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         personIdTextField = new javax.swing.JTextField();
         personRelationshipTabbedPanel = new javax.swing.JTabbedPane();
@@ -84,6 +86,7 @@ public class MainFrame extends javax.swing.JFrame {
         personDetailsLabel = new javax.swing.JLabel();
         personDeleteRelationshipButton = new javax.swing.JButton();
         personNewButton = new javax.swing.JButton();
+        personBirth = new org.jdesktop.swingx.JXDatePicker();
         jPanel4 = new javax.swing.JPanel();
         personRelationshipComboBox = new javax.swing.JComboBox();
         canvas1 = new java.awt.Canvas();
@@ -156,9 +159,10 @@ public class MainFrame extends javax.swing.JFrame {
 
         personListLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         personListLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        personListLabel.setText("Person List");
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("Localization"); // NOI18N
+        personListLabel.setText(bundle.getString("Person List")); // NOI18N
 
-        personDeleteButton.setText("Delete Person");
+        personDeleteButton.setText(bundle.getString("Delete Person")); // NOI18N
         personDeleteButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 personDeleteButtonMouseClicked(evt);
@@ -195,27 +199,30 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel2.setText("Name:");
+        jLabel2.setText(bundle.getString("Name")); // NOI18N
 
-        jLabel3.setText("Birth:");
+        jLabel3.setText(bundle.getString("Birth")); // NOI18N
 
         jLabel4.setText("ID:");
 
         personIdTextField.setEnabled(false);
 
         jScrollPane1.setViewportView(personPlayedInList);
+        personPlayedInList.getAccessibleContext().setAccessibleName(bundle.getString("Played in")); // NOI18N
 
         personRelationshipTabbedPanel.addTab("Played in", jScrollPane1);
 
         jScrollPane3.setViewportView(personDirectedList);
+        personDirectedList.getAccessibleContext().setAccessibleName(bundle.getString("Directed")); // NOI18N
 
         personRelationshipTabbedPanel.addTab("Directed", jScrollPane3);
 
         jScrollPane4.setViewportView(personWrittenList);
+        personWrittenList.getAccessibleContext().setAccessibleName(bundle.getString("Written")); // NOI18N
 
-        personRelationshipTabbedPanel.addTab("Written", jScrollPane4);
+        personRelationshipTabbedPanel.addTab(bundle.getString("Written"), jScrollPane4); // NOI18N
 
-        personSaveButton.setText("Save changes");
+        personSaveButton.setText(bundle.getString("Save changes")); // NOI18N
         personSaveButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 personSaveButtonMouseClicked(evt);
@@ -224,16 +231,16 @@ public class MainFrame extends javax.swing.JFrame {
 
         personDetailsLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         personDetailsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        personDetailsLabel.setText("Person Details");
+        personDetailsLabel.setText(bundle.getString("Person Details")); // NOI18N
 
-        personDeleteRelationshipButton.setText("Delete Relationship");
+        personDeleteRelationshipButton.setText(bundle.getString("Delete Relationship")); // NOI18N
         personDeleteRelationshipButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 personDeleteRelationshipButtonMouseClicked(evt);
             }
         });
 
-        personNewButton.setText("New Person");
+        personNewButton.setText(bundle.getString("New Person")); // NOI18N
         personNewButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 personNewButtonMouseClicked(evt);
@@ -250,23 +257,22 @@ public class MainFrame extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(personNameTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(personIdTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(PersonBirthTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(personSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(personNewButton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(personSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(personNewButton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(personDetailsLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(personDetailsLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(personIdTextField)
+                                    .addComponent(personNameTextField)
+                                    .addComponent(personBirth, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
@@ -293,9 +299,9 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(personNameTextField)
                         .addGap(5, 5, 5))
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(PersonBirthTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(personBirth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(personSaveButton)
@@ -306,6 +312,8 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(personDeleteRelationshipButton)
                 .addContainerGap())
         );
+
+        personRelationshipTabbedPanel.getAccessibleContext().setAccessibleName(bundle.getString("Played in")); // NOI18N
 
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -324,9 +332,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         personRelationshipManagerLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         personRelationshipManagerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        personRelationshipManagerLabel.setText("Relationship Manager");
+        personRelationshipManagerLabel.setText(bundle.getString("Relationship Manager")); // NOI18N
 
-        personRelationshipAddButton.setText("Add");
+        personRelationshipAddButton.setText(bundle.getString("Add")); // NOI18N
         personRelationshipAddButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 personRelationshipAddButtonMouseClicked(evt);
@@ -370,15 +378,17 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        personRelationshipComboBox.getAccessibleContext().setAccessibleName(bundle.getString("Cast")); // NOI18N
+
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 0, 0));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Your adverts can be here tomorrow!");
+        jLabel8.setText(bundle.getString("Your adverts can be here tomorrow!")); // NOI18N
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 0, 0));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Only $8 a month!");
+        jLabel9.setText(bundle.getString("Only $8 a month!")); // NOI18N
         jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout headerPersonPanelLayout = new javax.swing.GroupLayout(headerPersonPanel);
@@ -389,14 +399,14 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(headerPersonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(headerPersonPanelLayout.createSequentialGroup()
                         .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(6, 6, 6))
                     .addGroup(headerPersonPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(headerPersonPanelLayout.createSequentialGroup()
                         .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -418,7 +428,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addContainerGap())))
         );
 
-        allPanel.addTab("Person", headerPersonPanel);
+        allPanel.addTab(bundle.getString("Person"), headerPersonPanel); // NOI18N
 
         jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -436,9 +446,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         movieListLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         movieListLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        movieListLabel.setText("Movie List");
+        movieListLabel.setText(bundle.getString("Movie List")); // NOI18N
 
-        movieDeleteButton.setText("Delete Movie");
+        movieDeleteButton.setText(bundle.getString("Delete Movie")); // NOI18N
         movieDeleteButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 movieDeleteButtonMouseClicked(evt);
@@ -475,22 +485,22 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel11.setText("Title:");
+        jLabel11.setText(bundle.getString("Title")); // NOI18N
 
-        jLabel12.setText("Year:");
+        jLabel12.setText(bundle.getString("Year")); // NOI18N
 
         jLabel13.setText("ID:");
 
         movieIdTextField.setEnabled(false);
 
-        movieSaveButton.setText("Save changes");
+        movieSaveButton.setText(bundle.getString("Save changes")); // NOI18N
         movieSaveButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 movieSaveButtonMouseClicked(evt);
             }
         });
 
-        movieNewButton.setText("New Movie");
+        movieNewButton.setText(bundle.getString("New Movie")); // NOI18N
         movieNewButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 movieNewButtonMouseClicked(evt);
@@ -499,11 +509,11 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setText("Movie details");
+        jLabel15.setText(bundle.getString("Movie Details")); // NOI18N
 
-        jLabel18.setText("Genre:");
+        jLabel18.setText(bundle.getString("Genre")); // NOI18N
 
-        jLabel19.setText("Length:");
+        jLabel19.setText(bundle.getString("Length")); // NOI18N
 
         jScrollPane11.setViewportView(movieActorsList);
 
@@ -517,7 +527,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         movieRelationshipTabbedPanel.addTab("Writers", jScrollPane13);
 
-        movieDeleteRelationshipButton.setText("Delete Relationship");
+        movieDeleteRelationshipButton.setText(bundle.getString("Delete Relationship")); // NOI18N
         movieDeleteRelationshipButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 movieDeleteRelationshipButtonMouseClicked(evt);
@@ -606,6 +616,8 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        movieRelationshipTabbedPanel.getAccessibleContext().setAccessibleName(bundle.getString("Actors")); // NOI18N
+
         jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         movieRelationshipComboBox.setModel(
@@ -623,9 +635,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         movieRelationshipManagerLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         movieRelationshipManagerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        movieRelationshipManagerLabel.setText("Relationship Manager");
+        movieRelationshipManagerLabel.setText(bundle.getString("Relationship Manager")); // NOI18N
 
-        movieRelationshipAddButton.setText("Add");
+        movieRelationshipAddButton.setText(bundle.getString("Add")); // NOI18N
         movieRelationshipAddButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 movieRelationshipAddButtonMouseClicked(evt);
@@ -676,7 +688,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel20.setText("Utilize our special offer TODAY!");
+        jLabel20.setText(bundle.getString("Utilize our special offer TODAY!")); // NOI18N
 
         javax.swing.GroupLayout headerMoviePanelLayout = new javax.swing.GroupLayout(headerMoviePanel);
         headerMoviePanel.setLayout(headerMoviePanelLayout);
@@ -715,11 +727,11 @@ public class MainFrame extends javax.swing.JFrame {
                         .addContainerGap())))
         );
 
-        allPanel.addTab("Movie", headerMoviePanel);
+        allPanel.addTab(bundle.getString("Movie"), headerMoviePanel); // NOI18N
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 0, 128)); // NOI18N
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel21.setText("Get a life!");
+        jLabel21.setText(bundle.getString("Get a life!")); // NOI18N
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -738,7 +750,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        allPanel.addTab("Don't go here", jPanel11);
+        allPanel.addTab(bundle.getString("Don't go here"), jPanel11); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -765,7 +777,8 @@ public class MainFrame extends javax.swing.JFrame {
             Person person = (Person) personList.getModel().getElementAt(selectedIndex);
             personIdTextField.setText(person.getId().toString());
             personNameTextField.setText(person.getName());
-            PersonBirthTextField.setText(sdf.format(person.getBirth().getTime()));
+            personBirth.setDate(new Date(sdf.format(person.getBirth().getTime())));
+            //PersonBirthTextField.setText(sdf.format(person.getBirth().getTime()));
             personDirectedListUpdateList(person);
             personWrittenListUpdateList(person);
             personPlayedInListUpdateList(person);
@@ -774,8 +787,9 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void personSaveButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_personSaveButtonMouseClicked
         Calendar calendar = Calendar.getInstance();
+        
         try {
-            calendar.setTime(sdf.parse(PersonBirthTextField.getText()));
+            calendar.setTime(sdf.parse(personBirth.getDate().toString()));
         } catch(ParseException ex){
             //log.error("Exception when parsing date of birth!" + ex);
         }
@@ -1119,13 +1133,13 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField PersonBirthTextField;
     private javax.swing.JTabbedPane allPanel;
     private java.awt.Canvas canvas1;
     private java.awt.Canvas canvas2;
     private javax.swing.JPanel headerMoviePanel;
     private javax.swing.JPanel headerPersonPanel;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    private org.jdatepicker.util.JDatePickerUtil jDatePickerUtil1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -1177,6 +1191,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField movieTitleTextField;
     private javax.swing.JList movieWritersList;
     private javax.swing.JTextField movieYearTextField;
+    private org.jdesktop.swingx.JXDatePicker personBirth;
     private javax.swing.JButton personDeleteButton;
     private javax.swing.JButton personDeleteRelationshipButton;
     private javax.swing.JLabel personDetailsLabel;
@@ -1194,5 +1209,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTabbedPane personRelationshipTabbedPanel;
     private javax.swing.JButton personSaveButton;
     private javax.swing.JList personWrittenList;
+    private org.jdatepicker.impl.UtilDateModel utilDateModel1;
     // End of variables declaration//GEN-END:variables
 }
