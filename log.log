@@ -1,0 +1,20 @@
+17:55:13.454 [AWT-EventQueue-0] DEBUG m.backend.PersonManagerImpl - listAllPersons()
+17:55:13.454 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL query [SELECT * FROM persons]
+17:55:13.495 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:55:13.957 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:55:13.972 [AWT-EventQueue-0] DEBUG m.backend.MovieManagerImpl - findAllMovies()
+17:55:13.972 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL query [SELECT * FROM movies]
+17:55:13.972 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:55:13.990 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:55:14.011 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:55:14.011 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:55:14.016 [AWT-EventQueue-0] DEBUG m.backend.MovieManagerImpl - findAllMovies()
+17:55:14.017 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL query [SELECT * FROM movies]
+17:55:14.017 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:55:14.017 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:55:14.019 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:55:14.019 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:55:14.026 [AWT-EventQueue-0] DEBUG m.backend.PersonManagerImpl - listAllPersons()
+17:55:14.026 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL query [SELECT * FROM persons]
+17:55:14.026 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:55:14.029 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource

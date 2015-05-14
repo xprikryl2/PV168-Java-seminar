@@ -4,11 +4,16 @@
 package moviemanager.backend;
 import common.EntityValidator;
 import common.ServiceFailureException;
+import java.io.BufferedOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
 import javax.sql.DataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,6 +34,11 @@ public class MovieManagerImpl implements MovieManager {
     private EntityValidator validator = new EntityValidator();
     
     public MovieManagerImpl (DataSource dataSource){
+        /*try {
+            System.setOut(new PrintStream(new BufferedOutputStream(new FileOutputStream("output.txt")), true));
+        } catch (FileNotFoundException ex) {
+            java.util.logging.Logger.getLogger(MovieManagerImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
         this.jdbc = new JdbcTemplate(dataSource);
     }
     

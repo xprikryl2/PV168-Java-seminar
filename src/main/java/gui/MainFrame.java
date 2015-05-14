@@ -6,14 +6,17 @@
 package gui;
 
 import common.Consts;
+import java.io.BufferedOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import javax.swing.DefaultListModel;
-import javax.swing.JList;
-import javax.swing.ListModel;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import moviemanager.backend.DtbManager;
 import moviemanager.backend.Movie;
 import moviemanager.backend.MovieManagerImpl;
 import moviemanager.backend.SpringConfig;
@@ -36,6 +39,12 @@ public class MainFrame extends javax.swing.JFrame {
      * Creates new form MainFrame
      */
     public MainFrame() {
+        try {
+            System.setOut(new PrintStream(new BufferedOutputStream(new FileOutputStream("log.log")), true));
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(DtbManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         initComponents();
     }
 
@@ -149,7 +158,7 @@ public class MainFrame extends javax.swing.JFrame {
         personListLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         personListLabel.setText("Person List");
 
-        personDeleteButton.setText("Delete person");
+        personDeleteButton.setText("Delete Person");
         personDeleteButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 personDeleteButtonMouseClicked(evt);
@@ -186,17 +195,12 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        personNameTextField.setText("Fill name here...");
-
         jLabel2.setText("Name:");
 
         jLabel3.setText("Birth:");
 
-        PersonBirthTextField.setText("Fill date of birth here...");
-
         jLabel4.setText("ID:");
 
-        personIdTextField.setText("Fill ID here...");
         personIdTextField.setEnabled(false);
 
         jScrollPane1.setViewportView(personPlayedInList);
@@ -220,7 +224,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         personDetailsLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         personDetailsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        personDetailsLabel.setText("Person details");
+        personDetailsLabel.setText("Person Details");
 
         personDeleteRelationshipButton.setText("Delete Relationship");
         personDeleteRelationshipButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -471,17 +475,12 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        movieTitleTextField.setText("Fill title here...");
-
         jLabel11.setText("Title:");
 
         jLabel12.setText("Year:");
 
-        movieYearTextField.setText("Fill year here...");
-
         jLabel13.setText("ID:");
 
-        movieIdTextField.setText("This cannot be written in...");
         movieIdTextField.setEnabled(false);
 
         movieSaveButton.setText("Save changes");
@@ -504,11 +503,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel18.setText("Genre:");
 
-        movieGenreTextField.setText("Fill genres here...");
-
         jLabel19.setText("Length:");
-
-        movieLengthTextField.setText("Fill length here...");
 
         jScrollPane11.setViewportView(movieActorsList);
 
