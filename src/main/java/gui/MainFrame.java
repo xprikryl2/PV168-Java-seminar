@@ -28,8 +28,8 @@ import moviemanager.backend.RelationshipManagerImpl;
 public class MainFrame extends javax.swing.JFrame {
     private static final SimpleDateFormat sdf = new SimpleDateFormat(Consts.TIME_FORMAT);
     SpringConfig sc = new SpringConfig();
-    private PersonManagerImpl mngr = (PersonManagerImpl) sc.personManager();
-    private RelationshipManagerImpl relationMngr = (RelationshipManagerImpl) sc.relationManager();
+    private PersonManagerImpl personMngr = (PersonManagerImpl) sc.personManager();
+    private RelationshipManagerImpl relationshipMngr = (RelationshipManagerImpl) sc.relationManager();
     private MovieManagerImpl movieMngr = (MovieManagerImpl) sc.movieManager();
 
     /**
@@ -50,75 +50,75 @@ public class MainFrame extends javax.swing.JFrame {
 
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
+        allPanel = new javax.swing.JTabbedPane();
+        headerPersonPanel = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         personList = new javax.swing.JList();
-        jLabel1 = new javax.swing.JLabel();
-        person_deleteButton = new javax.swing.JButton();
+        personListLabel = new javax.swing.JLabel();
+        personDeleteButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        personName = new javax.swing.JTextField();
+        personNameTextField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        PersonBirth = new javax.swing.JTextField();
+        PersonBirthTextField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        personId = new javax.swing.JTextField();
-        jTabbedPane4 = new javax.swing.JTabbedPane();
+        personIdTextField = new javax.swing.JTextField();
+        personRelationshipTabbedPanel = new javax.swing.JTabbedPane();
         jScrollPane1 = new javax.swing.JScrollPane();
-        playedIn = new javax.swing.JList();
+        personPlayedInList = new javax.swing.JList();
         jScrollPane3 = new javax.swing.JScrollPane();
-        directed = new javax.swing.JList();
+        personDirectedList = new javax.swing.JList();
         jScrollPane4 = new javax.swing.JScrollPane();
-        written = new javax.swing.JList();
-        person_updateButton = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
-        person_deleteRelation = new javax.swing.JButton();
-        person_newPerson = new javax.swing.JButton();
+        personWrittenList = new javax.swing.JList();
+        personSaveButton = new javax.swing.JButton();
+        personDetailsLabel = new javax.swing.JLabel();
+        personDeleteRelationshipButton = new javax.swing.JButton();
+        personNewButton = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox();
+        personRelationshipComboBox = new javax.swing.JComboBox();
         canvas1 = new java.awt.Canvas();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jList5 = new javax.swing.JList();
-        jLabel6 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        personRelationshipAllMovieList = new javax.swing.JList();
+        personRelationshipManagerLabel = new javax.swing.JLabel();
+        personRelationshipAddButton = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
+        headerMoviePanel = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jList6 = new javax.swing.JList();
-        jLabel10 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
+        movieList = new javax.swing.JList();
+        movieListLabel = new javax.swing.JLabel();
+        movieDeleteButton = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
-        jTextField4 = new javax.swing.JTextField();
+        movieTitleTextField = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        movieYearTextField = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        movieIdTextField = new javax.swing.JTextField();
+        movieSaveButton = new javax.swing.JButton();
+        movieNewButton = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        movieGenreTextField = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
-        jTabbedPane6 = new javax.swing.JTabbedPane();
-        jScrollPane12 = new javax.swing.JScrollPane();
-        jList12 = new javax.swing.JList();
-        jScrollPane13 = new javax.swing.JScrollPane();
-        jList13 = new javax.swing.JList();
+        movieLengthTextField = new javax.swing.JTextField();
+        movieRelationshipTabbedPanel = new javax.swing.JTabbedPane();
         jScrollPane11 = new javax.swing.JScrollPane();
-        jList11 = new javax.swing.JList();
-        jButton12 = new javax.swing.JButton();
+        movieActorsList = new javax.swing.JList();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        movieDirectorsList = new javax.swing.JList();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        movieWritersList = new javax.swing.JList();
+        movieDeleteRelationshipButton = new javax.swing.JButton();
         jPanel10 = new javax.swing.JPanel();
-        jComboBox2 = new javax.swing.JComboBox();
+        movieRelationshipComboBox = new javax.swing.JComboBox();
         canvas2 = new java.awt.Canvas();
         jScrollPane10 = new javax.swing.JScrollPane();
-        jList10 = new javax.swing.JList();
-        jLabel16 = new javax.swing.JLabel();
-        jButton10 = new javax.swing.JButton();
+        movieRelationshipAllPersonList = new javax.swing.JList();
+        movieRelationshipManagerLabel = new javax.swing.JLabel();
+        movieRelationshipAddButton = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
@@ -134,15 +134,9 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         personList.setModel(new javax.swing.AbstractListModel() {
-            List<Person> list = mngr.listAllPersons();
+            List<Person> list = personMngr.listAllPersons();
             public int getSize() { return list.size(); }
             public Object getElementAt(int i) { return list.get(i); }
-        });
-        personList.setSelectedIndex(0);
-        personList.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                personListFocusGained(evt);
-            }
         });
         personList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
@@ -151,14 +145,14 @@ public class MainFrame extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(personList);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Person List");
+        personListLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        personListLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        personListLabel.setText("Person List");
 
-        person_deleteButton.setText("Delete person");
-        person_deleteButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        personDeleteButton.setText("Delete person");
+        personDeleteButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                person_deleteButtonMouseClicked(evt);
+                personDeleteButtonMouseClicked(evt);
             }
         });
 
@@ -171,101 +165,74 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(personListLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(38, 38, 38)
-                        .addComponent(person_deleteButton)))
+                        .addComponent(personDeleteButton)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(personListLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 447, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(person_deleteButton)
+                .addComponent(personDeleteButton)
                 .addContainerGap())
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        personName.setText("Fill name here...");
+        personNameTextField.setText("Fill name here...");
 
         jLabel2.setText("Name:");
 
         jLabel3.setText("Birth:");
 
-        PersonBirth.setText("Fill date of birth here...");
+        PersonBirthTextField.setText("Fill date of birth here...");
 
         jLabel4.setText("ID:");
 
-        personId.setText("3");
-        personId.setEnabled(false);
-        personId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                personIdActionPerformed(evt);
-            }
-        });
+        personIdTextField.setText("Fill ID here...");
+        personIdTextField.setEnabled(false);
 
-        playedIn.setModel(new javax.swing.AbstractListModel() {
-            List<Movie> list = relationMngr.moviesOfPerson(mngr.getPerson(Long.valueOf(personId.getText())));
-            public int getSize() {
-                return list.size();
-            }
+        jScrollPane1.setViewportView(personPlayedInList);
 
-            public Object getElementAt(int i) {
-                return list.get(i);
-            }
-        });
+        personRelationshipTabbedPanel.addTab("Played in", jScrollPane1);
 
-        //playedIn.setSelectedIndex(0);
-        jScrollPane1.setViewportView(playedIn);
+        jScrollPane3.setViewportView(personDirectedList);
 
-        jTabbedPane4.addTab("Played in", jScrollPane1);
+        personRelationshipTabbedPanel.addTab("Directed", jScrollPane3);
 
-        directed.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane3.setViewportView(directed);
+        jScrollPane4.setViewportView(personWrittenList);
 
-        jTabbedPane4.addTab("Directed", jScrollPane3);
+        personRelationshipTabbedPanel.addTab("Written", jScrollPane4);
 
-        written.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane4.setViewportView(written);
-
-        jTabbedPane4.addTab("Written", jScrollPane4);
-
-        person_updateButton.setText("Save changes");
-        person_updateButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        personSaveButton.setText("Save changes");
+        personSaveButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                person_updateButtonMouseClicked(evt);
+                personSaveButtonMouseClicked(evt);
             }
         });
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Person details");
+        personDetailsLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        personDetailsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        personDetailsLabel.setText("Person details");
 
-        person_deleteRelation.setText("Delete Relationship");
-
-        person_newPerson.setText("New Person");
-        person_newPerson.addMouseListener(new java.awt.event.MouseAdapter() {
+        personDeleteRelationshipButton.setText("Delete Relationship");
+        personDeleteRelationshipButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                person_newPersonMouseClicked(evt);
+                personDeleteRelationshipButtonMouseClicked(evt);
             }
         });
-        person_newPerson.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                person_newPersonActionPerformed(evt);
+
+        personNewButton.setText("New Person");
+        personNewButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                personNewButtonMouseClicked(evt);
             }
         });
 
@@ -287,23 +254,23 @@ public class MainFrame extends javax.swing.JFrame {
                                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(personName, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(personId, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(PersonBirth, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(personNameTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(personIdTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(PersonBirthTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(person_updateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(personSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(person_newPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(personNewButton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(personDetailsLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(76, 76, 76)
-                                .addComponent(person_deleteRelation))
+                                .addComponent(personDeleteRelationshipButton))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(12, 12, 12)
-                                .addComponent(jTabbedPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(personRelationshipTabbedPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -311,47 +278,56 @@ public class MainFrame extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(personDetailsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(personId, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(personIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(personName)
+                        .addComponent(personNameTextField)
                         .addGap(5, 5, 5))
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(PersonBirth, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PersonBirthTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(person_updateButton)
-                    .addComponent(person_newPerson))
+                    .addComponent(personSaveButton)
+                    .addComponent(personNewButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTabbedPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+                .addComponent(personRelationshipTabbedPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(person_deleteRelation)
+                .addComponent(personDeleteRelationshipButton)
                 .addContainerGap())
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        personRelationshipComboBox.setModel(
+            new javax.swing.DefaultComboBoxModel(
+                new String[] {"Cast", "Director", "Writer"}
+            )
+        );
 
-        jList5.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+        personRelationshipAllMovieList.setModel(new javax.swing.AbstractListModel() {
+            List<Movie> list = movieMngr.listAllMovies();
+            public int getSize() { return list.size(); }
+            public Object getElementAt(int i) { return list.get(i); }
         });
-        jScrollPane5.setViewportView(jList5);
+        jScrollPane5.setViewportView(personRelationshipAllMovieList);
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Relationship Manager");
+        personRelationshipManagerLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        personRelationshipManagerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        personRelationshipManagerLabel.setText("Relationship Manager");
 
-        jButton4.setText("Add");
+        personRelationshipAddButton.setText("Add");
+        personRelationshipAddButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                personRelationshipAddButtonMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -367,11 +343,11 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(personRelationshipManagerLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(personRelationshipComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(personRelationshipAddButton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())))
         );
         jPanel4Layout.setVerticalGroup(
@@ -380,13 +356,13 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(canvas1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(personRelationshipManagerLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4))
+                    .addComponent(personRelationshipComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(personRelationshipAddButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -401,35 +377,35 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel9.setText("Only $8 a month!");
         jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout headerPersonPanelLayout = new javax.swing.GroupLayout(headerPersonPanel);
+        headerPersonPanel.setLayout(headerPersonPanelLayout);
+        headerPersonPanelLayout.setHorizontalGroup(
+            headerPersonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headerPersonPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(headerPersonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(headerPersonPanelLayout.createSequentialGroup()
                         .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(6, 6, 6))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(headerPersonPanelLayout.createSequentialGroup()
                         .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(headerPersonPanelLayout.createSequentialGroup()
                         .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        headerPersonPanelLayout.setVerticalGroup(
+            headerPersonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headerPersonPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(headerPersonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(headerPersonPanelLayout.createSequentialGroup()
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -438,25 +414,30 @@ public class MainFrame extends javax.swing.JFrame {
                         .addContainerGap())))
         );
 
-        jTabbedPane1.addTab("Person", jPanel1);
+        allPanel.addTab("Person", headerPersonPanel);
 
         jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jList6.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+        movieList.setModel(new javax.swing.AbstractListModel() {
+            List<Movie> list = movieMngr.listAllMovies();
+            public int getSize() { return list.size(); }
+            public Object getElementAt(int i) { return list.get(i); }
         });
-        jScrollPane6.setViewportView(jList6);
+        movieList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                movieListValueChanged(evt);
+            }
+        });
+        jScrollPane6.setViewportView(movieList);
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Movie List");
+        movieListLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        movieListLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        movieListLabel.setText("Movie List");
 
-        jButton6.setText("Delete Movie");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+        movieDeleteButton.setText("Delete Movie");
+        movieDeleteButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                movieDeleteButtonMouseClicked(evt);
             }
         });
 
@@ -469,43 +450,53 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(movieListLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(47, 47, 47)
-                        .addComponent(jButton6)))
+                        .addComponent(movieDeleteButton)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(movieListLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton6)
+                .addComponent(movieDeleteButton)
                 .addContainerGap())
         );
 
         jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTextField4.setText("Fill title here...");
+        movieTitleTextField.setText("Fill title here...");
 
         jLabel11.setText("Title:");
 
         jLabel12.setText("Year:");
 
-        jTextField5.setText("Fill year here...");
+        movieYearTextField.setText("Fill year here...");
 
         jLabel13.setText("ID:");
 
-        jTextField6.setText("This cannot be written in...");
-        jTextField6.setEnabled(false);
+        movieIdTextField.setText("This cannot be written in...");
+        movieIdTextField.setEnabled(false);
 
-        jButton8.setText("Save changes");
+        movieSaveButton.setText("Save changes");
+        movieSaveButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                movieSaveButtonMouseClicked(evt);
+            }
+        });
 
-        jButton9.setText("New Movie");
+        movieNewButton.setText("New Movie");
+        movieNewButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                movieNewButtonMouseClicked(evt);
+            }
+        });
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -513,40 +504,30 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel18.setText("Genre:");
 
-        jTextField7.setText("Fill genres here...");
+        movieGenreTextField.setText("Fill genres here...");
 
         jLabel19.setText("Length:");
 
-        jTextField8.setText("Fill length here...");
+        movieLengthTextField.setText("Fill length here...");
 
-        jList12.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+        jScrollPane11.setViewportView(movieActorsList);
+
+        movieRelationshipTabbedPanel.addTab("Actors", jScrollPane11);
+
+        jScrollPane12.setViewportView(movieDirectorsList);
+
+        movieRelationshipTabbedPanel.addTab("Directors", jScrollPane12);
+
+        jScrollPane13.setViewportView(movieWritersList);
+
+        movieRelationshipTabbedPanel.addTab("Writers", jScrollPane13);
+
+        movieDeleteRelationshipButton.setText("Delete Relationship");
+        movieDeleteRelationshipButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                movieDeleteRelationshipButtonMouseClicked(evt);
+            }
         });
-        jScrollPane12.setViewportView(jList12);
-
-        jTabbedPane6.addTab("Directors", jScrollPane12);
-
-        jList13.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane13.setViewportView(jList13);
-
-        jTabbedPane6.addTab("Writters", jScrollPane13);
-
-        jList11.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane11.setViewportView(jList11);
-
-        jTabbedPane6.addTab("Actors", jScrollPane11);
-
-        jButton12.setText("Delete Relationship");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -565,31 +546,31 @@ public class MainFrame extends javax.swing.JFrame {
                                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(movieTitleTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(movieIdTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(movieYearTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 2, Short.MAX_VALUE))
                             .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(movieGenreTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(movieLengthTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addGap(33, 33, 33)
-                                .addComponent(jButton8)
+                                .addComponent(movieSaveButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton9))
+                                .addComponent(movieNewButton))
                             .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jTabbedPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(movieRelationshipTabbedPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addGap(78, 78, 78)
-                                .addComponent(jButton12)))
+                                .addComponent(movieDeleteRelationshipButton)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -601,51 +582,60 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(movieIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jTextField4)
+                        .addComponent(movieTitleTextField)
                         .addGap(5, 5, 5))
                     .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(movieYearTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(movieGenreTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(movieLengthTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton8)
-                    .addComponent(jButton9))
+                    .addComponent(movieSaveButton)
+                    .addComponent(movieNewButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
+                .addComponent(movieRelationshipTabbedPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton12)
+                .addComponent(movieDeleteRelationshipButton)
                 .addContainerGap())
         );
 
         jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        movieRelationshipComboBox.setModel(
+            new javax.swing.DefaultComboBoxModel(
+                new String[] {"Cast", "Director", "Writer"}
+            )
+        );
 
-        jList10.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+        movieRelationshipAllPersonList.setModel(new javax.swing.AbstractListModel() {
+            List<Person> list = personMngr.listAllPersons();
+            public int getSize() { return list.size(); }
+            public Object getElementAt(int i) { return list.get(i); }
         });
-        jScrollPane10.setViewportView(jList10);
+        jScrollPane10.setViewportView(movieRelationshipAllPersonList);
 
-        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel16.setText("Relationship Manager");
+        movieRelationshipManagerLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        movieRelationshipManagerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        movieRelationshipManagerLabel.setText("Relationship Manager");
 
-        jButton10.setText("Add");
+        movieRelationshipAddButton.setText("Add");
+        movieRelationshipAddButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                movieRelationshipAddButtonMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -661,11 +651,11 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane10, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(movieRelationshipManagerLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(movieRelationshipComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(movieRelationshipAddButton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())))
         );
         jPanel10Layout.setVerticalGroup(
@@ -674,13 +664,13 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(canvas2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(movieRelationshipManagerLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton10))
+                    .addComponent(movieRelationshipComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(movieRelationshipAddButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -693,35 +683,35 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel20.setText("Utilize our special offer TODAY!");
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
+        javax.swing.GroupLayout headerMoviePanelLayout = new javax.swing.GroupLayout(headerMoviePanel);
+        headerMoviePanel.setLayout(headerMoviePanelLayout);
+        headerMoviePanelLayout.setHorizontalGroup(
+            headerMoviePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headerMoviePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(headerMoviePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(headerMoviePanelLayout.createSequentialGroup()
                         .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(6, 6, 6))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
+                    .addGroup(headerMoviePanelLayout.createSequentialGroup()
                         .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
-                    .addGroup(jPanel6Layout.createSequentialGroup()
+                    .addGroup(headerMoviePanelLayout.createSequentialGroup()
                         .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())))
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
+        headerMoviePanelLayout.setVerticalGroup(
+            headerMoviePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headerMoviePanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(headerMoviePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
+                    .addGroup(headerMoviePanelLayout.createSequentialGroup()
                         .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -730,7 +720,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addContainerGap())))
         );
 
-        jTabbedPane1.addTab("Movie", jPanel6);
+        allPanel.addTab("Movie", headerMoviePanel);
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 0, 128)); // NOI18N
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -753,7 +743,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Don't go here", jPanel11);
+        allPanel.addTab("Don't go here", jPanel11);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -761,108 +751,343 @@ public class MainFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1)
+                .addComponent(allPanel)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1))
+                .addComponent(allPanel))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void person_newPersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_person_newPersonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_person_newPersonActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void personListFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_personListFocusGained
-        
-    }//GEN-LAST:event_personListFocusGained
-    private void setListPerson (int y){
-
-        personList.setModel(new javax.swing.AbstractListModel() {
-            List<Person> list = mngr.listAllPersons();
-            public int getSize() {
-                return list.size();
-            }
-            public Object getElementAt(int i) {
-                return list.get(i);
-            }
-        });
-        personList.setSelectedIndex(y);
-    }
-    
-    private void setListRelation (){
-        playedIn.setModel(new javax.swing.AbstractListModel() {
-            List<Movie> list = relationMngr.moviesOfPerson(mngr.getPerson(Long.valueOf(personId.getText())));
-            public int getSize() {
-                return list.size();
-            }
-            public Object getElementAt(int i) {
-                return list.get(i);
-            }
-        });
-    }
-    
+       
     private void personListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_personListValueChanged
-        Person p = (Person) personList.getSelectedValue();
-        
-        if (p == null){personList.setSelectedIndex(0);}
-        p = (Person) personList.getSelectedValue();
-        
-            personId.setText(p.getId().toString());
-            personName.setText(p.getName());
-            PersonBirth.setText(sdf.format(p.getBirth().getTime()));
-            
-            setListRelation();
+        int selectedIndex = personList.getSelectedIndex();
+        if(selectedIndex !=  -1){
+            Person person = (Person) personList.getModel().getElementAt(selectedIndex);
+            personIdTextField.setText(person.getId().toString());
+            personNameTextField.setText(person.getName());
+            PersonBirthTextField.setText(sdf.format(person.getBirth().getTime()));
+            personDirectedListUpdateList(person);
+            personWrittenListUpdateList(person);
+            personPlayedInListUpdateList(person);
+        }
     }//GEN-LAST:event_personListValueChanged
 
-    private void person_updateButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_person_updateButtonMouseClicked
-        Calendar cal = Calendar.getInstance();
-        try{
-        cal.setTime(sdf.parse(PersonBirth.getText()));
-        }catch(ParseException ex){
+    private void personSaveButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_personSaveButtonMouseClicked
+        Calendar calendar = Calendar.getInstance();
+        try {
+            calendar.setTime(sdf.parse(PersonBirthTextField.getText()));
+        } catch(ParseException ex){
             //log.error("Exception when parsing date of birth!" + ex);
         }
-        
-        Person p = new Person(Long.valueOf(personId.getText()), personName.getText(), cal);
-        mngr.updatePerson(p);
-        
-        int i = personList.getSelectedIndex();
-        setListPerson(i);
-    }//GEN-LAST:event_person_updateButtonMouseClicked
+        int selectedIndex = personList.getSelectedIndex();
+        if(selectedIndex !=  -1){
+            Person person = (Person) personList.getModel().getElementAt(selectedIndex);
+            person.setName(personNameTextField.getText());
+            person.setBirth(calendar);
 
-    private void person_deleteButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_person_deleteButtonMouseClicked
-        mngr.deletePerson(Long.valueOf(personId.getText()));
-        setListPerson(0);
-    }//GEN-LAST:event_person_deleteButtonMouseClicked
+            personMngr.updatePerson(person);
+            personListUpdateList();
+            personList.setSelectedIndex(selectedIndex);
+        }
+    }//GEN-LAST:event_personSaveButtonMouseClicked
 
-    private void person_newPersonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_person_newPersonMouseClicked
-        Calendar cal = Calendar.getInstance();
-        try{
-        cal.setTime(sdf.parse(PersonBirth.getText()));
-        }catch(ParseException ex){
+    private void personDeleteButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_personDeleteButtonMouseClicked
+        int selectedIndex = personList.getSelectedIndex();
+        if(selectedIndex !=  -1){
+            Person person = ((Person)personList.getModel().getElementAt(selectedIndex));
+            
+            personMngr.deletePerson(person.getId());
+            personListUpdateList();
+            personList.setSelectedIndex(0);
+        }
+    }//GEN-LAST:event_personDeleteButtonMouseClicked
+
+    private void personNewButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_personNewButtonMouseClicked
+        Calendar calendar = Calendar.getInstance();
+        try {
+        calendar.setTime(sdf.parse(PersonBirthTextField.getText()));
+        } catch(ParseException ex){
             //log.error("Exception when parsing date of birth!" + ex);
         }
-        
-        Person p = new Person(Long.valueOf(personId.getText()), personName.getText(), cal);
-        mngr.createPerson(p);
-        
-        int i = personList.getLastVisibleIndex();
-        setListPerson(i + 1);
-    }//GEN-LAST:event_person_newPersonMouseClicked
+        Person person = new Person();
+        person.setName(personNameTextField.getText());
+        person.setBirth(calendar);
+        person.setId(null);
 
-    private void personIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_personIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_personIdActionPerformed
+        personMngr.createPerson(person);
+        personListUpdateList();
+        personList.setSelectedIndex(personList.getModel().getSize()-1);
+    }//GEN-LAST:event_personNewButtonMouseClicked
 
+    private void personRelationshipAddButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_personRelationshipAddButtonMouseClicked
+        int personSelectedIndex = personList.getSelectedIndex();
+        if(personSelectedIndex !=  -1){
+            Person person = (Person) personList.getModel().getElementAt(personSelectedIndex);
+            int selectedIndex = personRelationshipAllMovieList.getSelectedIndex();
+            if(selectedIndex !=  -1){
+                Movie movie = (Movie) personRelationshipAllMovieList.getModel().getElementAt(selectedIndex);
+                int roleSelectedIndex = personRelationshipComboBox.getSelectedIndex();
+                if(roleSelectedIndex !=  -1){
+                    if(personRelationshipComboBox.getSelectedIndex()==0){
+                        relationshipMngr.addPersonToRole(person, movie, Consts.CAST);
+                        personPlayedInListUpdateList(person);
+                    } else if(personRelationshipComboBox.getSelectedIndex()==1){
+                        relationshipMngr.addPersonToRole(person, movie, Consts.DIRECTOR);
+                        personDirectedListUpdateList(person);
+                    } else if(personRelationshipComboBox.getSelectedIndex()==2){
+                        relationshipMngr.addPersonToRole(person, movie, Consts.WRITER);
+                        personWrittenListUpdateList(person);
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_personRelationshipAddButtonMouseClicked
+    
+    
+    
+    private void personListUpdateList(){
+        personList.setModel(new javax.swing.AbstractListModel() {
+            List<Person> list = personMngr.listAllPersons();
+            public int getSize() {
+                return list.size();
+            }
+            public Object getElementAt(int i) {
+                return list.get(i);
+            }
+        });
+    }
+    
+    private void personPlayedInListUpdateList(Person person){
+        personPlayedInList.setModel(new javax.swing.AbstractListModel() {
+            List<Movie> list = relationshipMngr.moviesOfPerson(person, Consts.CAST);
+            public int getSize() {
+                return list.size();
+            }
+            public Object getElementAt(int i) {
+                return list.get(i);
+            }
+        });
+    }
+    
+    private void personDirectedListUpdateList(Person person){
+        personDirectedList.setModel(new javax.swing.AbstractListModel() {
+            List<Movie> list = relationshipMngr.moviesOfPerson(person, Consts.DIRECTOR);
+            public int getSize() {
+                return list.size();
+            }
+            public Object getElementAt(int i) {
+                return list.get(i);
+            }
+        });
+    }
+    
+    private void personWrittenListUpdateList(Person person){
+        personWrittenList.setModel(new javax.swing.AbstractListModel() {
+            List<Movie> list = relationshipMngr.moviesOfPerson(person, Consts.WRITER);
+            public int getSize() {
+                return list.size();
+            }
+            public Object getElementAt(int i) {
+                return list.get(i);
+            }
+        });
+    }
+    
+    
+    private void movieDeleteButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_movieDeleteButtonMouseClicked
+        int selectedIndex = movieList.getSelectedIndex();
+        if(selectedIndex !=  -1){
+            Movie movie = ((Movie)movieList.getModel().getElementAt(selectedIndex));
+            
+            movieMngr.deleteMovie(movie.getId());
+            movieListUpdateList();
+            movieList.setSelectedIndex(0);
+        }
+    }//GEN-LAST:event_movieDeleteButtonMouseClicked
+
+    private void movieListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_movieListValueChanged
+        int selectedIndex = movieList.getSelectedIndex();
+        if(selectedIndex !=  -1){
+            Movie movie = (Movie) movieList.getModel().getElementAt(selectedIndex);
+            movieIdTextField.setText(movie.getId().toString());
+            movieTitleTextField.setText(movie.getTitle());
+            movieYearTextField.setText(((Integer)movie.getYear()).toString());
+            movieGenreTextField.setText(movie.getGenre());
+            movieLengthTextField.setText(((Integer)movie.getLength()).toString());
+            movieDirectorsListUpdateList(movie);
+            movieWritersListUpdateList(movie);
+            movieActorsListUpdateList(movie);
+        }
+    }//GEN-LAST:event_movieListValueChanged
+
+    private void movieSaveButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_movieSaveButtonMouseClicked
+        int selectedIndex = movieList.getSelectedIndex();
+        if(selectedIndex !=  -1){
+            Movie movie = (Movie) movieList.getModel().getElementAt(selectedIndex);
+            movie.setTitle(movieTitleTextField.getText());
+            movie.setYear(Integer.parseInt(movieYearTextField.getText()));
+            movie.setGenre(movieGenreTextField.getText());
+            movie.setLength(Integer.parseInt(movieLengthTextField.getText()));
+
+            movieMngr.updateMovie(movie);
+            movieListUpdateList();
+            movieList.setSelectedIndex(selectedIndex);
+        }
+    }//GEN-LAST:event_movieSaveButtonMouseClicked
+
+    private void movieNewButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_movieNewButtonMouseClicked
+            Movie movie = new Movie();
+            movie.setTitle(movieTitleTextField.getText());
+            movie.setYear(Integer.parseInt(movieYearTextField.getText()));
+            movie.setGenre(movieGenreTextField.getText());
+            movie.setLength(Integer.parseInt(movieLengthTextField.getText()));
+            movie.setId(null);
+
+            movieMngr.createMovie(movie);
+            movieListUpdateList();
+            movieList.setSelectedIndex(movieList.getModel().getSize()-1);
+    }//GEN-LAST:event_movieNewButtonMouseClicked
+
+    private void movieDeleteRelationshipButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_movieDeleteRelationshipButtonMouseClicked
+        int movieSelectedIndex = movieList.getSelectedIndex();
+        if(movieSelectedIndex !=  -1){
+            Movie movie = (Movie) movieList.getModel().getElementAt(movieSelectedIndex);
+            int selectedIndex;
+        
+            int listIndex = movieRelationshipTabbedPanel.getSelectedIndex();
+            if(listIndex == 0){
+                selectedIndex = movieActorsList.getSelectedIndex();
+                if(selectedIndex !=  -1){
+                    Person person = (Person) movieActorsList.getModel().getElementAt(selectedIndex);
+                    relationshipMngr.removeRelationship(person, movie);
+                    movieActorsListUpdateList(movie);
+                }
+            } else if(listIndex == 1){
+                selectedIndex = movieWritersList.getSelectedIndex();
+                if(selectedIndex !=  -1){
+                    Person person = (Person) movieWritersList.getModel().getElementAt(selectedIndex);
+                    relationshipMngr.removeRelationship(person, movie);
+                    movieWritersListUpdateList(movie);
+                }
+            } else if(listIndex == 2){
+                selectedIndex = movieDirectorsList.getSelectedIndex();
+                if(selectedIndex !=  -1){
+                    Person person = (Person) movieDirectorsList.getModel().getElementAt(selectedIndex);
+                    relationshipMngr.removeRelationship(person, movie);
+                    movieDirectorsListUpdateList(movie);
+                }
+            } 
+        }
+    }//GEN-LAST:event_movieDeleteRelationshipButtonMouseClicked
+
+    private void movieRelationshipAddButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_movieRelationshipAddButtonMouseClicked
+        int movieSelectedIndex = movieList.getSelectedIndex();
+        if(movieSelectedIndex !=  -1){
+            Movie movie = (Movie) movieList.getModel().getElementAt(movieSelectedIndex);
+            int selectedIndex = movieRelationshipAllPersonList.getSelectedIndex();
+            if(selectedIndex !=  -1){
+                Person person = (Person) movieRelationshipAllPersonList.getModel().getElementAt(selectedIndex);
+                int roleSelectedIndex = movieRelationshipComboBox.getSelectedIndex();
+                if(roleSelectedIndex !=  -1){
+                    if(movieRelationshipComboBox.getSelectedIndex()==0){
+                        relationshipMngr.addPersonToRole(person, movie, Consts.CAST);
+                        movieActorsListUpdateList(movie);
+                    } else if(movieRelationshipComboBox.getSelectedIndex()==1){
+                        relationshipMngr.addPersonToRole(person, movie, Consts.DIRECTOR);
+                        movieDirectorsListUpdateList(movie);
+                    } else if(movieRelationshipComboBox.getSelectedIndex()==2){
+                        relationshipMngr.addPersonToRole(person, movie, Consts.WRITER);
+                        movieWritersListUpdateList(movie);
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_movieRelationshipAddButtonMouseClicked
+
+    private void personDeleteRelationshipButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_personDeleteRelationshipButtonMouseClicked
+        int personSelectedIndex = personList.getSelectedIndex();
+        if(personSelectedIndex !=  -1){
+            Person person = (Person) personList.getModel().getElementAt(personSelectedIndex);
+            int selectedIndex;
+        
+            int listIndex = personRelationshipTabbedPanel.getSelectedIndex();
+            if(listIndex == 0){
+                selectedIndex = personPlayedInList.getSelectedIndex();
+                if(selectedIndex !=  -1){
+                    Movie movie = (Movie) personPlayedInList.getModel().getElementAt(selectedIndex);
+                    relationshipMngr.removeRelationship(person, movie);
+                    personPlayedInListUpdateList(person);
+                }
+            } else if(listIndex == 1){
+                selectedIndex = personWrittenList.getSelectedIndex();
+                if(selectedIndex !=  -1){
+                    Movie movie = (Movie) personWrittenList.getModel().getElementAt(selectedIndex);
+                    relationshipMngr.removeRelationship(person, movie);
+                    personWrittenListUpdateList(person);
+                }
+            } else if(listIndex == 2){
+                selectedIndex = personDirectedList.getSelectedIndex();
+                if(selectedIndex !=  -1){
+                    Movie movie = (Movie) personDirectedList.getModel().getElementAt(selectedIndex);
+                    relationshipMngr.removeRelationship(person, movie);
+                    personDirectedListUpdateList(person);
+                }
+            } 
+        }
+    }//GEN-LAST:event_personDeleteRelationshipButtonMouseClicked
+
+    private void movieListUpdateList(){
+        movieList.setModel(new javax.swing.AbstractListModel() {
+            List<Movie> list = movieMngr.listAllMovies();
+            public int getSize() {
+                return list.size();
+            }
+            public Object getElementAt(int i) {
+                return list.get(i);
+            }
+        });
+    }
+    
+    private void movieDirectorsListUpdateList(Movie movie){
+        movieDirectorsList.setModel(new javax.swing.AbstractListModel() {
+            List<Person> list = relationshipMngr.personsOfMovie(movie, Consts.DIRECTOR);
+            public int getSize() {
+                return list.size();
+            }
+            public Object getElementAt(int i) {
+                return list.get(i);
+            }
+        });
+    }
+    
+    private void movieActorsListUpdateList(Movie movie){
+        movieActorsList.setModel(new javax.swing.AbstractListModel() {
+            List<Person> list = relationshipMngr.personsOfMovie(movie, Consts.CAST);
+            public int getSize() {
+                return list.size();
+            }
+            public Object getElementAt(int i) {
+                return list.get(i);
+            }
+        });
+    }
+    
+    private void movieWritersListUpdateList(Movie movie){
+        movieWritersList.setModel(new javax.swing.AbstractListModel() {
+            List<Person> list = relationshipMngr.personsOfMovie(movie, Consts.WRITER);
+            public int getSize() {
+                return list.size();
+            }
+            public Object getElementAt(int i) {
+                return list.get(i);
+            }
+        });
+    }
     /**
      * @param args the command line arguments
      */
@@ -899,26 +1124,17 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField PersonBirth;
+    private javax.swing.JTextField PersonBirthTextField;
+    private javax.swing.JTabbedPane allPanel;
     private java.awt.Canvas canvas1;
     private java.awt.Canvas canvas2;
-    private javax.swing.JList directed;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JPanel headerMoviePanel;
+    private javax.swing.JPanel headerPersonPanel;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -927,24 +1143,14 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList jList10;
-    private javax.swing.JList jList11;
-    private javax.swing.JList jList12;
-    private javax.swing.JList jList13;
-    private javax.swing.JList jList5;
-    private javax.swing.JList jList6;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
@@ -957,22 +1163,41 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTabbedPane jTabbedPane4;
-    private javax.swing.JTabbedPane jTabbedPane6;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField personId;
+    private javax.swing.JList movieActorsList;
+    private javax.swing.JButton movieDeleteButton;
+    private javax.swing.JButton movieDeleteRelationshipButton;
+    private javax.swing.JList movieDirectorsList;
+    private javax.swing.JTextField movieGenreTextField;
+    private javax.swing.JTextField movieIdTextField;
+    private javax.swing.JTextField movieLengthTextField;
+    private javax.swing.JList movieList;
+    private javax.swing.JLabel movieListLabel;
+    private javax.swing.JButton movieNewButton;
+    private javax.swing.JButton movieRelationshipAddButton;
+    private javax.swing.JList movieRelationshipAllPersonList;
+    private javax.swing.JComboBox movieRelationshipComboBox;
+    private javax.swing.JLabel movieRelationshipManagerLabel;
+    private javax.swing.JTabbedPane movieRelationshipTabbedPanel;
+    private javax.swing.JButton movieSaveButton;
+    private javax.swing.JTextField movieTitleTextField;
+    private javax.swing.JList movieWritersList;
+    private javax.swing.JTextField movieYearTextField;
+    private javax.swing.JButton personDeleteButton;
+    private javax.swing.JButton personDeleteRelationshipButton;
+    private javax.swing.JLabel personDetailsLabel;
+    private javax.swing.JList personDirectedList;
+    private javax.swing.JTextField personIdTextField;
     private javax.swing.JList personList;
-    private javax.swing.JTextField personName;
-    private javax.swing.JButton person_deleteButton;
-    private javax.swing.JButton person_deleteRelation;
-    private javax.swing.JButton person_newPerson;
-    private javax.swing.JButton person_updateButton;
-    private javax.swing.JList playedIn;
-    private javax.swing.JList written;
+    private javax.swing.JLabel personListLabel;
+    private javax.swing.JTextField personNameTextField;
+    private javax.swing.JButton personNewButton;
+    private javax.swing.JList personPlayedInList;
+    private javax.swing.JButton personRelationshipAddButton;
+    private javax.swing.JList personRelationshipAllMovieList;
+    private javax.swing.JComboBox personRelationshipComboBox;
+    private javax.swing.JLabel personRelationshipManagerLabel;
+    private javax.swing.JTabbedPane personRelationshipTabbedPanel;
+    private javax.swing.JButton personSaveButton;
+    private javax.swing.JList personWrittenList;
     // End of variables declaration//GEN-END:variables
 }

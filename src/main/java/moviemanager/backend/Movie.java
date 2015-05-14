@@ -15,7 +15,7 @@ public class Movie {
     private Long id;
     private String title;
     private int year;
-    private List<String> genre;
+    private String genre;
     private int length;
 
     /**
@@ -28,7 +28,7 @@ public class Movie {
      * @param writer is List of names (represented by class Person) of movie writers.
      * @param cast  is List of names (represented by class Person) of movies cast.
      */
-    public Movie(String title, int year, List<String> genre, int length, List<Person> director, List<Person> writer, List<Person> cast) {
+    public Movie(String title, int year, String genre, int length, List<Person> director, List<Person> writer, List<Person> cast) {
         this.id = null;
         this.title = title;
         this.year = year;
@@ -99,7 +99,7 @@ public class Movie {
      * Get method to return genre of the movie.
      * @return List<String> containing genres of the movie.
      */
-    public List<String> getGenre() {
+    public String getGenre() {
         return genre;
     }
     
@@ -107,7 +107,7 @@ public class Movie {
      * Method to set genre of the movie.
      * @param genre List<String> containing genres of the movie.
      */
-    public void setGenre(List<String> genre) {
+    public void setGenre(String genre) {
         this.genre = genre;
     }
     
@@ -153,6 +153,6 @@ public class Movie {
     
     @Override
     public String toString(){
-        return this.getId() + ": " + this.getTitle();
+        return this.getId() + " - " + this.getTitle();
     }
 }

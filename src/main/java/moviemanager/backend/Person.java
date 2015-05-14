@@ -115,6 +115,6 @@ public class Person {
     
     @Override
     public String toString (){
-        return this.getId() + ": " + this.getName() + " born: " + sdf.format(this.getBirth().getTime());
+        return this.getId() + " - " + this.getName();
     }
 }

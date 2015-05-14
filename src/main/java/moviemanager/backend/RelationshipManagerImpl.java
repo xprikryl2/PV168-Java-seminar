@@ -5,6 +5,7 @@
  */
 package moviemanager.backend;
 
+import common.Consts;
 import common.ServiceFailureException;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -55,10 +56,51 @@ public class RelationshipManagerImpl implements RelationshipManager {
         return listOfMovies;
     }
 
+    //@Override
+    public List<Movie> moviesOfPerson(Person person, String role) throws ServiceFailureException {
+        log.debug("Movies of person ({})", person);
+        List<Long> listOfMovieId = null;
+        listOfMovieId = jdbc.query("SELECT * FROM relationships WHERE personId = ?", movieIdMapper, person.getId());
+        if(role==Consts.CAST){
+            listOfMovieId = jdbc.query("SELECT * FROM relationships WHERE personId = ? AND movieCast = true", movieIdMapper, person.getId());
+        } else if(role==Consts.DIRECTOR){
+            listOfMovieId = jdbc.query("SELECT * FROM relationships WHERE personId = ? AND director = true", movieIdMapper, person.getId());
+        } else {
+            listOfMovieId = jdbc.query("SELECT * FROM relationships WHERE personId = ? AND writer = true", movieIdMapper, person.getId());
+        }
+        
+        
+        List<Movie> listOfMovies = new ArrayList<>();
+        MovieManagerImpl movieManager = new MovieManagerImpl(jdbc.getDataSource());
+            for (int i = 0; i < listOfMovieId.size(); i++){
+                listOfMovies.add(movieManager.getMovie(listOfMovieId.get(i)));
+            }
+        return listOfMovies;
+    }
+
     @Override
     public List<Person> personsOfMovie(Movie movie) throws ServiceFailureException {
         log.debug("Persons of movie ({})", movie);
         List<Long> listOfPersonId = jdbc.query("SELECT * FROM relationships WHERE movieId = ?", personIdMapper, movie.getId());
+        List<Person> listOfPersons = new ArrayList<>();
+        PersonManagerImpl personManager = new PersonManagerImpl(jdbc.getDataSource());
+            for (int i = 0; i < listOfPersonId.size(); i++){
+                listOfPersons.add(personManager.getPerson(listOfPersonId.get(i)));
+            }
+        return listOfPersons;
+    }
+
+    //@Override
+    public List<Person> personsOfMovie(Movie movie, String role) throws ServiceFailureException {
+        log.debug("Persons of movie ({})", movie);
+        List<Long> listOfPersonId = null;
+        if(role==Consts.CAST){
+            listOfPersonId = jdbc.query("SELECT * FROM relationships WHERE movieId = ? AND movieCast = true", personIdMapper, movie.getId());
+        } else if(role==Consts.DIRECTOR){
+        listOfPersonId = jdbc.query("SELECT * FROM relationships WHERE movieId = ? AND director = true", personIdMapper, movie.getId());
+        } else {
+        listOfPersonId = jdbc.query("SELECT * FROM relationships WHERE movieId = ? AND writer = true", personIdMapper, movie.getId());
+        }
         List<Person> listOfPersons = new ArrayList<>();
         PersonManagerImpl personManager = new PersonManagerImpl(jdbc.getDataSource());
             for (int i = 0; i < listOfPersonId.size(); i++){

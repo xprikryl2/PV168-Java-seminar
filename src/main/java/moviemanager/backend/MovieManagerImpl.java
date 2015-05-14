@@ -40,8 +40,7 @@ public class MovieManagerImpl implements MovieManager {
         String title = rs.getString("title");
         int year = rs.getInt("movieYear");
         int length = rs.getInt("length");
-        List<String> genre = new ArrayList<>();
-        genre.add(rs.getString("genre"));
+        String genre = rs.getString("genre");
         
         Movie movie = new Movie();
         movie.setId(id);
@@ -64,6 +63,7 @@ public class MovieManagerImpl implements MovieManager {
         Map<String, Object> pars = new HashMap<>();
         pars.put("title", movie.getTitle());
         pars.put("movieYear", movie.getYear());
+        pars.put("genre", movie.getGenre());
         pars.put("length", movie.getLength());
         
         Long id = (Long)new SimpleJdbcInsert(jdbc).withTableName("movies").usingGeneratedKeyColumns("id").executeAndReturnKey(pars).longValue();

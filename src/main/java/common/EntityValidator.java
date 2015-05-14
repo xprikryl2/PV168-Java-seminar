@@ -41,6 +41,10 @@ public class EntityValidator {
             log.error("Movie year less then zero!");
             throw new IllegalArgumentException ("Movie year less then zero!");}
         
+        if(movie.getGenre() == null){
+            log.error("Movie genre is set to null!");
+            throw new IllegalArgumentException ("Movie genre is set to null!");}
+        
         if(movie.getLength() < 0){
             log.error("Movie length less then zero!");
             throw new IllegalArgumentException ("Movie length less then zero!");}
