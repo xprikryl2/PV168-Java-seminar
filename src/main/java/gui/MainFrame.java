@@ -17,13 +17,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import moviemanager.backend.DtbManager;
 import moviemanager.backend.Movie;
 import moviemanager.backend.MovieManagerImpl;
 import moviemanager.backend.SpringConfig;
 import moviemanager.backend.Person;
 import moviemanager.backend.PersonManagerImpl;
 import moviemanager.backend.RelationshipManagerImpl;
+import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -31,6 +31,7 @@ import moviemanager.backend.RelationshipManagerImpl;
  */
 public class MainFrame extends javax.swing.JFrame {
     private static final SimpleDateFormat sdf = new SimpleDateFormat(Consts.TIME_FORMAT);
+    final static org.slf4j.Logger log = LoggerFactory.getLogger(MainFrame.class);
     SpringConfig sc = new SpringConfig();
     private PersonManagerImpl personMngr = (PersonManagerImpl) sc.personManager();
     private RelationshipManagerImpl relationshipMngr = (RelationshipManagerImpl) sc.relationManager();
@@ -45,7 +46,7 @@ public class MainFrame extends javax.swing.JFrame {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         initComponents();
     }
 
@@ -210,12 +211,12 @@ public class MainFrame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(personPlayedInList);
         personPlayedInList.getAccessibleContext().setAccessibleName(bundle.getString("Played in")); // NOI18N
 
-        personRelationshipTabbedPanel.addTab("Played in", jScrollPane1);
+        personRelationshipTabbedPanel.addTab(bundle.getString("Played in"), jScrollPane1);
 
         jScrollPane3.setViewportView(personDirectedList);
         personDirectedList.getAccessibleContext().setAccessibleName(bundle.getString("Directed")); // NOI18N
 
-        personRelationshipTabbedPanel.addTab("Directed", jScrollPane3);
+        personRelationshipTabbedPanel.addTab(bundle.getString("Directed"), jScrollPane3);
 
         jScrollPane4.setViewportView(personWrittenList);
         personWrittenList.getAccessibleContext().setAccessibleName(bundle.getString("Written")); // NOI18N
@@ -319,7 +320,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         personRelationshipComboBox.setModel(
             new javax.swing.DefaultComboBoxModel(
-                new String[] {"Cast", "Director", "Writer"}
+                new String[] {bundle.getString("Cast"), bundle.getString("Director"), bundle.getString("Writer")}
             )
         );
 
@@ -517,15 +518,15 @@ public class MainFrame extends javax.swing.JFrame {
 
         jScrollPane11.setViewportView(movieActorsList);
 
-        movieRelationshipTabbedPanel.addTab("Actors", jScrollPane11);
+        movieRelationshipTabbedPanel.addTab(bundle.getString("Actors"), jScrollPane11);
 
         jScrollPane12.setViewportView(movieDirectorsList);
 
-        movieRelationshipTabbedPanel.addTab("Directors", jScrollPane12);
+        movieRelationshipTabbedPanel.addTab(bundle.getString("Directors"), jScrollPane12);
 
         jScrollPane13.setViewportView(movieWritersList);
 
-        movieRelationshipTabbedPanel.addTab("Writers", jScrollPane13);
+        movieRelationshipTabbedPanel.addTab(bundle.getString("Writers"), jScrollPane13);
 
         movieDeleteRelationshipButton.setText(bundle.getString("Delete Relationship")); // NOI18N
         movieDeleteRelationshipButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -622,7 +623,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         movieRelationshipComboBox.setModel(
             new javax.swing.DefaultComboBoxModel(
-                new String[] {"Cast", "Director", "Writer"}
+                new String[] {bundle.getString("Cast"), bundle.getString("Director"), bundle.getString("Writer")}
             )
         );
 
@@ -684,7 +685,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 0, 0));
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel17.setText("Your adverts can be here tomorrow!");
+        jLabel17.setText(bundle.getString("Your adverts can be here tomorrow!"));
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -770,15 +771,15 @@ public class MainFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-       
+
     private void personListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_personListValueChanged
         int selectedIndex = personList.getSelectedIndex();
         if(selectedIndex !=  -1){
             Person person = (Person) personList.getModel().getElementAt(selectedIndex);
             personIdTextField.setText(person.getId().toString());
             personNameTextField.setText(person.getName());
-            personBirth.setDate(new Date(sdf.format(person.getBirth().getTime())));
-            //PersonBirthTextField.setText(sdf.format(person.getBirth().getTime()));
+            //personBirth.setDate(new Date(sdf.format(person.getBirth().getTime())));
+            personBirth.setDate(person.getBirth().getTime());
             personDirectedListUpdateList(person);
             personWrittenListUpdateList(person);
             personPlayedInListUpdateList(person);
@@ -787,12 +788,11 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void personSaveButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_personSaveButtonMouseClicked
         Calendar calendar = Calendar.getInstance();
-        
-        try {
-            calendar.setTime(sdf.parse(personBirth.getDate().toString()));
-        } catch(ParseException ex){
-            //log.error("Exception when parsing date of birth!" + ex);
-        }
+        calendar.setTimeInMillis(personBirth.getDate().getTime());
+
+            log.info("Date: " + sdf.format(calendar.getTime()));
+            calendar.setTimeInMillis(personBirth.getDate().getTime());
+
         int selectedIndex = personList.getSelectedIndex();
         if(selectedIndex !=  -1){
             Person person = (Person) personList.getModel().getElementAt(selectedIndex);
@@ -809,7 +809,7 @@ public class MainFrame extends javax.swing.JFrame {
         int selectedIndex = personList.getSelectedIndex();
         if(selectedIndex !=  -1){
             Person person = ((Person)personList.getModel().getElementAt(selectedIndex));
-            
+
             personMngr.deletePerson(person.getId());
             personListUpdateList();
             personList.setSelectedIndex(0);
@@ -818,11 +818,11 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void personNewButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_personNewButtonMouseClicked
         Calendar calendar = Calendar.getInstance();
-        try {
-        calendar.setTime(sdf.parse(PersonBirthTextField.getText()));
-        } catch(ParseException ex){
-            //log.error("Exception when parsing date of birth!" + ex);
-        }
+        calendar.setTimeInMillis(personBirth.getDate().getTime());
+
+            log.info("Date: " + sdf.format(calendar.getTime()));
+            calendar.setTimeInMillis(personBirth.getDate().getTime());
+            
         Person person = new Person();
         person.setName(personNameTextField.getText());
         person.setBirth(calendar);
@@ -856,9 +856,9 @@ public class MainFrame extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_personRelationshipAddButtonMouseClicked
-    
-    
-    
+
+
+
     private void personListUpdateList(){
         personList.setModel(new javax.swing.AbstractListModel() {
             List<Person> list = personMngr.listAllPersons();
@@ -870,7 +870,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
     }
-    
+
     private void personPlayedInListUpdateList(Person person){
         personPlayedInList.setModel(new javax.swing.AbstractListModel() {
             List<Movie> list = relationshipMngr.moviesOfPerson(person, Consts.CAST);
@@ -882,7 +882,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
     }
-    
+
     private void personDirectedListUpdateList(Person person){
         personDirectedList.setModel(new javax.swing.AbstractListModel() {
             List<Movie> list = relationshipMngr.moviesOfPerson(person, Consts.DIRECTOR);
@@ -894,7 +894,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
     }
-    
+
     private void personWrittenListUpdateList(Person person){
         personWrittenList.setModel(new javax.swing.AbstractListModel() {
             List<Movie> list = relationshipMngr.moviesOfPerson(person, Consts.WRITER);
@@ -906,13 +906,13 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
     }
-    
-    
+
+
     private void movieDeleteButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_movieDeleteButtonMouseClicked
         int selectedIndex = movieList.getSelectedIndex();
         if(selectedIndex !=  -1){
             Movie movie = ((Movie)movieList.getModel().getElementAt(selectedIndex));
-            
+
             movieMngr.deleteMovie(movie.getId());
             movieListUpdateList();
             movieList.setSelectedIndex(0);
@@ -967,7 +967,7 @@ public class MainFrame extends javax.swing.JFrame {
         if(movieSelectedIndex !=  -1){
             Movie movie = (Movie) movieList.getModel().getElementAt(movieSelectedIndex);
             int selectedIndex;
-        
+
             int listIndex = movieRelationshipTabbedPanel.getSelectedIndex();
             if(listIndex == 0){
                 selectedIndex = movieActorsList.getSelectedIndex();
@@ -990,7 +990,7 @@ public class MainFrame extends javax.swing.JFrame {
                     relationshipMngr.removeRelationship(person, movie);
                     movieDirectorsListUpdateList(movie);
                 }
-            } 
+            }
         }
     }//GEN-LAST:event_movieDeleteRelationshipButtonMouseClicked
 
@@ -1023,7 +1023,7 @@ public class MainFrame extends javax.swing.JFrame {
         if(personSelectedIndex !=  -1){
             Person person = (Person) personList.getModel().getElementAt(personSelectedIndex);
             int selectedIndex;
-        
+
             int listIndex = personRelationshipTabbedPanel.getSelectedIndex();
             if(listIndex == 0){
                 selectedIndex = personPlayedInList.getSelectedIndex();
@@ -1046,7 +1046,7 @@ public class MainFrame extends javax.swing.JFrame {
                     relationshipMngr.removeRelationship(person, movie);
                     personDirectedListUpdateList(person);
                 }
-            } 
+            }
         }
     }//GEN-LAST:event_personDeleteRelationshipButtonMouseClicked
 
@@ -1061,7 +1061,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
     }
-    
+
     private void movieDirectorsListUpdateList(Movie movie){
         movieDirectorsList.setModel(new javax.swing.AbstractListModel() {
             List<Person> list = relationshipMngr.personsOfMovie(movie, Consts.DIRECTOR);
@@ -1073,7 +1073,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
     }
-    
+
     private void movieActorsListUpdateList(Movie movie){
         movieActorsList.setModel(new javax.swing.AbstractListModel() {
             List<Person> list = relationshipMngr.personsOfMovie(movie, Consts.CAST);
@@ -1085,7 +1085,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
     }
-    
+
     private void movieWritersListUpdateList(Movie movie){
         movieWritersList.setModel(new javax.swing.AbstractListModel() {
             List<Person> list = relationshipMngr.personsOfMovie(movie, Consts.WRITER);
@@ -1104,7 +1104,7 @@ public class MainFrame extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

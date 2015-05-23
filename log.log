@@ -1,20 +1,255 @@
-17:55:13.454 [AWT-EventQueue-0] DEBUG m.backend.PersonManagerImpl - listAllPersons()
-17:55:13.454 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL query [SELECT * FROM persons]
-17:55:13.495 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:55:13.957 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:55:13.972 [AWT-EventQueue-0] DEBUG m.backend.MovieManagerImpl - findAllMovies()
-17:55:13.972 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL query [SELECT * FROM movies]
-17:55:13.972 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:55:13.990 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:55:14.011 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:55:14.011 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:55:14.016 [AWT-EventQueue-0] DEBUG m.backend.MovieManagerImpl - findAllMovies()
-17:55:14.017 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL query [SELECT * FROM movies]
-17:55:14.017 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:55:14.017 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:55:14.019 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:55:14.019 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:55:14.026 [AWT-EventQueue-0] DEBUG m.backend.PersonManagerImpl - listAllPersons()
-17:55:14.026 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL query [SELECT * FROM persons]
-17:55:14.026 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:55:14.029 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:24.201 [AWT-EventQueue-0] DEBUG m.backend.PersonManagerImpl - listAllPersons()
+17:38:24.208 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL query [SELECT * FROM persons]
+17:38:24.222 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:25.059 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:25.152 [AWT-EventQueue-0] DEBUG m.backend.MovieManagerImpl - findAllMovies()
+17:38:25.152 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL query [SELECT * FROM movies]
+17:38:25.152 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:25.187 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:25.236 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:25.236 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:25.259 [AWT-EventQueue-0] DEBUG m.backend.MovieManagerImpl - findAllMovies()
+17:38:25.259 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL query [SELECT * FROM movies]
+17:38:25.259 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:25.259 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:25.266 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:25.266 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:25.336 [AWT-EventQueue-0] DEBUG m.backend.PersonManagerImpl - listAllPersons()
+17:38:25.336 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL query [SELECT * FROM persons]
+17:38:25.336 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:25.357 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:41.914 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (22 - James Tiberius Kirk)
+17:38:41.921 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:41.923 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+17:38:41.923 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:42.063 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:42.063 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:42.063 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND director = true]
+17:38:42.063 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:42.074 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:42.100 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (22 - James Tiberius Kirk)
+17:38:42.100 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:42.100 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+17:38:42.100 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:42.104 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:42.104 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:42.104 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND writer = true]
+17:38:42.104 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:42.115 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:42.115 [AWT-EventQueue-0] DEBUG m.backend.MovieManagerImpl - getMovie(2)
+17:38:42.115 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:42.115 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM movies WHERE id= ?]
+17:38:42.115 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:42.271 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:42.286 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (22 - James Tiberius Kirk)
+17:38:42.287 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:42.287 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+17:38:42.287 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:42.290 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:42.290 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:42.290 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND movieCast = true]
+17:38:42.291 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:42.302 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:42.357 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (22 - James Tiberius Kirk)
+17:38:42.357 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:42.357 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+17:38:42.357 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:42.361 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:42.361 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:42.361 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND director = true]
+17:38:42.361 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:42.364 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:42.364 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (22 - James Tiberius Kirk)
+17:38:42.365 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:42.365 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+17:38:42.365 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:42.368 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:42.368 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:42.369 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND writer = true]
+17:38:42.369 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:42.372 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:42.372 [AWT-EventQueue-0] DEBUG m.backend.MovieManagerImpl - getMovie(2)
+17:38:42.373 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:42.373 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM movies WHERE id= ?]
+17:38:42.373 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:42.376 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:42.376 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (22 - James Tiberius Kirk)
+17:38:42.376 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:42.376 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+17:38:42.376 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:42.380 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:42.380 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:42.380 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND movieCast = true]
+17:38:42.380 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:42.383 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:52.259 [AWT-EventQueue-0] INFO  gui.MainFrame - Date: 2014 Kv? 09
+17:38:52.261 [AWT-EventQueue-0] DEBUG m.backend.PersonManagerImpl - updatePerson(22 - James Tiberius Kirk)
+17:38:52.261 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+17:38:52.262 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [UPDATE persons SET name=?, birthday=? WHERE id=?]
+17:38:52.262 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:52.387 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - SQL update affected 1 rows
+17:38:52.387 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:52.410 [AWT-EventQueue-0] DEBUG m.backend.PersonManagerImpl - listAllPersons()
+17:38:52.411 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL query [SELECT * FROM persons]
+17:38:52.411 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:52.424 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:52.427 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (22 - James Tiberius Kirk)
+17:38:52.428 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:52.428 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+17:38:52.428 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:52.435 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:52.435 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:52.435 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND director = true]
+17:38:52.435 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:52.439 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:52.440 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (22 - James Tiberius Kirk)
+17:38:52.440 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:52.440 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+17:38:52.440 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:52.444 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:52.444 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:52.444 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND writer = true]
+17:38:52.445 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:52.449 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:52.449 [AWT-EventQueue-0] DEBUG m.backend.MovieManagerImpl - getMovie(2)
+17:38:52.449 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:52.449 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM movies WHERE id= ?]
+17:38:52.449 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:52.453 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:52.454 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (22 - James Tiberius Kirk)
+17:38:52.454 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:52.454 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+17:38:52.454 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:52.458 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:52.459 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:52.459 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND movieCast = true]
+17:38:52.459 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:52.463 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:53.894 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (21 - Jane Doe)
+17:38:53.894 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:53.894 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+17:38:53.894 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:53.897 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:53.897 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:53.897 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND director = true]
+17:38:53.897 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:53.900 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:53.900 [AWT-EventQueue-0] DEBUG m.backend.MovieManagerImpl - getMovie(2)
+17:38:53.900 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:53.900 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM movies WHERE id= ?]
+17:38:53.900 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:53.904 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:53.904 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (21 - Jane Doe)
+17:38:53.904 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:53.904 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+17:38:53.904 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:53.907 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:53.907 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:53.907 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND writer = true]
+17:38:53.907 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:53.910 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:53.911 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (21 - Jane Doe)
+17:38:53.911 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:53.911 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+17:38:53.911 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:53.914 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:53.914 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:53.914 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND movieCast = true]
+17:38:53.914 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:53.917 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:54.092 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (21 - Jane Doe)
+17:38:54.092 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:54.092 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+17:38:54.092 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:54.095 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:54.095 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:54.095 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND director = true]
+17:38:54.095 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:54.098 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:54.098 [AWT-EventQueue-0] DEBUG m.backend.MovieManagerImpl - getMovie(2)
+17:38:54.098 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:54.098 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM movies WHERE id= ?]
+17:38:54.098 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:54.101 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:54.102 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (21 - Jane Doe)
+17:38:54.102 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:54.102 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+17:38:54.102 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:54.104 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:54.105 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:54.105 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND writer = true]
+17:38:54.105 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:54.108 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:54.108 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (21 - Jane Doe)
+17:38:54.108 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:54.108 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+17:38:54.108 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:54.112 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:54.112 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:54.112 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND movieCast = true]
+17:38:54.112 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:54.115 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:54.780 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (22 - James Tiberius Kirk)
+17:38:54.780 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:54.780 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+17:38:54.780 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:54.788 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:54.788 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:54.788 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND director = true]
+17:38:54.788 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:54.794 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:54.795 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (22 - James Tiberius Kirk)
+17:38:54.795 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:54.795 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+17:38:54.795 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:54.801 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:54.801 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:54.801 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND writer = true]
+17:38:54.801 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:54.807 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:54.807 [AWT-EventQueue-0] DEBUG m.backend.MovieManagerImpl - getMovie(2)
+17:38:54.807 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:54.807 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM movies WHERE id= ?]
+17:38:54.807 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:54.811 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:54.812 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (22 - James Tiberius Kirk)
+17:38:54.812 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:54.812 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+17:38:54.812 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:54.816 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:54.816 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:54.817 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND movieCast = true]
+17:38:54.817 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:54.820 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:54.976 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (22 - James Tiberius Kirk)
+17:38:54.976 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:54.976 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+17:38:54.976 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:54.979 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:54.979 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:54.979 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND director = true]
+17:38:54.979 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:54.982 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:54.982 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (22 - James Tiberius Kirk)
+17:38:54.982 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:54.982 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+17:38:54.982 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:54.985 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:54.985 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:54.985 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND writer = true]
+17:38:54.985 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:54.988 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:54.988 [AWT-EventQueue-0] DEBUG m.backend.MovieManagerImpl - getMovie(2)
+17:38:54.988 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:54.988 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM movies WHERE id= ?]
+17:38:54.988 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:54.991 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:54.991 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (22 - James Tiberius Kirk)
+17:38:54.991 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:54.991 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+17:38:54.991 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:54.994 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+17:38:54.994 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+17:38:54.994 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND movieCast = true]
+17:38:54.994 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+17:38:54.997 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
