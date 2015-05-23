@@ -111,11 +111,11 @@ public class RelationshipManagerImpl implements RelationshipManager {
     
     @Override
     @Transactional
-    public void removeRelationship(Person person, Movie movie) throws ServiceFailureException {
+    public void removeRelationship(Person person, Movie movie, String role) throws ServiceFailureException {
         log.debug("removing relationship between person and movie", person, movie);
         
-        int n = jdbc.update("DELETE FROM relationships WHERE personId = ? AND movieId = ?", person.getId(), movie.getId());
-        if (n != 1) throw new ServiceFailureException("Movie affiliation of person with ID " + person.getId() + " not deleted");
+        int n = jdbc.update("DELETE FROM relationships WHERE personId = ? AND movieId = ? AND " + role + " = true", person.getId(), movie.getId());
+        if (n == 0) throw new ServiceFailureException("Movie affiliation of person with ID " + person.getId() + " not deleted");
     }
     
     public Boolean checkRole(Person person, Movie movie, String role){

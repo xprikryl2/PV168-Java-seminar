@@ -15,8 +15,10 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.SwingWorker;
 import moviemanager.backend.Movie;
 import moviemanager.backend.MovieManagerImpl;
 import moviemanager.backend.SpringConfig;
@@ -781,7 +783,7 @@ public class MainFrame extends javax.swing.JFrame {
             //personBirth.setDate(new Date(sdf.format(person.getBirth().getTime())));
             personBirth.setDate(person.getBirth().getTime());
             personDirectedListUpdateList(person);
-            personWrittenListUpdateList(person);
+            personWritenListUpdateList(person);
             personPlayedInListUpdateList(person);
         }
     }//GEN-LAST:event_personListValueChanged
@@ -799,9 +801,12 @@ public class MainFrame extends javax.swing.JFrame {
             person.setName(personNameTextField.getText());
             person.setBirth(calendar);
 
+            /*
             personMngr.updatePerson(person);
             personListUpdateList();
             personList.setSelectedIndex(selectedIndex);
+            */
+            new PersonUpdateWorker(person, selectedIndex).execute();
         }
     }//GEN-LAST:event_personSaveButtonMouseClicked
 
@@ -810,9 +815,12 @@ public class MainFrame extends javax.swing.JFrame {
         if(selectedIndex !=  -1){
             Person person = ((Person)personList.getModel().getElementAt(selectedIndex));
 
+            /*
             personMngr.deletePerson(person.getId());
             personListUpdateList();
             personList.setSelectedIndex(0);
+            */
+            new PersonDeleteWorker(person).execute();
         }
     }//GEN-LAST:event_personDeleteButtonMouseClicked
 
@@ -828,9 +836,12 @@ public class MainFrame extends javax.swing.JFrame {
         person.setBirth(calendar);
         person.setId(null);
 
+        /*
         personMngr.createPerson(person);
         personListUpdateList();
         personList.setSelectedIndex(personList.getModel().getSize()-1);
+        */
+        new PersonCreateWorker(person, personList.getModel().getSize()).execute();
     }//GEN-LAST:event_personNewButtonMouseClicked
 
     private void personRelationshipAddButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_personRelationshipAddButtonMouseClicked
@@ -843,79 +854,40 @@ public class MainFrame extends javax.swing.JFrame {
                 int roleSelectedIndex = personRelationshipComboBox.getSelectedIndex();
                 if(roleSelectedIndex !=  -1){
                     if(personRelationshipComboBox.getSelectedIndex()==0){
+                        /*
                         relationshipMngr.addPersonToRole(person, movie, Consts.CAST);
                         personPlayedInListUpdateList(person);
+                        */
+                        new PersonAddPersonAsActorWorker(person, movie).execute();
                     } else if(personRelationshipComboBox.getSelectedIndex()==1){
+                        /*
                         relationshipMngr.addPersonToRole(person, movie, Consts.DIRECTOR);
                         personDirectedListUpdateList(person);
+                        */
+                        new PersonAddPersonAsDirectorWorker(person, movie).execute();
                     } else if(personRelationshipComboBox.getSelectedIndex()==2){
+                        /*
                         relationshipMngr.addPersonToRole(person, movie, Consts.WRITER);
-                        personWrittenListUpdateList(person);
+                        personWritenListUpdateList(person);
+                        */
+                        new PersonAddPersonAsWriterWorker(person, movie).execute();
                     }
                 }
             }
         }
     }//GEN-LAST:event_personRelationshipAddButtonMouseClicked
 
-
-
-    private void personListUpdateList(){
-        personList.setModel(new javax.swing.AbstractListModel() {
-            List<Person> list = personMngr.listAllPersons();
-            public int getSize() {
-                return list.size();
-            }
-            public Object getElementAt(int i) {
-                return list.get(i);
-            }
-        });
-    }
-
-    private void personPlayedInListUpdateList(Person person){
-        personPlayedInList.setModel(new javax.swing.AbstractListModel() {
-            List<Movie> list = relationshipMngr.moviesOfPerson(person, Consts.CAST);
-            public int getSize() {
-                return list.size();
-            }
-            public Object getElementAt(int i) {
-                return list.get(i);
-            }
-        });
-    }
-
-    private void personDirectedListUpdateList(Person person){
-        personDirectedList.setModel(new javax.swing.AbstractListModel() {
-            List<Movie> list = relationshipMngr.moviesOfPerson(person, Consts.DIRECTOR);
-            public int getSize() {
-                return list.size();
-            }
-            public Object getElementAt(int i) {
-                return list.get(i);
-            }
-        });
-    }
-
-    private void personWrittenListUpdateList(Person person){
-        personWrittenList.setModel(new javax.swing.AbstractListModel() {
-            List<Movie> list = relationshipMngr.moviesOfPerson(person, Consts.WRITER);
-            public int getSize() {
-                return list.size();
-            }
-            public Object getElementAt(int i) {
-                return list.get(i);
-            }
-        });
-    }
-
-
     private void movieDeleteButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_movieDeleteButtonMouseClicked
         int selectedIndex = movieList.getSelectedIndex();
         if(selectedIndex !=  -1){
             Movie movie = ((Movie)movieList.getModel().getElementAt(selectedIndex));
 
+            /*
             movieMngr.deleteMovie(movie.getId());
             movieListUpdateList();
             movieList.setSelectedIndex(0);
+            */
+            new MovieDeleteWorker(movie).execute();
         }
     }//GEN-LAST:event_movieDeleteButtonMouseClicked
 
@@ -943,9 +915,12 @@ public class MainFrame extends javax.swing.JFrame {
             movie.setGenre(movieGenreTextField.getText());
             movie.setLength(Integer.parseInt(movieLengthTextField.getText()));
 
+            /*
             movieMngr.updateMovie(movie);
             movieListUpdateList();
             movieList.setSelectedIndex(selectedIndex);
+            */
+            new MovieUpdateWorker(movie, selectedIndex).execute();
         }
     }//GEN-LAST:event_movieSaveButtonMouseClicked
 
@@ -957,9 +932,12 @@ public class MainFrame extends javax.swing.JFrame {
             movie.setLength(Integer.parseInt(movieLengthTextField.getText()));
             movie.setId(null);
 
+            /*
             movieMngr.createMovie(movie);
             movieListUpdateList();
             movieList.setSelectedIndex(movieList.getModel().getSize()-1);
+            */
+            new MovieCreateWorker(movie, movieList.getModel().getSize()).execute();
     }//GEN-LAST:event_movieNewButtonMouseClicked
 
     private void movieDeleteRelationshipButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_movieDeleteRelationshipButtonMouseClicked
@@ -967,28 +945,36 @@ public class MainFrame extends javax.swing.JFrame {
         if(movieSelectedIndex !=  -1){
             Movie movie = (Movie) movieList.getModel().getElementAt(movieSelectedIndex);
             int selectedIndex;
-
             int listIndex = movieRelationshipTabbedPanel.getSelectedIndex();
             if(listIndex == 0){
                 selectedIndex = movieActorsList.getSelectedIndex();
                 if(selectedIndex !=  -1){
                     Person person = (Person) movieActorsList.getModel().getElementAt(selectedIndex);
-                    relationshipMngr.removeRelationship(person, movie);
+                    /*
+                    relationshipMngr.removeRelationship(person, movie, Consts.CAST);
                     movieActorsListUpdateList(movie);
+                    */
+                    new MovieDeletePersonAsActorWorker(person, movie).execute();
                 }
-            } else if(listIndex == 1){
+            } else if(listIndex == 2){
                 selectedIndex = movieWritersList.getSelectedIndex();
                 if(selectedIndex !=  -1){
                     Person person = (Person) movieWritersList.getModel().getElementAt(selectedIndex);
-                    relationshipMngr.removeRelationship(person, movie);
+                    /*
+                    relationshipMngr.removeRelationship(person, movie, Consts.WRITER);
                     movieWritersListUpdateList(movie);
+                    */
+                    new MovieDeletePersonAsWriterWorker(person, movie).execute();
                 }
-            } else if(listIndex == 2){
+            } else if(listIndex == 1){
                 selectedIndex = movieDirectorsList.getSelectedIndex();
                 if(selectedIndex !=  -1){
                     Person person = (Person) movieDirectorsList.getModel().getElementAt(selectedIndex);
-                    relationshipMngr.removeRelationship(person, movie);
+                    /*
+                    relationshipMngr.removeRelationship(person, movie, Consts.DIRECTOR);
                     movieDirectorsListUpdateList(movie);
+                    */
+                    new MovieDeletePersonAsDirectorWorker(person, movie).execute();
                 }
             }
         }
@@ -1004,14 +990,23 @@ public class MainFrame extends javax.swing.JFrame {
                 int roleSelectedIndex = movieRelationshipComboBox.getSelectedIndex();
                 if(roleSelectedIndex !=  -1){
                     if(movieRelationshipComboBox.getSelectedIndex()==0){
+                        /*
                         relationshipMngr.addPersonToRole(person, movie, Consts.CAST);
                         movieActorsListUpdateList(movie);
+                        */
+                        new MovieAddPersonAsActorWorker(person, movie).execute();
                     } else if(movieRelationshipComboBox.getSelectedIndex()==1){
+                        /*
                         relationshipMngr.addPersonToRole(person, movie, Consts.DIRECTOR);
                         movieDirectorsListUpdateList(movie);
+                        */
+                        new MovieAddPersonAsDirectorWorker(person, movie).execute();
                     } else if(movieRelationshipComboBox.getSelectedIndex()==2){
+                        /*
                         relationshipMngr.addPersonToRole(person, movie, Consts.WRITER);
                         movieWritersListUpdateList(movie);
+                        */
+                        new MovieAddPersonAsWriterWorker(person, movie).execute();
                     }
                 }
             }
@@ -1029,74 +1024,36 @@ public class MainFrame extends javax.swing.JFrame {
                 selectedIndex = personPlayedInList.getSelectedIndex();
                 if(selectedIndex !=  -1){
                     Movie movie = (Movie) personPlayedInList.getModel().getElementAt(selectedIndex);
-                    relationshipMngr.removeRelationship(person, movie);
+                    /*
+                    relationshipMngr.removeRelationship(person, movie, Consts.CAST);
                     personPlayedInListUpdateList(person);
+                    */
+                    new PersonDeletePersonAsActorWorker(person, movie).execute();
                 }
-            } else if(listIndex == 1){
+            } else if(listIndex == 2){
                 selectedIndex = personWrittenList.getSelectedIndex();
                 if(selectedIndex !=  -1){
                     Movie movie = (Movie) personWrittenList.getModel().getElementAt(selectedIndex);
-                    relationshipMngr.removeRelationship(person, movie);
-                    personWrittenListUpdateList(person);
+                    /*
+                    relationshipMngr.removeRelationship(person, movie, Consts.WRITER);
+                    personWritenListUpdateList(person);
+                    */
+                    new PersonDeletePersonAsWriterWorker(person, movie).execute();
                 }
-            } else if(listIndex == 2){
+            } else if(listIndex == 1){
                 selectedIndex = personDirectedList.getSelectedIndex();
                 if(selectedIndex !=  -1){
                     Movie movie = (Movie) personDirectedList.getModel().getElementAt(selectedIndex);
-                    relationshipMngr.removeRelationship(person, movie);
+                    /*
+                    relationshipMngr.removeRelationship(person, movie, Consts.DIRECTOR);
                     personDirectedListUpdateList(person);
+                    */
+                    new PersonDeletePersonAsDirectorWorker(person, movie).execute();
                 }
             }
         }
     }//GEN-LAST:event_personDeleteRelationshipButtonMouseClicked
 
-    private void movieListUpdateList(){
-        movieList.setModel(new javax.swing.AbstractListModel() {
-            List<Movie> list = movieMngr.listAllMovies();
-            public int getSize() {
-                return list.size();
-            }
-            public Object getElementAt(int i) {
-                return list.get(i);
-            }
-        });
-    }
-
-    private void movieDirectorsListUpdateList(Movie movie){
-        movieDirectorsList.setModel(new javax.swing.AbstractListModel() {
-            List<Person> list = relationshipMngr.personsOfMovie(movie, Consts.DIRECTOR);
-            public int getSize() {
-                return list.size();
-            }
-            public Object getElementAt(int i) {
-                return list.get(i);
-            }
-        });
-    }
-
-    private void movieActorsListUpdateList(Movie movie){
-        movieActorsList.setModel(new javax.swing.AbstractListModel() {
-            List<Person> list = relationshipMngr.personsOfMovie(movie, Consts.CAST);
-            public int getSize() {
-                return list.size();
-            }
-            public Object getElementAt(int i) {
-                return list.get(i);
-            }
-        });
-    }
-
-    private void movieWritersListUpdateList(Movie movie){
-        movieWritersList.setModel(new javax.swing.AbstractListModel() {
-            List<Person> list = relationshipMngr.personsOfMovie(movie, Consts.WRITER);
-            public int getSize() {
-                return list.size();
-            }
-            public Object getElementAt(int i) {
-                return list.get(i);
-            }
-        });
-    }
     /**
      * @param args the command line arguments
      */
@@ -1211,4 +1168,809 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JList personWrittenList;
     private org.jdatepicker.impl.UtilDateModel utilDateModel1;
     // End of variables declaration//GEN-END:variables
+
+    
+    private class MovieListUpdateWorker extends SwingWorker<List<Movie>,Void> {
+
+        private int selectedIndex = 0;
+        public MovieListUpdateWorker(int selectedIndex){
+            this.selectedIndex = selectedIndex;
+        }
+        
+        @Override
+        protected List<Movie> doInBackground() throws Exception {
+            return movieMngr.listAllMovies();
+        }
+        
+        @Override
+        protected void done(){
+            try {
+                movieList.setModel(
+                    new javax.swing.AbstractListModel() {
+                        List<Movie> list = get();
+                        @Override public int getSize() {return list.size();}
+                        @Override public Object getElementAt(int i) {return list.get(i);}
+                    }
+                );
+                movieList.setSelectedIndex(selectedIndex);
+            } catch (InterruptedException | ExecutionException ex) {
+                Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }    
+        }
+    }
+    
+    private class MovieDirectorsListUpdateWorker extends SwingWorker<List<Person>,Void> {
+
+        private Movie movie = null;
+        
+        public MovieDirectorsListUpdateWorker(Movie movie){
+            this.movie = movie;
+        }
+        
+        @Override
+        protected List<Person> doInBackground() throws Exception {
+            return relationshipMngr.personsOfMovie(movie, Consts.DIRECTOR);
+        }
+        
+        @Override
+        protected void done(){
+            try {
+                movieDirectorsList.setModel(
+                    new javax.swing.AbstractListModel() {
+                        List<Person> list = get();
+                        @Override public int getSize() {return list.size();}
+                        @Override public Object getElementAt(int i) {return list.get(i);}
+                    }
+                );
+            } catch (InterruptedException | ExecutionException ex) {
+                Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }    
+        }
+    }
+    
+    private class MovieActorsListUpdateWorker extends SwingWorker<List<Person>,Void> {
+
+        private Movie movie = null;
+        
+        public MovieActorsListUpdateWorker(Movie movie){
+            this.movie = movie;
+        }
+        
+        @Override
+        protected List<Person> doInBackground() throws Exception {
+            return relationshipMngr.personsOfMovie(movie, Consts.CAST);
+        }
+        
+        @Override
+        protected void done(){
+            try {
+                movieActorsList.setModel(
+                    new javax.swing.AbstractListModel() {
+                        List<Person> list = get();
+                        @Override public int getSize() {return list.size();}
+                        @Override public Object getElementAt(int i) {return list.get(i);}
+                    }
+                );
+            } catch (InterruptedException | ExecutionException ex) {
+                Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }    
+        }
+    }
+    
+    private class MovieWritersListUpdateWorker extends SwingWorker<List<Person>,Void> {
+
+        private Movie movie = null;
+        
+        public MovieWritersListUpdateWorker(Movie movie){
+            this.movie = movie;
+        }
+        
+        @Override
+        protected List<Person> doInBackground() throws Exception {
+            return relationshipMngr.personsOfMovie(movie, Consts.WRITER);
+        }
+        
+        @Override
+        protected void done(){
+            try {
+                movieWritersList.setModel(
+                    new javax.swing.AbstractListModel() {
+                        List<Person> list = get();
+                        @Override public int getSize() {return list.size();}
+                        @Override public Object getElementAt(int i) {return list.get(i);}
+                    }
+                );
+            } catch (InterruptedException | ExecutionException ex) {
+                Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }    
+        }
+    }
+
+    
+    
+    
+    
+    
+    private class PersonListUpdateWorker extends SwingWorker<List<Person>,Void> {
+
+        private int selectedIndex = 0;
+        public PersonListUpdateWorker(int selectedIndex){
+            this.selectedIndex = selectedIndex;
+        }
+        
+        @Override
+        protected List<Person> doInBackground() throws Exception {
+            return personMngr.listAllPersons();
+        }
+        
+        @Override
+        protected void done(){
+            try {
+                personList.setModel(
+                    new javax.swing.AbstractListModel() {
+                        List<Person> list = get();
+                        @Override public int getSize() {return list.size();}
+                        @Override public Object getElementAt(int i) {return list.get(i);}
+                    }
+                );
+                personList.setSelectedIndex(selectedIndex);
+            } catch (InterruptedException | ExecutionException ex) {
+                Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }    
+        }
+    }
+    
+    private class PersonDirectedListUpdateWorker extends SwingWorker<List<Movie>,Void> {
+
+        private Person person = null;
+        
+        public PersonDirectedListUpdateWorker(Person person){
+            this.person = person;
+        }
+        
+        @Override
+        protected List<Movie> doInBackground() throws Exception {
+            return relationshipMngr.moviesOfPerson(person, Consts.DIRECTOR);
+        }
+        
+        @Override
+        protected void done(){
+            try {
+                personDirectedList.setModel(
+                    new javax.swing.AbstractListModel() {
+                        List<Movie> list = get();
+                        @Override public int getSize() {return list.size();}
+                        @Override public Object getElementAt(int i) {return list.get(i);}
+                    }
+                );
+            } catch (InterruptedException | ExecutionException ex) {
+                Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }    
+        }
+    }
+    
+    private class PersonPlayedInListUpdateWorker extends SwingWorker<List<Movie>,Void> {
+
+        private Person person = null;
+        
+        public PersonPlayedInListUpdateWorker(Person person){
+            this.person = person;
+        }
+        
+        @Override
+        protected List<Movie> doInBackground() throws Exception {
+            return relationshipMngr.moviesOfPerson(person, Consts.CAST);
+        }
+        
+        @Override
+        protected void done(){
+            try {
+                personPlayedInList.setModel(
+                    new javax.swing.AbstractListModel() {
+                        List<Movie> list = get();
+                        @Override public int getSize() {return list.size();}
+                        @Override public Object getElementAt(int i) {return list.get(i);}
+                    }
+                );
+            } catch (InterruptedException | ExecutionException ex) {
+                Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }    
+        }
+    }
+    
+    private class PersonWritenListUpdateWorker extends SwingWorker<List<Movie>,Void> {
+        
+        private Person person = null;
+        
+        public PersonWritenListUpdateWorker(Person person){
+            this.person = person;
+        }
+        
+        @Override
+        protected List<Movie> doInBackground() throws Exception {
+            return relationshipMngr.moviesOfPerson(person, Consts.WRITER);
+        }
+        
+        @Override
+        protected void done(){
+            try {
+                personWrittenList.setModel(
+                    new javax.swing.AbstractListModel() {
+                        List<Movie> list = get();
+                        @Override public int getSize() {return list.size();}
+                        @Override public Object getElementAt(int i) {return list.get(i);}
+                    }
+                );
+            } catch (InterruptedException | ExecutionException ex) {
+                Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }    
+        }
+    }
+
+    
+    
+    private void movieListUpdateList(int selectedIndex){
+        new MovieListUpdateWorker(selectedIndex).execute();
+    }
+
+    private void movieDirectorsListUpdateList(Movie movie){
+        new MovieDirectorsListUpdateWorker(movie).execute();
+    }
+
+    private void movieActorsListUpdateList(Movie movie){
+        new MovieActorsListUpdateWorker(movie).execute();
+    }
+
+    private void movieWritersListUpdateList(Movie movie){
+        new MovieWritersListUpdateWorker(movie).execute();
+    }
+    
+    
+    
+    private void personListUpdateList(int selectedIndex){
+        new PersonListUpdateWorker(selectedIndex).execute();
+    }
+
+    private void personPlayedInListUpdateList(Person person){
+        new PersonPlayedInListUpdateWorker(person).execute();
+    }
+
+    private void personDirectedListUpdateList(Person person){
+        new PersonDirectedListUpdateWorker(person).execute();
+    }
+
+    private void personWritenListUpdateList(Person person){
+        new PersonWritenListUpdateWorker(person).execute();
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    private class PersonDeleteWorker extends SwingWorker<Void,Void> {
+
+        private Person person = null;
+        
+        public PersonDeleteWorker(Person person){
+            this.person = person;
+        }
+        
+        @Override
+        protected Void doInBackground() throws Exception {
+            //Thread.sleep(5000);
+            personMngr.deletePerson(person.getId());
+            return null;
+        }
+        @Override
+        protected void done(){
+            personListUpdateList(0);
+        }
+    }
+    
+    private class PersonUpdateWorker extends SwingWorker<Void,Void> {
+
+        private Person person = null;
+        private int selectedIndex = 0;
+        
+        public PersonUpdateWorker(Person person, int selectedIndex){
+            this.person = person;
+            this.selectedIndex = selectedIndex;
+        }
+        
+        @Override
+        protected Void doInBackground() throws Exception {
+            personMngr.updatePerson(person);
+            return null;
+        }
+        @Override
+        protected void done(){
+            personListUpdateList(selectedIndex);
+        }
+    }
+    
+    private class PersonCreateWorker extends SwingWorker<Void,Void> {
+
+        private Person person = null;
+        private int selectedIndex = 0;
+        
+        public PersonCreateWorker(Person person, int selectedIndex){
+            this.person = person;
+            this.selectedIndex = selectedIndex;
+        }
+        
+        @Override
+        protected Void doInBackground() throws Exception {
+            personMngr.createPerson(person);
+            return null;
+        }
+        @Override
+        protected void done(){
+            personListUpdateList(selectedIndex);
+        }
+    }
+    
+    
+
+    private class MovieDeleteWorker extends SwingWorker<Void,Void> {
+
+        private Movie movie = null;
+        
+        public MovieDeleteWorker(Movie movie){
+            this.movie = movie;
+        }
+        
+        @Override
+        protected Void doInBackground() throws Exception {
+            movieMngr.deleteMovie(movie.getId());
+            return null;
+        }
+        @Override
+        protected void done(){
+            movieListUpdateList(0);
+        }
+    }
+    
+    private class MovieUpdateWorker extends SwingWorker<Void,Void> {
+
+        private Movie movie = null;
+        private int selectedIndex = 0;
+        
+        public MovieUpdateWorker(Movie movie, int selectedIndex){
+            this.movie = movie;
+            this.selectedIndex = selectedIndex;
+        }
+        
+        @Override
+        protected Void doInBackground() throws Exception {
+            movieMngr.updateMovie(movie);
+            return null;
+        }
+        @Override
+        protected void done(){
+            movieListUpdateList(selectedIndex);
+        }
+    }
+    
+    private class MovieCreateWorker extends SwingWorker<Void,Void> {
+
+        private Movie movie = null;
+        private int selectedIndex = 0;
+        
+        public MovieCreateWorker(Movie movie, int selectedIndex){
+            this.movie = movie;
+            this.selectedIndex = selectedIndex;
+        }
+        
+        @Override
+        protected Void doInBackground() throws Exception {
+            movieMngr.createMovie(movie);
+            return null;
+        }
+        @Override
+        protected void done(){
+            movieListUpdateList(selectedIndex);
+        }
+    }
+    
+    
+    
+    private class PersonAddPersonAsActorWorker extends SwingWorker<Void,Void> {
+
+        private Movie movie = null;
+        private Person person = null;
+        
+        public PersonAddPersonAsActorWorker(Person person, Movie movie){
+            this.movie = movie;
+            this.person = person;
+        }
+        
+        @Override
+        protected Void doInBackground() throws Exception {
+            relationshipMngr.addPersonToRole(person, movie, Consts.CAST);
+            return null;
+        }
+        @Override
+        protected void done(){
+            personPlayedInListUpdateList(person);
+        }
+    }
+    
+    private class PersonAddPersonAsDirectorWorker extends SwingWorker<Void,Void> {
+
+        private Movie movie = null;
+        private Person person = null;
+        
+        public PersonAddPersonAsDirectorWorker(Person person, Movie movie){
+            this.movie = movie;
+            this.person = person;
+        }
+        
+        @Override
+        protected Void doInBackground() throws Exception {
+            relationshipMngr.addPersonToRole(person, movie, Consts.DIRECTOR);
+            return null;
+        }
+        @Override
+        protected void done(){
+            personDirectedListUpdateList(person);
+        }
+    }
+    
+    private class PersonAddPersonAsWriterWorker extends SwingWorker<Void,Void> {
+
+        private Movie movie = null;
+        private Person person = null;
+        
+        public PersonAddPersonAsWriterWorker(Person person, Movie movie){
+            this.movie = movie;
+            this.person = person;
+        }
+        
+        @Override
+        protected Void doInBackground() throws Exception {
+            relationshipMngr.addPersonToRole(person, movie, Consts.WRITER);
+            return null;
+        }
+        @Override
+        protected void done(){
+            personWritenListUpdateList(person);
+        }
+    }
+    
+    
+    
+    
+    
+    private class MovieAddPersonAsWriterWorker extends SwingWorker<Void,Void> {
+
+        private Movie movie = null;
+        private Person person = null;
+        
+        public MovieAddPersonAsWriterWorker(Person person, Movie movie){
+            this.movie = movie;
+            this.person = person;
+        }
+        
+        @Override
+        protected Void doInBackground() throws Exception {
+            relationshipMngr.addPersonToRole(person, movie, Consts.WRITER);
+            return null;
+        }
+        @Override
+        protected void done(){
+            movieWritersListUpdateList(movie);
+        }
+    }
+    
+    private class MovieAddPersonAsDirectorWorker extends SwingWorker<Void,Void> {
+
+        private Movie movie = null;
+        private Person person = null;
+        
+        public MovieAddPersonAsDirectorWorker(Person person, Movie movie){
+            this.movie = movie;
+            this.person = person;
+        }
+        
+        @Override
+        protected Void doInBackground() throws Exception {
+            relationshipMngr.addPersonToRole(person, movie, Consts.DIRECTOR);
+            return null;
+        }
+        @Override
+        protected void done(){
+            movieDirectorsListUpdateList(movie);
+        }
+    }
+    
+    private class MovieAddPersonAsActorWorker extends SwingWorker<Void,Void> {
+
+        private Movie movie = null;
+        private Person person = null;
+        
+        public MovieAddPersonAsActorWorker(Person person, Movie movie){
+            this.movie = movie;
+            this.person = person;
+        }
+        
+        @Override
+        protected Void doInBackground() throws Exception {
+            relationshipMngr.addPersonToRole(person, movie, Consts.CAST);
+            return null;
+        }
+        @Override
+        protected void done(){
+            movieActorsListUpdateList(movie);
+        }
+    }
+    
+    private class PersonDeletePersonAsActorWorker extends SwingWorker<Void,Void> {
+
+        private Movie movie = null;
+        private Person person = null;
+        
+        public PersonDeletePersonAsActorWorker(Person person, Movie movie){
+            this.movie = movie;
+            this.person = person;
+        }
+        
+        @Override
+        protected Void doInBackground() throws Exception {
+            relationshipMngr.removeRelationship(person, movie, Consts.CAST);
+            return null;
+        }
+        @Override
+        protected void done(){
+            personPlayedInListUpdateList(person);
+        }
+    }
+    
+    private class PersonDeletePersonAsDirectorWorker extends SwingWorker<Void,Void> {
+
+        private Movie movie = null;
+        private Person person = null;
+        
+        public PersonDeletePersonAsDirectorWorker(Person person, Movie movie){
+            this.movie = movie;
+            this.person = person;
+        }
+        
+        @Override
+        protected Void doInBackground() throws Exception {
+            relationshipMngr.removeRelationship(person, movie, Consts.DIRECTOR);
+            return null;
+        }
+        @Override
+        protected void done(){
+            personDirectedListUpdateList(person);
+        }
+    }
+    
+    private class PersonDeletePersonAsWriterWorker extends SwingWorker<Void,Void> {
+
+        private Movie movie = null;
+        private Person person = null;
+        
+        public PersonDeletePersonAsWriterWorker(Person person, Movie movie){
+            this.movie = movie;
+            this.person = person;
+        }
+        
+        @Override
+        protected Void doInBackground() throws Exception {
+            relationshipMngr.removeRelationship(person, movie, Consts.WRITER);
+            return null;
+        }
+        @Override
+        protected void done(){
+            personWritenListUpdateList(person);
+        }
+    }
+    
+    
+    
+    
+    
+    private class MovieDeletePersonAsWriterWorker extends SwingWorker<Void,Void> {
+
+        private Movie movie = null;
+        private Person person = null;
+        
+        public MovieDeletePersonAsWriterWorker(Person person, Movie movie){
+            this.movie = movie;
+            this.person = person;
+        }
+        
+        @Override
+        protected Void doInBackground() throws Exception {
+            relationshipMngr.removeRelationship(person, movie, Consts.WRITER);
+            return null;
+        }
+        @Override
+        protected void done(){
+            movieWritersListUpdateList(movie);
+        }
+    }
+    
+    private class MovieDeletePersonAsDirectorWorker extends SwingWorker<Void,Void> {
+
+        private Movie movie = null;
+        private Person person = null;
+        
+        public MovieDeletePersonAsDirectorWorker(Person person, Movie movie){
+            this.movie = movie;
+            this.person = person;
+        }
+        
+        @Override
+        protected Void doInBackground() throws Exception {
+            relationshipMngr.removeRelationship(person, movie, Consts.DIRECTOR);
+            return null;
+        }
+        @Override
+        protected void done(){
+            movieDirectorsListUpdateList(movie);
+        }
+    }
+    
+    private class MovieDeletePersonAsActorWorker extends SwingWorker<Void,Void> {
+
+        private Movie movie = null;
+        private Person person = null;
+        
+        public MovieDeletePersonAsActorWorker(Person person, Movie movie){
+            this.movie = movie;
+            this.person = person;
+        }
+        
+        @Override
+        protected Void doInBackground() throws Exception {
+            relationshipMngr.removeRelationship(person, movie, Consts.CAST);
+            return null;
+        }
+        @Override
+        protected void done(){
+            movieActorsListUpdateList(movie);
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+/*
+    private void movieListUpdateList(){
+        movieList.setModel(new javax.swing.AbstractListModel() {
+            List<Movie> list = movieMngr.listAllMovies();
+            public int getSize() {
+                return list.size();
+            }
+            public Object getElementAt(int i) {
+                return list.get(i);
+            }
+        });
+    }
+
+    private void movieDirectorsListUpdateList(Movie movie){
+        movieDirectorsList.setModel(new javax.swing.AbstractListModel() {
+            List<Person> list = relationshipMngr.personsOfMovie(movie, Consts.DIRECTOR);
+            public int getSize() {
+                return list.size();
+            }
+            public Object getElementAt(int i) {
+                return list.get(i);
+            }
+        });
+    }
+
+    private void movieActorsListUpdateList(Movie movie){
+        movieActorsList.setModel(new javax.swing.AbstractListModel() {
+            List<Person> list = relationshipMngr.personsOfMovie(movie, Consts.CAST);
+            public int getSize() {
+                return list.size();
+            }
+            public Object getElementAt(int i) {
+                return list.get(i);
+            }
+        });
+    }
+
+    private void movieWritersListUpdateList(Movie movie){
+        movieWritersList.setModel(new javax.swing.AbstractListModel() {
+            List<Person> list = relationshipMngr.personsOfMovie(movie, Consts.WRITER);
+            public int getSize() {
+                return list.size();
+            }
+            public Object getElementAt(int i) {
+                return list.get(i);
+            }
+        });
+    }
+    
+    
+    
+    
+    
+
+
+    private void personListUpdateList(){
+        personList.setModel(new javax.swing.AbstractListModel() {
+            List<Person> list = personMngr.listAllPersons();
+            public int getSize() {
+                return list.size();
+            }
+            public Object getElementAt(int i) {
+                return list.get(i);
+            }
+        });
+    }
+
+    private void personPlayedInListUpdateList(Person person){
+        personPlayedInList.setModel(new javax.swing.AbstractListModel() {
+            List<Movie> list = relationshipMngr.moviesOfPerson(person, Consts.CAST);
+            public int getSize() {
+                return list.size();
+            }
+            public Object getElementAt(int i) {
+                return list.get(i);
+            }
+        });
+    }
+
+    private void personDirectedListUpdateList(Person person){
+        personDirectedList.setModel(new javax.swing.AbstractListModel() {
+            List<Movie> list = relationshipMngr.moviesOfPerson(person, Consts.DIRECTOR);
+            public int getSize() {
+                return list.size();
+            }
+            public Object getElementAt(int i) {
+                return list.get(i);
+            }
+        });
+    }
+
+    private void personWritenListUpdateList(Person person){
+        personWrittenList.setModel(new javax.swing.AbstractListModel() {
+            List<Movie> list = relationshipMngr.moviesOfPerson(person, Consts.WRITER);
+            public int getSize() {
+                return list.size();
+            }
+            public Object getElementAt(int i) {
+                return list.get(i);
+            }
+        });
+    }
+    */
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

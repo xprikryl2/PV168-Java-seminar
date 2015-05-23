@@ -1,255 +1,879 @@
-17:38:24.201 [AWT-EventQueue-0] DEBUG m.backend.PersonManagerImpl - listAllPersons()
-17:38:24.208 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL query [SELECT * FROM persons]
-17:38:24.222 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:25.059 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:25.152 [AWT-EventQueue-0] DEBUG m.backend.MovieManagerImpl - findAllMovies()
-17:38:25.152 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL query [SELECT * FROM movies]
-17:38:25.152 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:25.187 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:25.236 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:25.236 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:25.259 [AWT-EventQueue-0] DEBUG m.backend.MovieManagerImpl - findAllMovies()
-17:38:25.259 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL query [SELECT * FROM movies]
-17:38:25.259 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:25.259 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:25.266 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:25.266 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:25.336 [AWT-EventQueue-0] DEBUG m.backend.PersonManagerImpl - listAllPersons()
-17:38:25.336 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL query [SELECT * FROM persons]
-17:38:25.336 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:25.357 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:41.914 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (22 - James Tiberius Kirk)
-17:38:41.921 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:41.923 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
-17:38:41.923 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:42.063 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:42.063 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:42.063 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND director = true]
-17:38:42.063 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:42.074 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:42.100 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (22 - James Tiberius Kirk)
-17:38:42.100 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:42.100 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
-17:38:42.100 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:42.104 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:42.104 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:42.104 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND writer = true]
-17:38:42.104 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:42.115 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:42.115 [AWT-EventQueue-0] DEBUG m.backend.MovieManagerImpl - getMovie(2)
-17:38:42.115 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:42.115 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM movies WHERE id= ?]
-17:38:42.115 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:42.271 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:42.286 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (22 - James Tiberius Kirk)
-17:38:42.287 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:42.287 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
-17:38:42.287 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:42.290 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:42.290 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:42.290 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND movieCast = true]
-17:38:42.291 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:42.302 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:42.357 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (22 - James Tiberius Kirk)
-17:38:42.357 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:42.357 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
-17:38:42.357 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:42.361 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:42.361 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:42.361 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND director = true]
-17:38:42.361 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:42.364 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:42.364 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (22 - James Tiberius Kirk)
-17:38:42.365 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:42.365 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
-17:38:42.365 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:42.368 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:42.368 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:42.369 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND writer = true]
-17:38:42.369 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:42.372 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:42.372 [AWT-EventQueue-0] DEBUG m.backend.MovieManagerImpl - getMovie(2)
-17:38:42.373 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:42.373 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM movies WHERE id= ?]
-17:38:42.373 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:42.376 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:42.376 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (22 - James Tiberius Kirk)
-17:38:42.376 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:42.376 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
-17:38:42.376 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:42.380 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:42.380 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:42.380 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND movieCast = true]
-17:38:42.380 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:42.383 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:52.259 [AWT-EventQueue-0] INFO  gui.MainFrame - Date: 2014 Kv? 09
-17:38:52.261 [AWT-EventQueue-0] DEBUG m.backend.PersonManagerImpl - updatePerson(22 - James Tiberius Kirk)
-17:38:52.261 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
-17:38:52.262 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [UPDATE persons SET name=?, birthday=? WHERE id=?]
-17:38:52.262 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:52.387 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - SQL update affected 1 rows
-17:38:52.387 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:52.410 [AWT-EventQueue-0] DEBUG m.backend.PersonManagerImpl - listAllPersons()
-17:38:52.411 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL query [SELECT * FROM persons]
-17:38:52.411 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:52.424 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:52.427 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (22 - James Tiberius Kirk)
-17:38:52.428 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:52.428 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
-17:38:52.428 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:52.435 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:52.435 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:52.435 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND director = true]
-17:38:52.435 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:52.439 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:52.440 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (22 - James Tiberius Kirk)
-17:38:52.440 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:52.440 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
-17:38:52.440 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:52.444 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:52.444 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:52.444 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND writer = true]
-17:38:52.445 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:52.449 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:52.449 [AWT-EventQueue-0] DEBUG m.backend.MovieManagerImpl - getMovie(2)
-17:38:52.449 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:52.449 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM movies WHERE id= ?]
-17:38:52.449 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:52.453 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:52.454 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (22 - James Tiberius Kirk)
-17:38:52.454 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:52.454 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
-17:38:52.454 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:52.458 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:52.459 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:52.459 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND movieCast = true]
-17:38:52.459 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:52.463 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:53.894 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (21 - Jane Doe)
-17:38:53.894 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:53.894 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
-17:38:53.894 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:53.897 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:53.897 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:53.897 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND director = true]
-17:38:53.897 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:53.900 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:53.900 [AWT-EventQueue-0] DEBUG m.backend.MovieManagerImpl - getMovie(2)
-17:38:53.900 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:53.900 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM movies WHERE id= ?]
-17:38:53.900 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:53.904 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:53.904 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (21 - Jane Doe)
-17:38:53.904 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:53.904 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
-17:38:53.904 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:53.907 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:53.907 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:53.907 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND writer = true]
-17:38:53.907 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:53.910 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:53.911 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (21 - Jane Doe)
-17:38:53.911 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:53.911 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
-17:38:53.911 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:53.914 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:53.914 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:53.914 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND movieCast = true]
-17:38:53.914 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:53.917 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:54.092 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (21 - Jane Doe)
-17:38:54.092 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:54.092 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
-17:38:54.092 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:54.095 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:54.095 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:54.095 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND director = true]
-17:38:54.095 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:54.098 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:54.098 [AWT-EventQueue-0] DEBUG m.backend.MovieManagerImpl - getMovie(2)
-17:38:54.098 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:54.098 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM movies WHERE id= ?]
-17:38:54.098 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:54.101 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:54.102 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (21 - Jane Doe)
-17:38:54.102 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:54.102 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
-17:38:54.102 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:54.104 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:54.105 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:54.105 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND writer = true]
-17:38:54.105 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:54.108 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:54.108 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (21 - Jane Doe)
-17:38:54.108 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:54.108 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
-17:38:54.108 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:54.112 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:54.112 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:54.112 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND movieCast = true]
-17:38:54.112 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:54.115 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:54.780 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (22 - James Tiberius Kirk)
-17:38:54.780 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:54.780 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
-17:38:54.780 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:54.788 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:54.788 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:54.788 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND director = true]
-17:38:54.788 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:54.794 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:54.795 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (22 - James Tiberius Kirk)
-17:38:54.795 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:54.795 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
-17:38:54.795 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:54.801 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:54.801 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:54.801 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND writer = true]
-17:38:54.801 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:54.807 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:54.807 [AWT-EventQueue-0] DEBUG m.backend.MovieManagerImpl - getMovie(2)
-17:38:54.807 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:54.807 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM movies WHERE id= ?]
-17:38:54.807 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:54.811 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:54.812 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (22 - James Tiberius Kirk)
-17:38:54.812 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:54.812 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
-17:38:54.812 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:54.816 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:54.816 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:54.817 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND movieCast = true]
-17:38:54.817 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:54.820 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:54.976 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (22 - James Tiberius Kirk)
-17:38:54.976 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:54.976 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
-17:38:54.976 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:54.979 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:54.979 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:54.979 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND director = true]
-17:38:54.979 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:54.982 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:54.982 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (22 - James Tiberius Kirk)
-17:38:54.982 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:54.982 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
-17:38:54.982 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:54.985 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:54.985 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:54.985 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND writer = true]
-17:38:54.985 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:54.988 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:54.988 [AWT-EventQueue-0] DEBUG m.backend.MovieManagerImpl - getMovie(2)
-17:38:54.988 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:54.988 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM movies WHERE id= ?]
-17:38:54.988 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:54.991 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:54.991 [AWT-EventQueue-0] DEBUG m.backend.RelationshipManagerImpl - Movies of person (22 - James Tiberius Kirk)
-17:38:54.991 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:54.991 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
-17:38:54.991 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:54.994 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
-17:38:54.994 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
-17:38:54.994 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND movieCast = true]
-17:38:54.994 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
-17:38:54.997 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:05.412 [AWT-EventQueue-0] DEBUG m.backend.PersonManagerImpl - listAllPersons()
+22:45:05.427 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL query [SELECT * FROM persons]
+22:45:05.427 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:05.784 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:05.784 [AWT-EventQueue-0] DEBUG m.backend.MovieManagerImpl - findAllMovies()
+22:45:05.784 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL query [SELECT * FROM movies]
+22:45:05.784 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:05.799 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:05.831 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:05.831 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:05.831 [AWT-EventQueue-0] DEBUG m.backend.MovieManagerImpl - findAllMovies()
+22:45:05.831 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL query [SELECT * FROM movies]
+22:45:05.831 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:05.831 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:05.831 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:05.831 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:05.846 [AWT-EventQueue-0] DEBUG m.backend.PersonManagerImpl - listAllPersons()
+22:45:05.846 [AWT-EventQueue-0] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL query [SELECT * FROM persons]
+22:45:05.846 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:05.846 [AWT-EventQueue-0] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:09.648 [SwingWorker-pool-1-thread-1] DEBUG m.backend.RelationshipManagerImpl - Movies of person (1 - Jane Doe)
+22:45:09.648 [SwingWorker-pool-1-thread-2] DEBUG m.backend.RelationshipManagerImpl - Movies of person (1 - Jane Doe)
+22:45:09.664 [SwingWorker-pool-1-thread-3] DEBUG m.backend.RelationshipManagerImpl - Movies of person (1 - Jane Doe)
+22:45:09.664 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:09.664 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:09.664 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:09.664 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:09.664 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:09.664 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:09.664 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:09.664 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:09.664 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:09.727 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:09.727 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:09.727 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND writer = true]
+22:45:09.727 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:09.742 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:09.742 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:09.742 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND movieCast = true]
+22:45:09.742 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:09.758 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:09.758 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:09.758 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND director = true]
+22:45:09.758 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:09.773 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:09.773 [SwingWorker-pool-1-thread-3] DEBUG m.backend.MovieManagerImpl - getMovie(1)
+22:45:09.773 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:09.773 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM movies WHERE id= ?]
+22:45:09.773 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:09.789 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:09.789 [SwingWorker-pool-1-thread-3] DEBUG m.backend.MovieManagerImpl - getMovie(3)
+22:45:09.789 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:09.789 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM movies WHERE id= ?]
+22:45:09.789 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:09.789 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:09.789 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:09.805 [SwingWorker-pool-1-thread-5] DEBUG m.backend.RelationshipManagerImpl - Movies of person (1 - Jane Doe)
+22:45:09.805 [SwingWorker-pool-1-thread-6] DEBUG m.backend.RelationshipManagerImpl - Movies of person (1 - Jane Doe)
+22:45:09.805 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:09.805 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:09.805 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:09.805 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:09.805 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:09.805 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:09.805 [SwingWorker-pool-1-thread-4] DEBUG m.backend.RelationshipManagerImpl - Movies of person (1 - Jane Doe)
+22:45:09.805 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:09.805 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:09.805 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:09.805 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:09.805 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:09.805 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:09.805 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND movieCast = true]
+22:45:09.805 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:09.805 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:09.805 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:09.805 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND director = true]
+22:45:09.805 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:09.820 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:09.820 [SwingWorker-pool-1-thread-6] DEBUG m.backend.MovieManagerImpl - getMovie(1)
+22:45:09.820 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:09.820 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM movies WHERE id= ?]
+22:45:09.820 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:09.820 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:09.820 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:09.820 [SwingWorker-pool-1-thread-6] DEBUG m.backend.MovieManagerImpl - getMovie(3)
+22:45:09.820 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:09.820 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM movies WHERE id= ?]
+22:45:09.820 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:09.820 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:09.820 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:09.820 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND writer = true]
+22:45:09.820 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:09.820 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:09.836 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:12.368 [SwingWorker-pool-1-thread-7] DEBUG m.backend.RelationshipManagerImpl - addAsmovieCast1 - Jane Doe
+22:45:12.368 [SwingWorker-pool-1-thread-7] DEBUG o.s.j.core.simple.SimpleJdbcInsert - JdbcInsert not compiled before execution - invoking compile
+22:45:12.368 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:12.368 [SwingWorker-pool-1-thread-7] DEBUG o.s.j.c.m.TableMetaDataProviderFactory - Using DerbyTableMetaDataProvider
+22:45:12.368 [SwingWorker-pool-1-thread-7] DEBUG o.s.j.c.m.TableMetaDataProvider - GetGeneratedKeys is not supported
+22:45:12.368 [SwingWorker-pool-1-thread-7] DEBUG o.s.j.c.m.TableMetaDataProvider - GeneratedKeysColumnNameArray is not supported for Apache Derby
+22:45:12.383 [SwingWorker-pool-1-thread-7] WARN  o.s.j.c.m.TableMetaDataProvider - Overriding supportsGetGeneratedKeys from DatabaseMetaData to 'true'; it was reported as 'false' by Apache Derby Network Client JDBC Driver 10.11.1.1 - (1616546)
+22:45:12.383 [SwingWorker-pool-1-thread-7] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieving metadata for /ADMINISTRATOR/RELATIONSHIPS
+22:45:12.399 [SwingWorker-pool-1-thread-7] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: ID 4 false
+22:45:12.399 [SwingWorker-pool-1-thread-7] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: MOVIEID 4 false
+22:45:12.399 [SwingWorker-pool-1-thread-7] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: PERSONID 4 false
+22:45:12.399 [SwingWorker-pool-1-thread-7] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: DIRECTOR 16 true
+22:45:12.399 [SwingWorker-pool-1-thread-7] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: WRITER 16 true
+22:45:12.399 [SwingWorker-pool-1-thread-7] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: MOVIECAST 16 true
+22:45:12.399 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:12.399 [SwingWorker-pool-1-thread-7] DEBUG o.s.j.core.simple.SimpleJdbcInsert - Compiled insert object: insert string is [INSERT INTO relationships (MOVIEID, PERSONID, DIRECTOR, WRITER, MOVIECAST) VALUES(?, ?, ?, ?, ?)]
+22:45:12.399 [SwingWorker-pool-1-thread-7] DEBUG o.s.j.core.simple.SimpleJdbcInsert - JdbcInsert for table [relationships] compiled
+22:45:12.399 [SwingWorker-pool-1-thread-7] DEBUG o.s.j.core.simple.SimpleJdbcInsert - The following parameters are used for call INSERT INTO relationships (MOVIEID, PERSONID, DIRECTOR, WRITER, MOVIECAST) VALUES(?, ?, ?, ?, ?) with: [11, 1, null, null, true]
+22:45:12.399 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL update and returning generated keys
+22:45:12.399 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement
+22:45:12.399 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:12.399 [SwingWorker-pool-1-thread-7] DEBUG o.s.j.core.simple.SimpleJdbcInsert - Using generated keys support with Statement.RETURN_GENERATED_KEYS.
+22:45:12.415 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.core.JdbcTemplate - SQL update affected 1 rows and returned 1 keys
+22:45:12.415 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:12.461 [SwingWorker-pool-1-thread-8] DEBUG m.backend.RelationshipManagerImpl - Movies of person (1 - Jane Doe)
+22:45:12.461 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:12.461 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:12.461 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:12.461 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:12.461 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:12.461 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND movieCast = true]
+22:45:12.461 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:12.461 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:12.461 [SwingWorker-pool-1-thread-8] DEBUG m.backend.MovieManagerImpl - getMovie(1)
+22:45:12.461 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:12.461 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM movies WHERE id= ?]
+22:45:12.461 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:12.461 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:12.461 [SwingWorker-pool-1-thread-8] DEBUG m.backend.MovieManagerImpl - getMovie(3)
+22:45:12.461 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:12.461 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM movies WHERE id= ?]
+22:45:12.461 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:12.461 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:12.461 [SwingWorker-pool-1-thread-8] DEBUG m.backend.MovieManagerImpl - getMovie(11)
+22:45:12.461 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:12.461 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM movies WHERE id= ?]
+22:45:12.461 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:12.477 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:16.318 [SwingWorker-pool-1-thread-9] DEBUG m.backend.RelationshipManagerImpl - addAsdirector1 - Jane Doe
+22:45:16.318 [SwingWorker-pool-1-thread-9] DEBUG o.s.j.core.simple.SimpleJdbcInsert - JdbcInsert not compiled before execution - invoking compile
+22:45:16.318 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:16.318 [SwingWorker-pool-1-thread-9] DEBUG o.s.j.c.m.TableMetaDataProviderFactory - Using DerbyTableMetaDataProvider
+22:45:16.318 [SwingWorker-pool-1-thread-9] DEBUG o.s.j.c.m.TableMetaDataProvider - GetGeneratedKeys is not supported
+22:45:16.318 [SwingWorker-pool-1-thread-9] DEBUG o.s.j.c.m.TableMetaDataProvider - GeneratedKeysColumnNameArray is not supported for Apache Derby
+22:45:16.318 [SwingWorker-pool-1-thread-9] WARN  o.s.j.c.m.TableMetaDataProvider - Overriding supportsGetGeneratedKeys from DatabaseMetaData to 'true'; it was reported as 'false' by Apache Derby Network Client JDBC Driver 10.11.1.1 - (1616546)
+22:45:16.318 [SwingWorker-pool-1-thread-9] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieving metadata for /ADMINISTRATOR/RELATIONSHIPS
+22:45:16.318 [SwingWorker-pool-1-thread-9] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: ID 4 false
+22:45:16.318 [SwingWorker-pool-1-thread-9] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: MOVIEID 4 false
+22:45:16.318 [SwingWorker-pool-1-thread-9] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: PERSONID 4 false
+22:45:16.318 [SwingWorker-pool-1-thread-9] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: DIRECTOR 16 true
+22:45:16.318 [SwingWorker-pool-1-thread-9] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: WRITER 16 true
+22:45:16.318 [SwingWorker-pool-1-thread-9] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: MOVIECAST 16 true
+22:45:16.318 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:16.318 [SwingWorker-pool-1-thread-9] DEBUG o.s.j.core.simple.SimpleJdbcInsert - Compiled insert object: insert string is [INSERT INTO relationships (MOVIEID, PERSONID, DIRECTOR, WRITER, MOVIECAST) VALUES(?, ?, ?, ?, ?)]
+22:45:16.318 [SwingWorker-pool-1-thread-9] DEBUG o.s.j.core.simple.SimpleJdbcInsert - JdbcInsert for table [relationships] compiled
+22:45:16.318 [SwingWorker-pool-1-thread-9] DEBUG o.s.j.core.simple.SimpleJdbcInsert - The following parameters are used for call INSERT INTO relationships (MOVIEID, PERSONID, DIRECTOR, WRITER, MOVIECAST) VALUES(?, ?, ?, ?, ?) with: [11, 1, true, null, null]
+22:45:16.318 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL update and returning generated keys
+22:45:16.318 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement
+22:45:16.318 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:16.318 [SwingWorker-pool-1-thread-9] DEBUG o.s.j.core.simple.SimpleJdbcInsert - Using generated keys support with Statement.RETURN_GENERATED_KEYS.
+22:45:16.334 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.core.JdbcTemplate - SQL update affected 1 rows and returned 1 keys
+22:45:16.334 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:16.365 [SwingWorker-pool-1-thread-10] DEBUG m.backend.RelationshipManagerImpl - Movies of person (1 - Jane Doe)
+22:45:16.365 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:16.365 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:16.365 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:16.365 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:16.365 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:16.365 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND director = true]
+22:45:16.365 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:16.365 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:16.365 [SwingWorker-pool-1-thread-10] DEBUG m.backend.MovieManagerImpl - getMovie(11)
+22:45:16.365 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:16.365 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM movies WHERE id= ?]
+22:45:16.365 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:16.365 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:20.522 [SwingWorker-pool-1-thread-2] DEBUG m.backend.RelationshipManagerImpl - addAswriter1 - Jane Doe
+22:45:20.522 [SwingWorker-pool-1-thread-2] DEBUG o.s.j.core.simple.SimpleJdbcInsert - JdbcInsert not compiled before execution - invoking compile
+22:45:20.522 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:20.522 [SwingWorker-pool-1-thread-2] DEBUG o.s.j.c.m.TableMetaDataProviderFactory - Using DerbyTableMetaDataProvider
+22:45:20.522 [SwingWorker-pool-1-thread-2] DEBUG o.s.j.c.m.TableMetaDataProvider - GetGeneratedKeys is not supported
+22:45:20.522 [SwingWorker-pool-1-thread-2] DEBUG o.s.j.c.m.TableMetaDataProvider - GeneratedKeysColumnNameArray is not supported for Apache Derby
+22:45:20.522 [SwingWorker-pool-1-thread-2] WARN  o.s.j.c.m.TableMetaDataProvider - Overriding supportsGetGeneratedKeys from DatabaseMetaData to 'true'; it was reported as 'false' by Apache Derby Network Client JDBC Driver 10.11.1.1 - (1616546)
+22:45:20.522 [SwingWorker-pool-1-thread-2] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieving metadata for /ADMINISTRATOR/RELATIONSHIPS
+22:45:20.538 [SwingWorker-pool-1-thread-2] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: ID 4 false
+22:45:20.538 [SwingWorker-pool-1-thread-2] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: MOVIEID 4 false
+22:45:20.538 [SwingWorker-pool-1-thread-2] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: PERSONID 4 false
+22:45:20.538 [SwingWorker-pool-1-thread-2] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: DIRECTOR 16 true
+22:45:20.538 [SwingWorker-pool-1-thread-2] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: WRITER 16 true
+22:45:20.538 [SwingWorker-pool-1-thread-2] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: MOVIECAST 16 true
+22:45:20.538 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:20.538 [SwingWorker-pool-1-thread-2] DEBUG o.s.j.core.simple.SimpleJdbcInsert - Compiled insert object: insert string is [INSERT INTO relationships (MOVIEID, PERSONID, DIRECTOR, WRITER, MOVIECAST) VALUES(?, ?, ?, ?, ?)]
+22:45:20.538 [SwingWorker-pool-1-thread-2] DEBUG o.s.j.core.simple.SimpleJdbcInsert - JdbcInsert for table [relationships] compiled
+22:45:20.538 [SwingWorker-pool-1-thread-2] DEBUG o.s.j.core.simple.SimpleJdbcInsert - The following parameters are used for call INSERT INTO relationships (MOVIEID, PERSONID, DIRECTOR, WRITER, MOVIECAST) VALUES(?, ?, ?, ?, ?) with: [11, 1, null, true, null]
+22:45:20.538 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL update and returning generated keys
+22:45:20.538 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement
+22:45:20.538 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:20.538 [SwingWorker-pool-1-thread-2] DEBUG o.s.j.core.simple.SimpleJdbcInsert - Using generated keys support with Statement.RETURN_GENERATED_KEYS.
+22:45:20.538 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.core.JdbcTemplate - SQL update affected 1 rows and returned 1 keys
+22:45:20.538 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:20.569 [SwingWorker-pool-1-thread-3] DEBUG m.backend.RelationshipManagerImpl - Movies of person (1 - Jane Doe)
+22:45:20.569 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:20.569 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:20.569 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:20.569 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:20.569 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:20.569 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND writer = true]
+22:45:20.569 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:20.569 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:20.569 [SwingWorker-pool-1-thread-3] DEBUG m.backend.MovieManagerImpl - getMovie(11)
+22:45:20.569 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:20.569 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM movies WHERE id= ?]
+22:45:20.569 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:20.569 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:22.802 [SwingWorker-pool-1-thread-1] DEBUG m.backend.RelationshipManagerImpl - removing relationship between person and movie
+22:45:22.802 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+22:45:22.802 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [DELETE FROM relationships WHERE personId = ? AND movieId = ? AND writer = true]
+22:45:22.802 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:22.817 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - SQL update affected 1 rows
+22:45:22.817 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:22.848 [SwingWorker-pool-1-thread-4] DEBUG m.backend.RelationshipManagerImpl - Movies of person (1 - Jane Doe)
+22:45:22.848 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:22.848 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:22.848 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:22.848 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:22.848 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:22.848 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND writer = true]
+22:45:22.848 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:22.848 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:25.240 [SwingWorker-pool-1-thread-6] DEBUG m.backend.RelationshipManagerImpl - removing relationship between person and movie
+22:45:25.240 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+22:45:25.240 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [DELETE FROM relationships WHERE personId = ? AND movieId = ? AND director = true]
+22:45:25.240 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:25.255 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.core.JdbcTemplate - SQL update affected 1 rows
+22:45:25.255 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:25.287 [SwingWorker-pool-1-thread-5] DEBUG m.backend.RelationshipManagerImpl - Movies of person (1 - Jane Doe)
+22:45:25.287 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:25.287 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:25.287 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:25.287 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:25.287 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:25.287 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND director = true]
+22:45:25.287 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:25.287 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:28.084 [SwingWorker-pool-1-thread-7] DEBUG m.backend.RelationshipManagerImpl - removing relationship between person and movie
+22:45:28.084 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+22:45:28.084 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [DELETE FROM relationships WHERE personId = ? AND movieId = ? AND movieCast = true]
+22:45:28.084 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:28.100 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.core.JdbcTemplate - SQL update affected 1 rows
+22:45:28.100 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:28.131 [SwingWorker-pool-1-thread-8] DEBUG m.backend.RelationshipManagerImpl - Movies of person (1 - Jane Doe)
+22:45:28.131 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:28.131 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:28.131 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:28.131 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:28.131 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:28.131 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND movieCast = true]
+22:45:28.131 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:28.131 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:28.131 [SwingWorker-pool-1-thread-8] DEBUG m.backend.MovieManagerImpl - getMovie(1)
+22:45:28.131 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:28.131 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM movies WHERE id= ?]
+22:45:28.131 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:28.131 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:28.131 [SwingWorker-pool-1-thread-8] DEBUG m.backend.MovieManagerImpl - getMovie(3)
+22:45:28.131 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:28.131 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM movies WHERE id= ?]
+22:45:28.131 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:28.131 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:29.914 [SwingWorker-pool-1-thread-9] DEBUG m.backend.RelationshipManagerImpl - Movies of person (94 - John Doe (createIncorrectly))
+22:45:29.914 [SwingWorker-pool-1-thread-10] DEBUG m.backend.RelationshipManagerImpl - Movies of person (94 - John Doe (createIncorrectly))
+22:45:29.914 [SwingWorker-pool-1-thread-2] DEBUG m.backend.RelationshipManagerImpl - Movies of person (94 - John Doe (createIncorrectly))
+22:45:29.914 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:29.914 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:29.914 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:29.914 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:29.914 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:29.914 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:29.914 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:29.914 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:29.914 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:29.929 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:29.929 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:29.929 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND director = true]
+22:45:29.929 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:29.929 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:29.929 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:29.929 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:29.929 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND writer = true]
+22:45:29.929 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:29.945 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:29.945 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:29.945 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND movieCast = true]
+22:45:29.945 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:29.945 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:29.945 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:30.009 [SwingWorker-pool-1-thread-3] DEBUG m.backend.RelationshipManagerImpl - Movies of person (94 - John Doe (createIncorrectly))
+22:45:30.009 [SwingWorker-pool-1-thread-1] DEBUG m.backend.RelationshipManagerImpl - Movies of person (94 - John Doe (createIncorrectly))
+22:45:30.009 [SwingWorker-pool-1-thread-4] DEBUG m.backend.RelationshipManagerImpl - Movies of person (94 - John Doe (createIncorrectly))
+22:45:30.009 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:30.009 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:30.009 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:30.009 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:30.009 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:30.009 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:30.009 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:30.009 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:30.009 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:30.029 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:30.029 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:30.029 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND movieCast = true]
+22:45:30.029 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:30.029 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:30.029 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:30.029 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND director = true]
+22:45:30.029 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:30.029 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:30.029 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:30.029 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND writer = true]
+22:45:30.029 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:30.029 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:30.029 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:30.029 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:30.717 [SwingWorker-pool-1-thread-6] DEBUG m.backend.PersonManagerImpl - removePerson(94)
+22:45:30.717 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+22:45:30.717 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [DELETE FROM persons WHERE id = ?]
+22:45:30.717 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:30.733 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.core.JdbcTemplate - SQL update affected 1 rows
+22:45:30.733 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:30.779 [SwingWorker-pool-1-thread-5] DEBUG m.backend.PersonManagerImpl - listAllPersons()
+22:45:30.779 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL query [SELECT * FROM persons]
+22:45:30.779 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:30.779 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:30.826 [SwingWorker-pool-1-thread-8] DEBUG m.backend.RelationshipManagerImpl - Movies of person (1 - Jane Doe)
+22:45:30.826 [SwingWorker-pool-1-thread-7] DEBUG m.backend.RelationshipManagerImpl - Movies of person (1 - Jane Doe)
+22:45:30.826 [SwingWorker-pool-1-thread-9] DEBUG m.backend.RelationshipManagerImpl - Movies of person (1 - Jane Doe)
+22:45:30.826 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:30.826 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:30.826 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:30.826 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:30.826 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:30.826 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:30.826 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:30.826 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:30.826 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:30.826 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:30.826 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:30.826 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND writer = true]
+22:45:30.826 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:30.826 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:30.826 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:30.826 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND movieCast = true]
+22:45:30.826 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:30.826 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:30.826 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:30.826 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND director = true]
+22:45:30.826 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:30.842 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:30.842 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:30.842 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:30.842 [SwingWorker-pool-1-thread-9] DEBUG m.backend.MovieManagerImpl - getMovie(1)
+22:45:30.842 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:30.842 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM movies WHERE id= ?]
+22:45:30.842 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:30.842 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:30.842 [SwingWorker-pool-1-thread-9] DEBUG m.backend.MovieManagerImpl - getMovie(3)
+22:45:30.842 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:30.842 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM movies WHERE id= ?]
+22:45:30.842 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:30.842 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:31.592 [SwingWorker-pool-1-thread-10] DEBUG m.backend.RelationshipManagerImpl - Movies of person (93 - James Tiberius Kirk (Update))
+22:45:31.592 [SwingWorker-pool-1-thread-3] DEBUG m.backend.RelationshipManagerImpl - Movies of person (93 - James Tiberius Kirk (Update))
+22:45:31.592 [SwingWorker-pool-1-thread-2] DEBUG m.backend.RelationshipManagerImpl - Movies of person (93 - James Tiberius Kirk (Update))
+22:45:31.592 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:31.592 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:31.592 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:31.592 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:31.592 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:31.592 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:31.592 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:31.592 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:31.592 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:31.592 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:31.608 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:31.608 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:31.608 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:31.608 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND writer = true]
+22:45:31.608 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND movieCast = true]
+22:45:31.608 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:31.608 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:31.608 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:31.608 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:31.608 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND director = true]
+22:45:31.608 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:31.608 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:31.608 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:31.608 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:31.686 [SwingWorker-pool-1-thread-4] DEBUG m.backend.RelationshipManagerImpl - Movies of person (93 - James Tiberius Kirk (Update))
+22:45:31.686 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:31.686 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:31.686 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:31.686 [SwingWorker-pool-1-thread-1] DEBUG m.backend.RelationshipManagerImpl - Movies of person (93 - James Tiberius Kirk (Update))
+22:45:31.686 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:31.686 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:31.686 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:31.686 [SwingWorker-pool-1-thread-6] DEBUG m.backend.RelationshipManagerImpl - Movies of person (93 - James Tiberius Kirk (Update))
+22:45:31.686 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:31.686 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:31.686 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:31.701 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:31.701 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:31.701 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND director = true]
+22:45:31.701 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:31.701 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:31.701 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:31.701 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND movieCast = true]
+22:45:31.701 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:31.717 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:31.717 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:31.717 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND writer = true]
+22:45:31.717 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:31.717 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:31.717 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:31.717 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:32.483 [SwingWorker-pool-1-thread-5] DEBUG m.backend.PersonManagerImpl - removePerson(93)
+22:45:32.483 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+22:45:32.483 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [DELETE FROM persons WHERE id = ?]
+22:45:32.483 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:32.483 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.core.JdbcTemplate - SQL update affected 1 rows
+22:45:32.483 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:32.530 [SwingWorker-pool-1-thread-8] DEBUG m.backend.PersonManagerImpl - listAllPersons()
+22:45:32.530 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL query [SELECT * FROM persons]
+22:45:32.530 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:32.530 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:32.576 [SwingWorker-pool-1-thread-9] DEBUG m.backend.RelationshipManagerImpl - Movies of person (1 - Jane Doe)
+22:45:32.576 [SwingWorker-pool-1-thread-3] DEBUG m.backend.RelationshipManagerImpl - Movies of person (1 - Jane Doe)
+22:45:32.576 [SwingWorker-pool-1-thread-7] DEBUG m.backend.RelationshipManagerImpl - Movies of person (1 - Jane Doe)
+22:45:32.576 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:32.576 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:32.576 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:32.576 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:32.576 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:32.576 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:32.576 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:32.576 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:32.576 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:32.576 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:32.576 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:32.576 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND movieCast = true]
+22:45:32.576 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:32.576 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:32.576 [SwingWorker-pool-1-thread-3] DEBUG m.backend.MovieManagerImpl - getMovie(1)
+22:45:32.576 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:32.576 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM movies WHERE id= ?]
+22:45:32.576 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:32.592 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:32.592 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:32.592 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND director = true]
+22:45:32.592 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:32.592 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:32.592 [SwingWorker-pool-1-thread-3] DEBUG m.backend.MovieManagerImpl - getMovie(3)
+22:45:32.592 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:32.592 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:32.592 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM movies WHERE id= ?]
+22:45:32.592 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:32.592 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:32.592 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND writer = true]
+22:45:32.592 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:32.592 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:32.592 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:32.592 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:33.405 [SwingWorker-pool-1-thread-4] DEBUG m.backend.RelationshipManagerImpl - Movies of person (91 - Jane Doe (Add))
+22:45:33.405 [SwingWorker-pool-1-thread-2] DEBUG m.backend.RelationshipManagerImpl - Movies of person (91 - Jane Doe (Add))
+22:45:33.405 [SwingWorker-pool-1-thread-10] DEBUG m.backend.RelationshipManagerImpl - Movies of person (91 - Jane Doe (Add))
+22:45:33.405 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:33.405 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:33.405 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:33.405 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:33.405 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:33.405 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:33.405 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:33.405 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:33.405 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:33.420 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:33.420 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:33.420 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND movieCast = true]
+22:45:33.420 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:33.420 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:33.420 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:33.420 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND writer = true]
+22:45:33.420 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:33.420 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:33.420 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:33.420 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND director = true]
+22:45:33.420 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:33.436 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:33.436 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:33.436 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:33.514 [SwingWorker-pool-1-thread-5] DEBUG m.backend.RelationshipManagerImpl - Movies of person (91 - Jane Doe (Add))
+22:45:33.514 [SwingWorker-pool-1-thread-6] DEBUG m.backend.RelationshipManagerImpl - Movies of person (91 - Jane Doe (Add))
+22:45:33.514 [SwingWorker-pool-1-thread-1] DEBUG m.backend.RelationshipManagerImpl - Movies of person (91 - Jane Doe (Add))
+22:45:33.514 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:33.514 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:33.514 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:33.514 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:33.514 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:33.514 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:33.514 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:33.514 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:33.514 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:33.514 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:33.514 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:33.514 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND writer = true]
+22:45:33.514 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:33.530 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:33.530 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:33.530 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND director = true]
+22:45:33.530 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:33.530 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:33.530 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:33.530 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND movieCast = true]
+22:45:33.530 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:33.530 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:33.530 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:33.530 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:34.671 [SwingWorker-pool-1-thread-8] DEBUG m.backend.PersonManagerImpl - removePerson(91)
+22:45:34.671 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+22:45:34.671 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [DELETE FROM persons WHERE id = ?]
+22:45:34.671 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:34.671 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - SQL update affected 1 rows
+22:45:34.671 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:34.718 [SwingWorker-pool-1-thread-7] DEBUG m.backend.PersonManagerImpl - listAllPersons()
+22:45:34.718 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL query [SELECT * FROM persons]
+22:45:34.718 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:34.718 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:34.765 [SwingWorker-pool-1-thread-10] DEBUG m.backend.RelationshipManagerImpl - Movies of person (1 - Jane Doe)
+22:45:34.765 [SwingWorker-pool-1-thread-3] DEBUG m.backend.RelationshipManagerImpl - Movies of person (1 - Jane Doe)
+22:45:34.765 [SwingWorker-pool-1-thread-9] DEBUG m.backend.RelationshipManagerImpl - Movies of person (1 - Jane Doe)
+22:45:34.765 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:34.765 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:34.765 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:34.765 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:34.765 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:34.765 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:34.765 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:34.765 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:34.765 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:34.765 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:34.765 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:34.765 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND movieCast = true]
+22:45:34.765 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:34.765 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:34.765 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:34.765 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:34.765 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:34.765 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND director = true]
+22:45:34.765 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND writer = true]
+22:45:34.765 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:34.765 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:34.765 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:34.780 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:34.780 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:34.780 [SwingWorker-pool-1-thread-10] DEBUG m.backend.MovieManagerImpl - getMovie(1)
+22:45:34.780 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:34.780 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM movies WHERE id= ?]
+22:45:34.780 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:34.780 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:34.780 [SwingWorker-pool-1-thread-10] DEBUG m.backend.MovieManagerImpl - getMovie(3)
+22:45:34.796 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:34.796 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM movies WHERE id= ?]
+22:45:34.796 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:34.796 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:35.436 [SwingWorker-pool-1-thread-2] DEBUG m.backend.RelationshipManagerImpl - Movies of person (89 - John Doe (createIncorrectly))
+22:45:35.436 [SwingWorker-pool-1-thread-1] DEBUG m.backend.RelationshipManagerImpl - Movies of person (89 - John Doe (createIncorrectly))
+22:45:35.436 [SwingWorker-pool-1-thread-4] DEBUG m.backend.RelationshipManagerImpl - Movies of person (89 - John Doe (createIncorrectly))
+22:45:35.436 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:35.436 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:35.436 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:35.436 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:35.436 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:35.436 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:35.436 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:35.436 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:35.436 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:35.452 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:35.452 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:35.452 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND movieCast = true]
+22:45:35.452 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:35.452 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:35.452 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:35.452 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND writer = true]
+22:45:35.452 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:35.452 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:35.452 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:35.452 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND director = true]
+22:45:35.452 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:35.452 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:35.452 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:35.468 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:35.546 [SwingWorker-pool-1-thread-6] DEBUG m.backend.RelationshipManagerImpl - Movies of person (89 - John Doe (createIncorrectly))
+22:45:35.546 [SwingWorker-pool-1-thread-8] DEBUG m.backend.RelationshipManagerImpl - Movies of person (89 - John Doe (createIncorrectly))
+22:45:35.546 [SwingWorker-pool-1-thread-5] DEBUG m.backend.RelationshipManagerImpl - Movies of person (89 - John Doe (createIncorrectly))
+22:45:35.546 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:35.546 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:35.546 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:35.546 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:35.546 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:35.546 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:35.546 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:35.546 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:35.546 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:35.546 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:35.546 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:35.546 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND writer = true]
+22:45:35.546 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:35.546 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:35.546 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:35.546 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND director = true]
+22:45:35.546 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:35.546 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:35.546 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:35.546 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND movieCast = true]
+22:45:35.546 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:35.546 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:35.546 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:35.561 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:36.457 [SwingWorker-pool-1-thread-7] DEBUG m.backend.PersonManagerImpl - removePerson(89)
+22:45:36.457 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+22:45:36.457 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [DELETE FROM persons WHERE id = ?]
+22:45:36.457 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:36.457 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.core.JdbcTemplate - SQL update affected 1 rows
+22:45:36.457 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:36.504 [SwingWorker-pool-1-thread-9] DEBUG m.backend.PersonManagerImpl - listAllPersons()
+22:45:36.504 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL query [SELECT * FROM persons]
+22:45:36.504 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:36.504 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:36.550 [SwingWorker-pool-1-thread-3] DEBUG m.backend.RelationshipManagerImpl - Movies of person (1 - Jane Doe)
+22:45:36.550 [SwingWorker-pool-1-thread-10] DEBUG m.backend.RelationshipManagerImpl - Movies of person (1 - Jane Doe)
+22:45:36.550 [SwingWorker-pool-1-thread-1] DEBUG m.backend.RelationshipManagerImpl - Movies of person (1 - Jane Doe)
+22:45:36.550 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:36.550 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:36.550 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:36.550 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:36.550 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:36.550 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ?]
+22:45:36.550 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:36.550 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:36.550 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:36.550 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:36.550 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:36.550 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND director = true]
+22:45:36.550 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:36.550 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:36.566 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:36.566 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:36.566 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND writer = true]
+22:45:36.566 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:36.566 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:36.566 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:36.566 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE personId = ? AND movieCast = true]
+22:45:36.566 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:36.566 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:36.566 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:36.566 [SwingWorker-pool-1-thread-1] DEBUG m.backend.MovieManagerImpl - getMovie(1)
+22:45:36.566 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:36.566 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM movies WHERE id= ?]
+22:45:36.566 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:36.566 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:36.566 [SwingWorker-pool-1-thread-1] DEBUG m.backend.MovieManagerImpl - getMovie(3)
+22:45:36.566 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:36.566 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM movies WHERE id= ?]
+22:45:36.566 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:36.566 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:42.455 [SwingWorker-pool-1-thread-2] DEBUG m.backend.RelationshipManagerImpl - Persons of movie (23 - Fill title here...)
+22:45:42.455 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:42.455 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE movieId = ? AND director = true]
+22:45:42.455 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:42.455 [SwingWorker-pool-1-thread-4] DEBUG m.backend.RelationshipManagerImpl - Persons of movie (23 - Fill title here...)
+22:45:42.455 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:42.455 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE movieId = ? AND writer = true]
+22:45:42.455 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:42.455 [SwingWorker-pool-1-thread-5] DEBUG m.backend.RelationshipManagerImpl - Persons of movie (23 - Fill title here...)
+22:45:42.455 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:42.455 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE movieId = ? AND movieCast = true]
+22:45:42.455 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:42.470 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:42.470 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:42.470 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:42.470 [SwingWorker-pool-1-thread-5] DEBUG m.backend.PersonManagerImpl - findPerson(4)
+22:45:42.470 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:42.470 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM persons WHERE id= ?]
+22:45:42.470 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:42.470 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:42.548 [SwingWorker-pool-1-thread-7] DEBUG m.backend.RelationshipManagerImpl - Persons of movie (23 - Fill title here...)
+22:45:42.548 [SwingWorker-pool-1-thread-6] DEBUG m.backend.RelationshipManagerImpl - Persons of movie (23 - Fill title here...)
+22:45:42.548 [SwingWorker-pool-1-thread-8] DEBUG m.backend.RelationshipManagerImpl - Persons of movie (23 - Fill title here...)
+22:45:42.548 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:42.548 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:42.548 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:42.548 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE movieId = ? AND movieCast = true]
+22:45:42.548 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE movieId = ? AND director = true]
+22:45:42.548 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE movieId = ? AND writer = true]
+22:45:42.548 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:42.548 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:42.548 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:42.548 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:42.548 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:42.548 [SwingWorker-pool-1-thread-7] DEBUG m.backend.PersonManagerImpl - findPerson(4)
+22:45:42.548 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:42.548 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM persons WHERE id= ?]
+22:45:42.548 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:42.548 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:42.564 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:43.611 [SwingWorker-pool-1-thread-9] DEBUG m.backend.MovieManagerImpl - deleteMovie(23)
+22:45:43.611 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+22:45:43.611 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [DELETE FROM movies WHERE id = ?]
+22:45:43.611 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:43.611 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:43.626 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.core.JdbcTemplate - SQL update affected 1 rows
+22:45:43.626 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:43.626 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:43.658 [SwingWorker-pool-1-thread-3] DEBUG m.backend.MovieManagerImpl - findAllMovies()
+22:45:43.658 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL query [SELECT * FROM movies]
+22:45:43.658 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:43.658 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:43.658 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:43.658 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:43.705 [SwingWorker-pool-1-thread-10] DEBUG m.backend.RelationshipManagerImpl - Persons of movie (3 - normální title a)
+22:45:43.705 [SwingWorker-pool-1-thread-1] DEBUG m.backend.RelationshipManagerImpl - Persons of movie (3 - normální title a)
+22:45:43.705 [SwingWorker-pool-1-thread-4] DEBUG m.backend.RelationshipManagerImpl - Persons of movie (3 - normální title a)
+22:45:43.705 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:43.705 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:43.705 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:43.705 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE movieId = ? AND writer = true]
+22:45:43.705 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE movieId = ? AND director = true]
+22:45:43.705 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE movieId = ? AND movieCast = true]
+22:45:43.705 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:43.705 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:43.705 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:43.705 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:43.705 [SwingWorker-pool-1-thread-4] DEBUG m.backend.PersonManagerImpl - findPerson(2)
+22:45:43.705 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:43.705 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM persons WHERE id= ?]
+22:45:43.705 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:43.705 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:43.705 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:43.705 [SwingWorker-pool-1-thread-1] DEBUG m.backend.PersonManagerImpl - findPerson(3)
+22:45:43.705 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:43.705 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM persons WHERE id= ?]
+22:45:43.705 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:43.721 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:43.721 [SwingWorker-pool-1-thread-4] DEBUG m.backend.PersonManagerImpl - findPerson(1)
+22:45:43.721 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:43.721 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM persons WHERE id= ?]
+22:45:43.721 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:43.721 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:43.721 [SwingWorker-pool-1-thread-1] DEBUG m.backend.PersonManagerImpl - findPerson(3)
+22:45:43.721 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:43.721 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM persons WHERE id= ?]
+22:45:43.721 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:43.721 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:43.721 [SwingWorker-pool-1-thread-1] DEBUG m.backend.PersonManagerImpl - findPerson(3)
+22:45:43.721 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:43.721 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM persons WHERE id= ?]
+22:45:43.721 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:43.721 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:43.721 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:44.922 [SwingWorker-pool-1-thread-2] DEBUG m.backend.RelationshipManagerImpl - Persons of movie (22 - normální title a)
+22:45:44.922 [SwingWorker-pool-1-thread-5] DEBUG m.backend.RelationshipManagerImpl - Persons of movie (22 - normální title a)
+22:45:44.922 [SwingWorker-pool-1-thread-6] DEBUG m.backend.RelationshipManagerImpl - Persons of movie (22 - normální title a)
+22:45:44.922 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:44.922 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:44.922 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:44.922 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE movieId = ? AND director = true]
+22:45:44.922 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE movieId = ? AND writer = true]
+22:45:44.922 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE movieId = ? AND movieCast = true]
+22:45:44.922 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:44.922 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:44.922 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:44.922 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:44.922 [SwingWorker-pool-1-thread-6] DEBUG m.backend.PersonManagerImpl - findPerson(10)
+22:45:44.922 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:44.922 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM persons WHERE id= ?]
+22:45:44.922 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:44.938 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:44.938 [SwingWorker-pool-1-thread-6] DEBUG m.backend.PersonManagerImpl - findPerson(10)
+22:45:44.938 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:44.938 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM persons WHERE id= ?]
+22:45:44.938 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:44.938 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:44.938 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:44.938 [SwingWorker-pool-1-thread-2] DEBUG m.backend.PersonManagerImpl - findPerson(15)
+22:45:44.938 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:44.938 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM persons WHERE id= ?]
+22:45:44.938 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:44.938 [SwingWorker-pool-1-thread-6] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:44.938 [SwingWorker-pool-1-thread-2] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:45.016 [SwingWorker-pool-1-thread-8] DEBUG m.backend.RelationshipManagerImpl - Persons of movie (22 - normální title a)
+22:45:45.016 [SwingWorker-pool-1-thread-9] DEBUG m.backend.RelationshipManagerImpl - Persons of movie (22 - normální title a)
+22:45:45.016 [SwingWorker-pool-1-thread-7] DEBUG m.backend.RelationshipManagerImpl - Persons of movie (22 - normální title a)
+22:45:45.016 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:45.016 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:45.016 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:45.016 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE movieId = ? AND director = true]
+22:45:45.016 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE movieId = ? AND movieCast = true]
+22:45:45.016 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE movieId = ? AND writer = true]
+22:45:45.016 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:45.016 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:45.016 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:45.031 [SwingWorker-pool-1-thread-7] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:45.031 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:45.031 [SwingWorker-pool-1-thread-9] DEBUG m.backend.PersonManagerImpl - findPerson(10)
+22:45:45.031 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:45.031 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM persons WHERE id= ?]
+22:45:45.031 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:45.031 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:45.031 [SwingWorker-pool-1-thread-8] DEBUG m.backend.PersonManagerImpl - findPerson(15)
+22:45:45.031 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:45.031 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM persons WHERE id= ?]
+22:45:45.031 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:45.031 [SwingWorker-pool-1-thread-8] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:45.031 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:45.031 [SwingWorker-pool-1-thread-9] DEBUG m.backend.PersonManagerImpl - findPerson(10)
+22:45:45.031 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:45.031 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM persons WHERE id= ?]
+22:45:45.031 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:45.047 [SwingWorker-pool-1-thread-9] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:49.014 [SwingWorker-pool-1-thread-3] DEBUG m.backend.MovieManagerImpl - createMovie(null - jjj)
+22:45:49.014 [SwingWorker-pool-1-thread-3] DEBUG o.s.j.core.simple.SimpleJdbcInsert - JdbcInsert not compiled before execution - invoking compile
+22:45:49.014 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:49.014 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:49.014 [SwingWorker-pool-1-thread-3] DEBUG o.s.j.c.m.TableMetaDataProviderFactory - Using DerbyTableMetaDataProvider
+22:45:49.014 [SwingWorker-pool-1-thread-3] DEBUG o.s.j.c.m.TableMetaDataProvider - GetGeneratedKeys is not supported
+22:45:49.014 [SwingWorker-pool-1-thread-3] DEBUG o.s.j.c.m.TableMetaDataProvider - GeneratedKeysColumnNameArray is not supported for Apache Derby
+22:45:49.014 [SwingWorker-pool-1-thread-3] WARN  o.s.j.c.m.TableMetaDataProvider - Overriding supportsGetGeneratedKeys from DatabaseMetaData to 'true'; it was reported as 'false' by Apache Derby Network Client JDBC Driver 10.11.1.1 - (1616546)
+22:45:49.014 [SwingWorker-pool-1-thread-3] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieving metadata for /ADMINISTRATOR/MOVIES
+22:45:49.030 [SwingWorker-pool-1-thread-3] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: ID 4 false
+22:45:49.030 [SwingWorker-pool-1-thread-3] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: TITLE 12 false
+22:45:49.030 [SwingWorker-pool-1-thread-3] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: MOVIEYEAR 4 true
+22:45:49.030 [SwingWorker-pool-1-thread-3] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: GENRE 12 true
+22:45:49.030 [SwingWorker-pool-1-thread-3] DEBUG o.s.j.c.m.TableMetaDataProvider - Retrieved metadata: LENGTH 4 true
+22:45:49.030 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:49.030 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:49.030 [SwingWorker-pool-1-thread-3] DEBUG o.s.j.core.simple.SimpleJdbcInsert - Compiled insert object: insert string is [INSERT INTO movies (TITLE, MOVIEYEAR, GENRE, LENGTH) VALUES(?, ?, ?, ?)]
+22:45:49.030 [SwingWorker-pool-1-thread-3] DEBUG o.s.j.core.simple.SimpleJdbcInsert - JdbcInsert for table [movies] compiled
+22:45:49.030 [SwingWorker-pool-1-thread-3] DEBUG o.s.j.core.simple.SimpleJdbcInsert - The following parameters are used for call INSERT INTO movies (TITLE, MOVIEYEAR, GENRE, LENGTH) VALUES(?, ?, ?, ?) with: [jjj, 20154, fsdddc, 12055]
+22:45:49.030 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL update and returning generated keys
+22:45:49.030 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement
+22:45:49.030 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:49.030 [SwingWorker-pool-1-thread-3] DEBUG o.s.j.core.simple.SimpleJdbcInsert - Using generated keys support with Statement.RETURN_GENERATED_KEYS.
+22:45:49.030 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:49.030 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.core.JdbcTemplate - SQL update affected 1 rows and returned 1 keys
+22:45:49.030 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:49.030 [SwingWorker-pool-1-thread-3] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:49.061 [SwingWorker-pool-1-thread-10] DEBUG m.backend.MovieManagerImpl - findAllMovies()
+22:45:49.061 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.core.JdbcTemplate - Executing SQL query [SELECT * FROM movies]
+22:45:49.061 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:49.061 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:49.061 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:49.061 [SwingWorker-pool-1-thread-10] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:49.108 [SwingWorker-pool-1-thread-1] DEBUG m.backend.RelationshipManagerImpl - Persons of movie (24 - jjj)
+22:45:49.108 [SwingWorker-pool-1-thread-4] DEBUG m.backend.RelationshipManagerImpl - Persons of movie (24 - jjj)
+22:45:49.108 [SwingWorker-pool-1-thread-5] DEBUG m.backend.RelationshipManagerImpl - Persons of movie (24 - jjj)
+22:45:49.108 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:49.108 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:49.108 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+22:45:49.108 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE movieId = ? AND director = true]
+22:45:49.108 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE movieId = ? AND writer = true]
+22:45:49.108 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [SELECT * FROM relationships WHERE movieId = ? AND movieCast = true]
+22:45:49.108 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:49.108 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:49.108 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+22:45:49.108 [SwingWorker-pool-1-thread-1] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:49.108 [SwingWorker-pool-1-thread-5] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource
+22:45:49.108 [SwingWorker-pool-1-thread-4] DEBUG o.s.jdbc.datasource.DataSourceUtils - Returning JDBC Connection to DataSource

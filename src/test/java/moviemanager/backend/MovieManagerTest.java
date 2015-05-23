@@ -194,17 +194,8 @@ public class MovieManagerTest {
             movie.setTitle("film");
             movie.setYear(2015);
             movie.setLength(120);
-    /*      List<String> genreList = new ArrayList<>();
-            genre.add("genre"));
-                genreList.add("Comedy");
-            movie.setGenre(genreList);
-                List<Person> personList = new ArrayList<>();
-                    Person person = new Person();
-                    personList.add(person);
-            movie.setDirector(personList);
-            movie.setWriter(personList);
-            movie.setCast(personList);
-    */    return movie;
+            movie.setGenre("Comedy");
+            return movie;
     }
     
     private void assertDeepEquals(Movie expected, Movie actual) {

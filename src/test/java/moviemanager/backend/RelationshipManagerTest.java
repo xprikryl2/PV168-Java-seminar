@@ -196,7 +196,7 @@ public class RelationshipManagerTest {
         assertTrue(relationManager.checkRole(person, movie, Consts.WRITER));
         
         // remove person from movie relationship
-        relationManager.removeRelationship(person, movie);
+        relationManager.removeRelationship(person, movie, Consts.WRITER);
         
         // check if relationship between given movie and person no longer exist
         assertTrue(relationManager.personsOfMovie(movie).isEmpty());
